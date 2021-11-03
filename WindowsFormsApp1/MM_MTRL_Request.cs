@@ -513,7 +513,7 @@ namespace WindowsFormsApp1
 
                 if (isChecked)
                 {
-                    reqno       = dataGridView1.Rows[i].Cells["요청번호"].Value.ToString();
+                    reqno       = dataGridView1.Rows[i].Cells["요청 번호"].Value.ToString();
                     compnm      = dataGridView1.Rows[i].Cells["회사 명"].Value.ToString();
                     plantnm     = dataGridView1.Rows[i].Cells["공장"].Value.ToString();
                     comptel     = dataGridView1.Rows[i].Cells["전화"].Value.ToString();
@@ -528,19 +528,13 @@ namespace WindowsFormsApp1
             }
             if (selcnt == 0)
             {
-                MessageBox.Show("발주서를 출력할 발주번호를 체크해주세요");
+                MessageBox.Show("요청서를 출력할 요청번호를 체크해주세요");
                 reqno = string.Empty;
                 return;
             }
-            else if (selcnt > 1)
+            else 
             {
-                MessageBox.Show("좌측 발주번호 중 하나만 체크해서 출력하세요.");
-                reqno = string.Empty;
-                return;
-            }
-            else
-            {
-                MessageBox.Show("발주서 출력이 완료되었습니다.");
+                MessageBox.Show("요청서 출력이 완료되었습니다.");
             }
         }
         private void MakeExcel()
@@ -572,11 +566,11 @@ namespace WindowsFormsApp1
                 for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
                     xlSheet.Cells[14 + j, 1].value = j + 1;
-                    xlSheet.Cells[14 + j, 2].value = dataGridView2.Rows[j].Cells["품목명"].Value.ToString();
+                    xlSheet.Cells[14 + j, 2].value = dataGridView2.Rows[j].Cells["품명"].Value.ToString();
                     xlSheet.Cells[14 + j, 5].value = dataGridView2.Rows[j].Cells["품목코드"].Value.ToString();
                     xlSheet.Cells[14 + j, 7].value = "2022-01-15";
-                    xlSheet.Cells[14 + j, 8].value = dataGridView2.Rows[j].Cells["단위"].Value.ToString();
-                    xlSheet.Cells[14 + j, 11].value = dataGridView2.Rows[j].Cells["수량"].Value.ToString();
+                    xlSheet.Cells[14 + j, 8].value = dataGridView2.Rows[j].Cells["기본 단위"].Value.ToString();
+                    xlSheet.Cells[14 + j, 11].value = dataGridView2.Rows[j].Cells["요청 수량"].Value.ToString();
                 }
 
                 string NewFileName = $@"C:\요청서\(진)요청서_{reqno}.xlsx";
