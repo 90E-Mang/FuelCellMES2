@@ -171,10 +171,10 @@ namespace WindowsFormsApp1
                         bool isChecked = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
                         if (isChecked)
                         {
-                            object[] drrow1Values = {dataGridView1.Rows[i].Cells[1].Value, dataGridView1.Rows[i].Cells[4].Value, dataGridView1.Rows[i].Cells[16].Value, dataGridView1.Rows[i].Cells[17].Value};
+                            string[] drrow1Values = {dataGridView1.Rows[i].Cells[1].Value.ToString(), dataGridView1.Rows[i].Cells[4].Value.ToString(), dataGridView1.Rows[i].Cells[16].Value.ToString(), dataGridView1.Rows[i].Cells[17].Value.ToString()};
                             for (int j = 0; j < dataGridView2.Rows.Count; j++)
                             {
-                                object[] drrow2Values = { dataGridView2.Rows[j].Cells[1].Value, dataGridView2.Rows[j].Cells[5].Value,dataGridView2.Rows[j].Cells[10].Value, dataGridView2.Rows[j].Cells[11].Value};
+                                string[] drrow2Values = { dataGridView2.Rows[j].Cells[1].Value.ToString(), dataGridView2.Rows[j].Cells[5].Value.ToString(),dataGridView2.Rows[j].Cells[10].Value.ToString(), dataGridView2.Rows[j].Cells[11].Value.ToString()};
                                 if (drrow1Values[0] == drrow2Values[0] && drrow1Values[1] == drrow2Values[1])
                                 {
                                     MessageBox.Show("이미 추가된 품목입니다.");
