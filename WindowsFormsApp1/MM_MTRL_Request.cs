@@ -571,11 +571,12 @@ namespace WindowsFormsApp1
 
                 for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
-                    xlSheet.Cells[15 + j, 1].value = j + 1;
-                    xlSheet.Cells[15 + j, 2].value = dataGridView2.Rows[j].Cells["품목명"].Value.ToString();
-                    xlSheet.Cells[15 + j, 4].value = dataGridView2.Rows[j].Cells["품목코드"].Value.ToString();
-                    xlSheet.Cells[15 + j, 7].value = dataGridView2.Rows[j].Cells["단위"].Value.ToString();
-                    xlSheet.Cells[15 + j, 8].value = dataGridView2.Rows[j].Cells["수량"].Value.ToString();
+                    xlSheet.Cells[14 + j, 1].value = j + 1;
+                    xlSheet.Cells[14 + j, 2].value = dataGridView2.Rows[j].Cells["품목명"].Value.ToString();
+                    xlSheet.Cells[14 + j, 5].value = dataGridView2.Rows[j].Cells["품목코드"].Value.ToString();
+                    xlSheet.Cells[14 + j, 7].value = "2022-01-15";
+                    xlSheet.Cells[14 + j, 8].value = dataGridView2.Rows[j].Cells["단위"].Value.ToString();
+                    xlSheet.Cells[14 + j, 11].value = dataGridView2.Rows[j].Cells["수량"].Value.ToString();
                 }
 
                 string NewFileName = $@"C:\요청서\(진)요청서_{reqno}.xlsx";
