@@ -388,6 +388,7 @@ namespace WindowsFormsApp1
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1094, 239);
             this.dataGridView2.TabIndex = 9;
+            this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
             // panel6
             // 
