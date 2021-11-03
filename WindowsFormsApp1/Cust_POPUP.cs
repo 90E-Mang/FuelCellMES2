@@ -121,6 +121,13 @@ namespace WindowsFormsApp1
         {
             try
             {
+                CustGroupCmb.FlatStyle = FlatStyle.Popup;
+                CustGroupCmb.BackColor = Color.Ivory;
+                CustType1Cmb.FlatStyle = FlatStyle.Popup;
+                CustType1Cmb.BackColor = Color.Ivory;
+                CustType2Cmb.FlatStyle = FlatStyle.Popup;
+                CustType2Cmb.BackColor = Color.Ivory;
+
                 DB.conn.Close();
                 dataGridView1.Columns.Clear();
 

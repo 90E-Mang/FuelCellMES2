@@ -108,6 +108,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(452, 507);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -203,6 +204,7 @@ namespace WindowsFormsApp1
             // 
             // UTPCmbBox
             // 
+            this.UTPCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UTPCmbBox.FormattingEnabled = true;
             this.UTPCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -268,6 +270,7 @@ namespace WindowsFormsApp1
             this.dataGridView2.Location = new System.Drawing.Point(0, 97);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(995, 507);
             this.dataGridView2.TabIndex = 9;
             // 
@@ -444,6 +447,7 @@ namespace WindowsFormsApp1
             // 
             // DUTPCmbBox
             // 
+            this.DUTPCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DUTPCmbBox.FormattingEnabled = true;
             this.DUTPCmbBox.Items.AddRange(new object[] {
             "Y",

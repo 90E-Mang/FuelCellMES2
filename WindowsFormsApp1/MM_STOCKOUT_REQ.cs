@@ -169,6 +169,13 @@ namespace WindowsFormsApp1
         {
             try
             {
+                CompCodeCmbBox.FlatStyle = FlatStyle.Popup;
+                CompCodeCmbBox.BackColor = Color.Ivory;
+                PlantCodeCmbBox.FlatStyle = FlatStyle.Popup;
+                PlantCodeCmbBox.BackColor = Color.Ivory;
+                ProcessCmbBox.FlatStyle = FlatStyle.Popup;
+                ProcessCmbBox.BackColor = Color.Ivory;
+
                 DB.conn.Close();
                 dataGridView2.Columns.Clear();
 

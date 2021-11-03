@@ -117,6 +117,7 @@ namespace WindowsFormsApp1
             // 
             // CustType2Cmb
             // 
+            this.CustType2Cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustType2Cmb.FormattingEnabled = true;
             this.CustType2Cmb.ItemHeight = 12;
             this.CustType2Cmb.Items.AddRange(new object[] {
@@ -129,6 +130,7 @@ namespace WindowsFormsApp1
             // 
             // CustType1Cmb
             // 
+            this.CustType1Cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustType1Cmb.FormattingEnabled = true;
             this.CustType1Cmb.ItemHeight = 12;
             this.CustType1Cmb.Items.AddRange(new object[] {
@@ -141,6 +143,7 @@ namespace WindowsFormsApp1
             // 
             // CustGroupCmb
             // 
+            this.CustGroupCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustGroupCmb.FormattingEnabled = true;
             this.CustGroupCmb.ItemHeight = 12;
             this.CustGroupCmb.Items.AddRange(new object[] {

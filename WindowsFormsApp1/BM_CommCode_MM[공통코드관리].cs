@@ -32,6 +32,12 @@ namespace WindowsFormsApp1
         {
             try
             {
+                UTPCmbBox.FlatStyle = FlatStyle.Popup;
+                UTPCmbBox.BackColor = Color.Ivory;
+                DUTPCmbBox.FlatStyle = FlatStyle.Popup;
+                DUTPCmbBox.BackColor = Color.Ivory;
+
+
                 DB.conn.Close();
                 dataGridView1.Columns.Clear();
 

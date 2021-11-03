@@ -607,6 +607,7 @@ namespace WindowsFormsApp1
             // 
             // InsCHKCmbBox
             // 
+            this.InsCHKCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.InsCHKCmbBox.FormattingEnabled = true;
             this.InsCHKCmbBox.Location = new System.Drawing.Point(732, 122);
             this.InsCHKCmbBox.Name = "InsCHKCmbBox";
@@ -615,6 +616,7 @@ namespace WindowsFormsApp1
             // 
             // UWGTComBox
             // 
+            this.UWGTComBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UWGTComBox.FormattingEnabled = true;
             this.UWGTComBox.Location = new System.Drawing.Point(118, 148);
             this.UWGTComBox.Name = "UWGTComBox";
@@ -623,6 +625,7 @@ namespace WindowsFormsApp1
             // 
             // MTCmbBox
             // 
+            this.MTCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MTCmbBox.FormattingEnabled = true;
             this.MTCmbBox.Location = new System.Drawing.Point(118, 71);
             this.MTCmbBox.Name = "MTCmbBox";
@@ -631,6 +634,7 @@ namespace WindowsFormsApp1
             // 
             // UseCmbBox
             // 
+            this.UseCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UseCmbBox.FormattingEnabled = true;
             this.UseCmbBox.Location = new System.Drawing.Point(424, 96);
             this.UseCmbBox.Name = "UseCmbBox";

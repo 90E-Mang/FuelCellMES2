@@ -143,6 +143,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1094, 156);
             this.dataGridView1.TabIndex = 9;
             // 
@@ -168,6 +169,7 @@ namespace WindowsFormsApp1
             // 
             // PlantCodeCmbBox
             // 
+            this.PlantCodeCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PlantCodeCmbBox.FormattingEnabled = true;
             this.PlantCodeCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -252,6 +254,7 @@ namespace WindowsFormsApp1
             // 
             // CompCodeCmbBox
             // 
+            this.CompCodeCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CompCodeCmbBox.FormattingEnabled = true;
             this.CompCodeCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -412,6 +415,7 @@ namespace WindowsFormsApp1
             // 
             // OutReasonCmbBox
             // 
+            this.OutReasonCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.OutReasonCmbBox.FormattingEnabled = true;
             this.OutReasonCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -465,6 +469,7 @@ namespace WindowsFormsApp1
             // 
             // ProcessCmbBox
             // 
+            this.ProcessCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProcessCmbBox.FormattingEnabled = true;
             this.ProcessCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -545,13 +550,13 @@ namespace WindowsFormsApp1
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // ITEM_POPUP_STOCKOUT
+            // MM_STOCKOUT_ITEM_POPUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 620);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "ITEM_POPUP_STOCKOUT";
+            this.Name = "MM_STOCKOUT_ITEM_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "불출 요청 팝업";
             this.Load += new System.EventHandler(this.ITEM_POPUP_Load);

@@ -113,6 +113,7 @@ namespace WindowsFormsApp1
             // 
             // ProcessCmbBox
             // 
+            this.ProcessCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProcessCmbBox.FormattingEnabled = true;
             this.ProcessCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -124,6 +125,7 @@ namespace WindowsFormsApp1
             // 
             // PlantCodeCmbBox
             // 
+            this.PlantCodeCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PlantCodeCmbBox.FormattingEnabled = true;
             this.PlantCodeCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -198,6 +200,7 @@ namespace WindowsFormsApp1
             // 
             // CompCodeCmbBox
             // 
+            this.CompCodeCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CompCodeCmbBox.FormattingEnabled = true;
             this.CompCodeCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -453,6 +456,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(514, 497);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -506,6 +510,7 @@ namespace WindowsFormsApp1
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1060, 497);
             this.dataGridView2.TabIndex = 9;
             this.dataGridView2.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView2_EditingControlShowing);
