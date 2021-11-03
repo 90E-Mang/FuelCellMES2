@@ -60,7 +60,27 @@ namespace WindowsFormsApp1
             cboCustBank.Text = null;
 
             cboUseFlag.FlatStyle = FlatStyle.Popup;
-            cboUseFlag.BackColor = Color.Ivory;   
+            cboUseFlag.BackColor = Color.Ivory;
+
+            DB.conn = new SqlConnection(DB.connectionString);
+            DB.conn.ConnectionString = DB.connectionString;
+            DB.conn.Open();
+            //트랜잭션 시작
+            DB.transaction = DB.conn.BeginTransaction();
+            DB.sqlcmd = new SqlCommand("CM_CustomerMaster_MM_S3", DB.conn, DB.transaction);
+            DB.sqlcmd.CommandType = CommandType.StoredProcedure;
+
+            DB.sqlcmd.ExecuteNonQuery();
+            DB.adapter = new SqlDataAdapter(DB.sqlcmd);
+            DataSet ds = new DataSet();
+            DB.adapter.Fill(ds, "CM_CustomerMaster_MM_S3");
+            CustList.DataSource = ds;
+            CustList.DataMember = "CM_CustomerMaster_MM_S3";
+            DB.transaction.Commit();
+            DB.adapter.Dispose();
+            DB.sqlcmd.Dispose();
+            DB.conn.Dispose();
+            DB.conn.Close();
         }
 
         private void btnDoSearch_Click(object sender, EventArgs e)
@@ -332,7 +352,7 @@ namespace WindowsFormsApp1
             cboCustBank.Text = null;
             cboUseFlag.Text = null;
 
-            DataGridViewRow selectedRow = CustList.SelectedRows[0];
+            DataGridViewRow selectedRow = CustList.Rows[e.RowIndex];
             txtCust_Code.ReadOnly = true;          
 
             string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
