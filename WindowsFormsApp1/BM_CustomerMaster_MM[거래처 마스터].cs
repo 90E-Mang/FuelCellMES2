@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.ResizeRedraw = true;
+            StartDate.Value = new DateTime(int.Parse(DateTime.Now.ToString("yyyy")), int.Parse(DateTime.Now.ToString("MM")), 1);
         }
         public delegate void FormClosed(string str);
         public event FormClosed FormCloseEvent;
@@ -31,72 +32,7 @@ namespace WindowsFormsApp1
         }
         private void CM_CustomerMaster_MM_Load(object sender, EventArgs e)
         {
-            cboCustBank.Items.Add("선택");           
-            DataSet ds = new DataSet();
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
-            SqlConnection conn = new SqlConnection(strConn);
-
-            conn.Open();
-
-            SqlDataAdapter CustGroupadapter = new SqlDataAdapter("SELECT LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE = 'CUST_GROUP'", conn);
-            CustGroupadapter.SelectCommand.CommandType = CommandType.Text;
-
-            CustGroupadapter.Fill(ds);
-            CustGroupadapter.Dispose();
-            cboSearchCust_Group.Items.Add("전체");
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                cboSearchCust_Group.Items.Add(dr["LWRCODENAME"]);
-                cboCust_Group.Items.Add(dr["LWRCODENAME"]);
-            }
-            
-            ds.Clear();
-
-            SqlDataAdapter CustType1adapter = new SqlDataAdapter("SELECT LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE = 'CUST_TYPE1'", conn);
-            CustType1adapter.SelectCommand.CommandType = CommandType.Text;
-
-            CustType1adapter.Fill(ds);
-            CustType1adapter.Dispose();
-            cboSearchCustType1.Items.Add("전체");
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                cboSearchCustType1.Items.Add(dr["LWRCODENAME"]);
-                cboCust_Type1.Items.Add(dr["LWRCODENAME"]);
-            }
-            ds.Clear();
-            SqlDataAdapter CustType2adapter = new SqlDataAdapter("SELECT LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE = 'CUST_TYPE2'", conn);
-            CustType2adapter.SelectCommand.CommandType = CommandType.Text;
-
-            CustType2adapter.Fill(ds);
-            CustType2adapter.Dispose();
-            cboSearchCustType2.Items.Add("전체");
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                cboSearchCustType2.Items.Add(dr["LWRCODENAME"]);
-                cboCust_Type2.Items.Add(dr["LWRCODENAME"]);
-            }
-            ds.Clear();
-            SqlDataAdapter CustBankadapter = new SqlDataAdapter("SELECT LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE = 'BANK_CODE'", conn);
-            CustBankadapter.SelectCommand.CommandType = CommandType.Text;
-
-            CustBankadapter.Fill(ds);
-            CustBankadapter.Dispose();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                cboCustBank.Items.Add(dr["LWRCODENAME"]);
-            }
-            ds.Clear();
-            SqlDataAdapter Useflagadapter = new SqlDataAdapter("SELECT LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE = 'BIZ_STATUS'", conn);
-            Useflagadapter.SelectCommand.CommandType = CommandType.Text;
-
-            Useflagadapter.Fill(ds);
-            Useflagadapter.Dispose();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                cboUseFlag.Items.Add(dr["LWRCODENAME"]);
-            }
-            ds.Clear();
-            conn.Close();
+            CombMaster();
 
             cboSearchCust_Group.FlatStyle = FlatStyle.Popup;
             cboSearchCust_Group.BackColor = Color.Ivory;
@@ -121,9 +57,10 @@ namespace WindowsFormsApp1
 
             cboCustBank.FlatStyle = FlatStyle.Popup;
             cboCustBank.BackColor = Color.Ivory;
+            cboCustBank.Text = null;
 
             cboUseFlag.FlatStyle = FlatStyle.Popup;
-            cboUseFlag.BackColor = Color.Ivory;
+            cboUseFlag.BackColor = Color.Ivory;   
         }
 
         private void btnDoSearch_Click(object sender, EventArgs e)
@@ -156,7 +93,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211";
+                    string connectionString = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -227,8 +164,8 @@ namespace WindowsFormsApp1
             txtBankAccount.Clear();
             txtAccountOwner.Clear();
             cboUseFlag.Text = null;
-            cboStartDate.Refresh();
-            cboEndDate.Refresh();
+            StartDate.Refresh();
+            EndDate.Refresh();
             txtEndReason.Clear();
         }
 
@@ -240,7 +177,7 @@ namespace WindowsFormsApp1
                 int result_value = 0;
                 try
                 {
-                    string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+                    string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                     SqlConnection conn = new SqlConnection(strConn);
                     if (txtCust_Code.ReadOnly == false)
                     {
@@ -363,7 +300,7 @@ namespace WindowsFormsApp1
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
@@ -371,10 +308,10 @@ namespace WindowsFormsApp1
                 SqlDataAdapter adapter = new SqlDataAdapter("CM_CustomerMaster_MM_S1", conn);
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                adapter.SelectCommand.Parameters.AddWithValue("@CUST_GROUP", cboSearchCust_Group.SelectedItem.ToString());
+                adapter.SelectCommand.Parameters.AddWithValue("@CUST_GROUP", cboSearchCust_Group.SelectedValue.ToString());
                 adapter.SelectCommand.Parameters.AddWithValue("@CUST_NAME", txtSearchCust_Name.Text);
-                adapter.SelectCommand.Parameters.AddWithValue("@CUST_TYPE1", cboSearchCustType1.SelectedItem.ToString());
-                adapter.SelectCommand.Parameters.AddWithValue("@CUST_TYPE2", cboSearchCustType2.SelectedItem.ToString());
+                adapter.SelectCommand.Parameters.AddWithValue("@CUST_TYPE1", cboSearchCustType1.SelectedValue.ToString());
+                adapter.SelectCommand.Parameters.AddWithValue("@CUST_TYPE2", cboSearchCustType2.SelectedValue.ToString());
 
                 adapter.Fill(ds);
                 adapter.Dispose();
@@ -398,7 +335,7 @@ namespace WindowsFormsApp1
             DataGridViewRow selectedRow = CustList.SelectedRows[0];
             txtCust_Code.ReadOnly = true;          
 
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+            string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();
@@ -417,11 +354,11 @@ namespace WindowsFormsApp1
             SqlDataReader mdr = cmd.ExecuteReader();
             while (mdr.Read())
             {
-                txtCust_Code.Text          = (string)mdr["CUST_CODE"];
-                txtCust_Name.Text          = (string)mdr["CUST_NAME"];
-                cboCust_Group.SelectedItem = (string)mdr["CUST_GROUP"];
-                cboCust_Type1.SelectedItem = (string)mdr["CUST_TYPE1"];
-                cboCust_Type2.SelectedItem = (string)mdr["CUST_TYPE2"];
+                txtCust_Code.Text          =  mdr["CUST_CODE"].ToString();
+                txtCust_Name.Text          =  mdr["CUST_NAME"].ToString();
+                cboCust_Group.Text         =  mdr["CUST_GROUP"].ToString();
+                cboCust_Type1.Text         =  mdr["CUST_TYPE1"].ToString();
+                cboCust_Type2.Text         =  mdr["CUST_TYPE2"].ToString();
                 txtCust_ABBR.Text          = (mdr["CUST_ABBR"] == null) ? string.Empty : mdr["CUST_ABBR"].ToString();
                 txtCust_EngName.Text       = (mdr["CUST_NAME_ENG"] == null) ? string.Empty : mdr["CUST_NAME_ENG"].ToString();
                 txtRegister_No.Text        = (mdr["REGISTER_NO"] == null) ? string.Empty : mdr["REGISTER_NO"].ToString();
@@ -442,6 +379,171 @@ namespace WindowsFormsApp1
             }
             mdr.Close();
             conn.Close();
+        }
+        private void CombMaster()
+        {
+            try
+            {
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter COMPAdapter = new SqlDataAdapter();
+                DataSet COMPdt = new DataSet();
+                COMPAdapter.TableMappings.Add("Table", "LWRCODENAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_GROUP' ORDER BY SORT_NO";
+                COMPAdapter.SelectCommand = DB.sqlcmd;
+                COMPAdapter.SelectCommand.ExecuteNonQuery();
+                COMPAdapter.Fill(COMPdt);
+
+                cboSearchCust_Group.DataSource = COMPdt.Tables[0];
+                cboSearchCust_Group.DisplayMember = "LWRCODENAME";
+                cboSearchCust_Group.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter CustAdapter = new SqlDataAdapter();
+                DataSet CUSTdt = new DataSet();
+                CustAdapter.TableMappings.Add("Table", "GROUPNAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_GROUP' ORDER BY SORT_NO";
+                CustAdapter.SelectCommand = DB.sqlcmd;
+                CustAdapter.SelectCommand.ExecuteNonQuery();
+                CustAdapter.Fill(CUSTdt);
+
+                cboCust_Group.DataSource = CUSTdt.Tables[0];
+                cboCust_Group.DisplayMember = "LWRCODENAME";
+                cboCust_Group.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter INOUTAdapter = new SqlDataAdapter();
+                DataSet INOUTdt = new DataSet();
+                INOUTAdapter.TableMappings.Add("Table", "LWRCODENAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_TYPE1' ORDER BY SORT_NO";
+                INOUTAdapter.SelectCommand = DB.sqlcmd;
+                INOUTAdapter.SelectCommand.ExecuteNonQuery();
+                INOUTAdapter.Fill(INOUTdt);
+
+                cboSearchCustType1.DataSource = INOUTdt.Tables[0];
+                cboSearchCustType1.DisplayMember = "LWRCODENAME";
+                cboSearchCustType1.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter TYPE1Adapter = new SqlDataAdapter();                
+                DataSet TYPE1dt = new DataSet();
+                TYPE1Adapter.TableMappings.Add("Table2", "TYPE1NAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_TYPE1' ORDER BY SORT_NO";
+                TYPE1Adapter.SelectCommand = DB.sqlcmd;
+                TYPE1Adapter.SelectCommand.ExecuteNonQuery();
+                TYPE1Adapter.Fill(TYPE1dt);
+
+                cboCust_Type1.DataSource = TYPE1dt.Tables[0];
+                cboCust_Type1.DisplayMember = "LWRCODENAME";
+                cboCust_Type1.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter INOUTTYPEAdapter = new SqlDataAdapter();
+                DataSet INOUT_Typedt = new DataSet();
+                INOUTTYPEAdapter.TableMappings.Add("Table", "LWRCODENAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_TYPE2' ORDER BY SORT_NO";
+                INOUTTYPEAdapter.SelectCommand = DB.sqlcmd;
+                INOUTTYPEAdapter.SelectCommand.ExecuteNonQuery();
+                INOUTTYPEAdapter.Fill(INOUT_Typedt);
+
+                cboSearchCustType2.DataSource = INOUT_Typedt.Tables[0];
+                cboSearchCustType2.DisplayMember = "LWRCODENAME";
+                cboSearchCustType2.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter TYPE2Adapter = new SqlDataAdapter();
+                DataSet TYPE2dt = new DataSet();
+                TYPE2Adapter.TableMappings.Add("Table2", "TYPE2NAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='CUST_TYPE2' ORDER BY SORT_NO";
+                TYPE2Adapter.SelectCommand = DB.sqlcmd;
+                TYPE2Adapter.SelectCommand.ExecuteNonQuery();
+                TYPE2Adapter.Fill(TYPE2dt);
+
+                cboCust_Type2.DataSource = TYPE2dt.Tables[0];
+                cboCust_Type2.DisplayMember = "LWRCODENAME";
+                cboCust_Type2.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter BANKAdapter = new SqlDataAdapter();
+                DataSet BANKdt = new DataSet();
+                BANKAdapter.TableMappings.Add("Table", "LWRCODENAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='BANK_CODE' ORDER BY SORT_NO";
+                BANKAdapter.SelectCommand = DB.sqlcmd;
+                BANKAdapter.SelectCommand.ExecuteNonQuery();
+                BANKAdapter.Fill(BANKdt);
+
+                cboCustBank.DataSource = BANKdt.Tables[0];
+                cboCustBank.DisplayMember = "LWRCODENAME";
+                cboCustBank.ValueMember = "LWRCODE";
+
+                DB.conn.Close();
+
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+
+                SqlDataAdapter BIZSTATSAdapter = new SqlDataAdapter();
+                DataSet BIZSTATSdt = new DataSet();
+                BIZSTATSAdapter.TableMappings.Add("Table", "LWRCODENAME");
+                DB.sqlcmd.CommandType = CommandType.Text;
+                DB.sqlcmd.CommandText = "SELECT LWRCODE, LWRCODENAME FROM TB_LWRCOMMCODE WHERE UPRCODE='BIZ_STATUS' ORDER BY SORT_NO";
+                BIZSTATSAdapter.SelectCommand = DB.sqlcmd;
+                BIZSTATSAdapter.SelectCommand.ExecuteNonQuery();
+                BIZSTATSAdapter.Fill(BIZSTATSdt);
+
+                cboUseFlag.DataSource = BIZSTATSdt.Tables[0];
+                cboUseFlag.DisplayMember = "LWRCODENAME";
+                cboUseFlag.ValueMember = "LWRCODE";
+
+                DB.adapter.Dispose();
+                DB.sqlcmd.Dispose();
+                DB.conn.Dispose();
+                DB.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DB.adapter.Dispose();
+                DB.sqlcmd.Dispose();
+                DB.conn.Dispose();
+                DB.conn.Close();
+            }
         }
     }
 }

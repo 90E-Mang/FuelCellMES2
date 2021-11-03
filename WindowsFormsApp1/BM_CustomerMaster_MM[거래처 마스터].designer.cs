@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -108,8 +108,6 @@ namespace WindowsFormsApp1
             this.cboCust_Type2 = new System.Windows.Forms.ComboBox();
             this.cboCust_Type1 = new System.Windows.Forms.ComboBox();
             this.txtEndReason = new System.Windows.Forms.TextBox();
-            this.cboEndDate = new System.Windows.Forms.ComboBox();
-            this.cboStartDate = new System.Windows.Forms.ComboBox();
             this.cboUseFlag = new System.Windows.Forms.ComboBox();
             this.txtAccountOwner = new System.Windows.Forms.TextBox();
             this.txtBankAccount = new System.Windows.Forms.TextBox();
@@ -132,6 +130,8 @@ namespace WindowsFormsApp1
             this.txtCust_Code = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.StartDate = new System.Windows.Forms.DateTimePicker();
+            this.EndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -197,8 +197,8 @@ namespace WindowsFormsApp1
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1360, 618);
-            this.splitContainer1.SplitterDistance = 692;
+            this.splitContainer1.Size = new System.Drawing.Size(1427, 618);
+            this.splitContainer1.SplitterDistance = 706;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer3
@@ -207,6 +207,7 @@ namespace WindowsFormsApp1
             this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -229,7 +230,7 @@ namespace WindowsFormsApp1
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.CustList);
-            this.splitContainer3.Size = new System.Drawing.Size(692, 618);
+            this.splitContainer3.Size = new System.Drawing.Size(706, 618);
             this.splitContainer3.SplitterDistance = 151;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -238,7 +239,7 @@ namespace WindowsFormsApp1
             this.panel6.BackColor = System.Drawing.Color.SkyBlue;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label35);
-            this.panel6.Location = new System.Drawing.Point(266, 107);
+            this.panel6.Location = new System.Drawing.Point(288, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(95, 26);
             this.panel6.TabIndex = 47;
@@ -259,7 +260,7 @@ namespace WindowsFormsApp1
             this.panel2.BackColor = System.Drawing.Color.SkyBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label34);
-            this.panel2.Location = new System.Drawing.Point(3, 107);
+            this.panel2.Location = new System.Drawing.Point(25, 110);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(95, 26);
             this.panel2.TabIndex = 46;
@@ -280,7 +281,7 @@ namespace WindowsFormsApp1
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 75);
+            this.panel1.Location = new System.Drawing.Point(25, 78);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(95, 26);
             this.panel1.TabIndex = 46;
@@ -301,7 +302,7 @@ namespace WindowsFormsApp1
             this.panel19.BackColor = System.Drawing.Color.SkyBlue;
             this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel19.Controls.Add(this.label15);
-            this.panel19.Location = new System.Drawing.Point(3, 43);
+            this.panel19.Location = new System.Drawing.Point(25, 46);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(95, 26);
             this.panel19.TabIndex = 46;
@@ -321,7 +322,7 @@ namespace WindowsFormsApp1
             // 
             this.cboSearchCustType2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearchCustType2.FormattingEnabled = true;
-            this.cboSearchCustType2.Location = new System.Drawing.Point(367, 110);
+            this.cboSearchCustType2.Location = new System.Drawing.Point(389, 113);
             this.cboSearchCustType2.Name = "cboSearchCustType2";
             this.cboSearchCustType2.Size = new System.Drawing.Size(156, 20);
             this.cboSearchCustType2.TabIndex = 45;
@@ -330,7 +331,7 @@ namespace WindowsFormsApp1
             // 
             this.cboSearchCustType1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearchCustType1.FormattingEnabled = true;
-            this.cboSearchCustType1.Location = new System.Drawing.Point(104, 110);
+            this.cboSearchCustType1.Location = new System.Drawing.Point(126, 113);
             this.cboSearchCustType1.Name = "cboSearchCustType1";
             this.cboSearchCustType1.Size = new System.Drawing.Size(156, 20);
             this.cboSearchCustType1.TabIndex = 43;
@@ -340,7 +341,7 @@ namespace WindowsFormsApp1
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.BackColor = System.Drawing.Color.LightBlue;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(619, 46);
+            this.btnDelete.Location = new System.Drawing.Point(633, 46);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(66, 42);
             this.btnDelete.TabIndex = 41;
@@ -353,7 +354,7 @@ namespace WindowsFormsApp1
             this.btnDoSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoSearch.BackColor = System.Drawing.Color.LightBlue;
             this.btnDoSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoSearch.Location = new System.Drawing.Point(545, 46);
+            this.btnDoSearch.Location = new System.Drawing.Point(559, 46);
             this.btnDoSearch.Name = "btnDoSearch";
             this.btnDoSearch.Size = new System.Drawing.Size(68, 42);
             this.btnDoSearch.TabIndex = 40;
@@ -365,14 +366,14 @@ namespace WindowsFormsApp1
             // 
             this.cboSearchCust_Group.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearchCust_Group.FormattingEnabled = true;
-            this.cboSearchCust_Group.Location = new System.Drawing.Point(104, 46);
+            this.cboSearchCust_Group.Location = new System.Drawing.Point(126, 49);
             this.cboSearchCust_Group.Name = "cboSearchCust_Group";
             this.cboSearchCust_Group.Size = new System.Drawing.Size(156, 20);
             this.cboSearchCust_Group.TabIndex = 37;
             // 
             // txtSearchCust_Name
             // 
-            this.txtSearchCust_Name.Location = new System.Drawing.Point(104, 75);
+            this.txtSearchCust_Name.Location = new System.Drawing.Point(126, 78);
             this.txtSearchCust_Name.Name = "txtSearchCust_Name";
             this.txtSearchCust_Name.Size = new System.Drawing.Size(156, 21);
             this.txtSearchCust_Name.TabIndex = 36;
@@ -384,7 +385,7 @@ namespace WindowsFormsApp1
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(688, 27);
+            this.panel5.Size = new System.Drawing.Size(702, 27);
             this.panel5.TabIndex = 32;
             // 
             // label20
@@ -404,21 +405,21 @@ namespace WindowsFormsApp1
             this.CustList.AllowUserToDeleteRows = false;
             this.CustList.AllowUserToResizeRows = false;
             this.CustList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CustList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CustList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CustList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustList.Location = new System.Drawing.Point(0, 0);
             this.CustList.Name = "CustList";
             this.CustList.RowHeadersVisible = false;
             this.CustList.RowTemplate.Height = 23;
-            this.CustList.Size = new System.Drawing.Size(688, 459);
+            this.CustList.Size = new System.Drawing.Size(702, 459);
             this.CustList.TabIndex = 0;
             this.CustList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustList_CellClick);
             // 
@@ -428,6 +429,7 @@ namespace WindowsFormsApp1
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -443,6 +445,8 @@ namespace WindowsFormsApp1
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.splitContainer2.Panel2.Controls.Add(this.EndDate);
+            this.splitContainer2.Panel2.Controls.Add(this.StartDate);
             this.splitContainer2.Panel2.Controls.Add(this.panel29);
             this.splitContainer2.Panel2.Controls.Add(this.panel21);
             this.splitContainer2.Panel2.Controls.Add(this.panel28);
@@ -471,8 +475,6 @@ namespace WindowsFormsApp1
             this.splitContainer2.Panel2.Controls.Add(this.cboCust_Type2);
             this.splitContainer2.Panel2.Controls.Add(this.cboCust_Type1);
             this.splitContainer2.Panel2.Controls.Add(this.txtEndReason);
-            this.splitContainer2.Panel2.Controls.Add(this.cboEndDate);
-            this.splitContainer2.Panel2.Controls.Add(this.cboStartDate);
             this.splitContainer2.Panel2.Controls.Add(this.cboUseFlag);
             this.splitContainer2.Panel2.Controls.Add(this.txtAccountOwner);
             this.splitContainer2.Panel2.Controls.Add(this.txtBankAccount);
@@ -494,7 +496,7 @@ namespace WindowsFormsApp1
             this.splitContainer2.Panel2.Controls.Add(this.txtCust_Name);
             this.splitContainer2.Panel2.Controls.Add(this.txtCust_Code);
             this.splitContainer2.Panel2.Controls.Add(this.panel4);
-            this.splitContainer2.Size = new System.Drawing.Size(664, 618);
+            this.splitContainer2.Size = new System.Drawing.Size(717, 618);
             this.splitContainer2.SplitterDistance = 153;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -503,7 +505,7 @@ namespace WindowsFormsApp1
             this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuit.BackColor = System.Drawing.Color.LightBlue;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Location = new System.Drawing.Point(580, 54);
+            this.btnQuit.Location = new System.Drawing.Point(633, 54);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(68, 42);
             this.btnQuit.TabIndex = 43;
@@ -516,7 +518,7 @@ namespace WindowsFormsApp1
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.BackColor = System.Drawing.Color.LightBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(506, 54);
+            this.btnSave.Location = new System.Drawing.Point(559, 54);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(68, 42);
             this.btnSave.TabIndex = 42;
@@ -529,7 +531,7 @@ namespace WindowsFormsApp1
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Location = new System.Drawing.Point(397, 54);
+            this.btnNew.Location = new System.Drawing.Point(450, 54);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(101, 42);
             this.btnNew.TabIndex = 41;
@@ -544,7 +546,7 @@ namespace WindowsFormsApp1
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(660, 27);
+            this.panel3.Size = new System.Drawing.Size(713, 27);
             this.panel3.TabIndex = 33;
             // 
             // label19
@@ -563,7 +565,7 @@ namespace WindowsFormsApp1
             this.panel29.BackColor = System.Drawing.Color.SkyBlue;
             this.panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel29.Controls.Add(this.label54);
-            this.panel29.Location = new System.Drawing.Point(324, 275);
+            this.panel29.Location = new System.Drawing.Point(347, 274);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(100, 26);
             this.panel29.TabIndex = 96;
@@ -584,7 +586,7 @@ namespace WindowsFormsApp1
             this.panel21.BackColor = System.Drawing.Color.SkyBlue;
             this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel21.Controls.Add(this.label46);
-            this.panel21.Location = new System.Drawing.Point(3, 409);
+            this.panel21.Location = new System.Drawing.Point(26, 408);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(100, 26);
             this.panel21.TabIndex = 96;
@@ -605,7 +607,7 @@ namespace WindowsFormsApp1
             this.panel28.BackColor = System.Drawing.Color.SkyBlue;
             this.panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel28.Controls.Add(this.label53);
-            this.panel28.Location = new System.Drawing.Point(324, 221);
+            this.panel28.Location = new System.Drawing.Point(347, 220);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(100, 26);
             this.panel28.TabIndex = 96;
@@ -626,7 +628,7 @@ namespace WindowsFormsApp1
             this.panel32.BackColor = System.Drawing.Color.SkyBlue;
             this.panel32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel32.Controls.Add(this.label57);
-            this.panel32.Location = new System.Drawing.Point(324, 355);
+            this.panel32.Location = new System.Drawing.Point(347, 354);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(100, 26);
             this.panel32.TabIndex = 96;
@@ -647,7 +649,7 @@ namespace WindowsFormsApp1
             this.panel18.BackColor = System.Drawing.Color.SkyBlue;
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel18.Controls.Add(this.label44);
-            this.panel18.Location = new System.Drawing.Point(3, 355);
+            this.panel18.Location = new System.Drawing.Point(26, 354);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(100, 26);
             this.panel18.TabIndex = 96;
@@ -668,7 +670,7 @@ namespace WindowsFormsApp1
             this.panel12.BackColor = System.Drawing.Color.SkyBlue;
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel12.Controls.Add(this.label38);
-            this.panel12.Location = new System.Drawing.Point(3, 194);
+            this.panel12.Location = new System.Drawing.Point(26, 193);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(100, 26);
             this.panel12.TabIndex = 96;
@@ -689,7 +691,7 @@ namespace WindowsFormsApp1
             this.panel27.BackColor = System.Drawing.Color.SkyBlue;
             this.panel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel27.Controls.Add(this.label52);
-            this.panel27.Location = new System.Drawing.Point(324, 168);
+            this.panel27.Location = new System.Drawing.Point(347, 167);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(100, 26);
             this.panel27.TabIndex = 96;
@@ -710,7 +712,7 @@ namespace WindowsFormsApp1
             this.panel17.BackColor = System.Drawing.Color.SkyBlue;
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel17.Controls.Add(this.label43);
-            this.panel17.Location = new System.Drawing.Point(3, 302);
+            this.panel17.Location = new System.Drawing.Point(26, 301);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(100, 26);
             this.panel17.TabIndex = 96;
@@ -731,7 +733,7 @@ namespace WindowsFormsApp1
             this.panel10.BackColor = System.Drawing.Color.SkyBlue;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.label36);
-            this.panel10.Location = new System.Drawing.Point(3, 141);
+            this.panel10.Location = new System.Drawing.Point(26, 140);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(100, 26);
             this.panel10.TabIndex = 96;
@@ -752,7 +754,7 @@ namespace WindowsFormsApp1
             this.panel26.BackColor = System.Drawing.Color.SkyBlue;
             this.panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel26.Controls.Add(this.label51);
-            this.panel26.Location = new System.Drawing.Point(324, 114);
+            this.panel26.Location = new System.Drawing.Point(347, 113);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(100, 26);
             this.panel26.TabIndex = 96;
@@ -773,7 +775,7 @@ namespace WindowsFormsApp1
             this.panel16.BackColor = System.Drawing.Color.SkyBlue;
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel16.Controls.Add(this.label42);
-            this.panel16.Location = new System.Drawing.Point(3, 248);
+            this.panel16.Location = new System.Drawing.Point(26, 247);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(100, 26);
             this.panel16.TabIndex = 96;
@@ -794,7 +796,7 @@ namespace WindowsFormsApp1
             this.panel8.BackColor = System.Drawing.Color.SkyBlue;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.label3);
-            this.panel8.Location = new System.Drawing.Point(3, 87);
+            this.panel8.Location = new System.Drawing.Point(26, 86);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(100, 26);
             this.panel8.TabIndex = 96;
@@ -815,7 +817,7 @@ namespace WindowsFormsApp1
             this.panel25.BackColor = System.Drawing.Color.SkyBlue;
             this.panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel25.Controls.Add(this.label50);
-            this.panel25.Location = new System.Drawing.Point(324, 248);
+            this.panel25.Location = new System.Drawing.Point(347, 247);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(100, 26);
             this.panel25.TabIndex = 97;
@@ -836,7 +838,7 @@ namespace WindowsFormsApp1
             this.panel31.BackColor = System.Drawing.Color.SkyBlue;
             this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel31.Controls.Add(this.label56);
-            this.panel31.Location = new System.Drawing.Point(324, 382);
+            this.panel31.Location = new System.Drawing.Point(347, 381);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(100, 26);
             this.panel31.TabIndex = 97;
@@ -857,7 +859,7 @@ namespace WindowsFormsApp1
             this.panel20.BackColor = System.Drawing.Color.SkyBlue;
             this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel20.Controls.Add(this.label45);
-            this.panel20.Location = new System.Drawing.Point(3, 382);
+            this.panel20.Location = new System.Drawing.Point(26, 381);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(100, 26);
             this.panel20.TabIndex = 97;
@@ -878,7 +880,7 @@ namespace WindowsFormsApp1
             this.panel24.BackColor = System.Drawing.Color.SkyBlue;
             this.panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel24.Controls.Add(this.label49);
-            this.panel24.Location = new System.Drawing.Point(324, 194);
+            this.panel24.Location = new System.Drawing.Point(347, 193);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(100, 26);
             this.panel24.TabIndex = 97;
@@ -899,7 +901,7 @@ namespace WindowsFormsApp1
             this.panel30.BackColor = System.Drawing.Color.SkyBlue;
             this.panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel30.Controls.Add(this.label55);
-            this.panel30.Location = new System.Drawing.Point(324, 328);
+            this.panel30.Location = new System.Drawing.Point(347, 327);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(100, 26);
             this.panel30.TabIndex = 97;
@@ -920,7 +922,7 @@ namespace WindowsFormsApp1
             this.panel15.BackColor = System.Drawing.Color.SkyBlue;
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel15.Controls.Add(this.label41);
-            this.panel15.Location = new System.Drawing.Point(3, 328);
+            this.panel15.Location = new System.Drawing.Point(26, 327);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(100, 26);
             this.panel15.TabIndex = 97;
@@ -941,7 +943,7 @@ namespace WindowsFormsApp1
             this.panel11.BackColor = System.Drawing.Color.SkyBlue;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.label37);
-            this.panel11.Location = new System.Drawing.Point(3, 167);
+            this.panel11.Location = new System.Drawing.Point(26, 166);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(100, 26);
             this.panel11.TabIndex = 97;
@@ -962,7 +964,7 @@ namespace WindowsFormsApp1
             this.panel23.BackColor = System.Drawing.Color.SkyBlue;
             this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel23.Controls.Add(this.label48);
-            this.panel23.Location = new System.Drawing.Point(324, 141);
+            this.panel23.Location = new System.Drawing.Point(347, 140);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(100, 26);
             this.panel23.TabIndex = 97;
@@ -983,7 +985,7 @@ namespace WindowsFormsApp1
             this.panel14.BackColor = System.Drawing.Color.SkyBlue;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.label40);
-            this.panel14.Location = new System.Drawing.Point(3, 275);
+            this.panel14.Location = new System.Drawing.Point(26, 274);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(100, 26);
             this.panel14.TabIndex = 97;
@@ -1004,7 +1006,7 @@ namespace WindowsFormsApp1
             this.panel7.BackColor = System.Drawing.Color.SkyBlue;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label2);
-            this.panel7.Location = new System.Drawing.Point(3, 114);
+            this.panel7.Location = new System.Drawing.Point(26, 113);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(100, 26);
             this.panel7.TabIndex = 97;
@@ -1025,7 +1027,7 @@ namespace WindowsFormsApp1
             this.panel22.BackColor = System.Drawing.Color.SkyBlue;
             this.panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel22.Controls.Add(this.label47);
-            this.panel22.Location = new System.Drawing.Point(324, 87);
+            this.panel22.Location = new System.Drawing.Point(347, 86);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(100, 26);
             this.panel22.TabIndex = 97;
@@ -1047,7 +1049,7 @@ namespace WindowsFormsApp1
             this.panel13.BackColor = System.Drawing.Color.SkyBlue;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.label39);
-            this.panel13.Location = new System.Drawing.Point(3, 221);
+            this.panel13.Location = new System.Drawing.Point(26, 220);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(100, 26);
             this.panel13.TabIndex = 97;
@@ -1068,7 +1070,7 @@ namespace WindowsFormsApp1
             this.panel9.BackColor = System.Drawing.Color.SkyBlue;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.label22);
-            this.panel9.Location = new System.Drawing.Point(3, 60);
+            this.panel9.Location = new System.Drawing.Point(26, 59);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(100, 26);
             this.panel9.TabIndex = 97;
@@ -1089,7 +1091,7 @@ namespace WindowsFormsApp1
             // 
             this.cboCust_Type2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCust_Type2.FormattingEnabled = true;
-            this.cboCust_Type2.Location = new System.Drawing.Point(430, 117);
+            this.cboCust_Type2.Location = new System.Drawing.Point(453, 116);
             this.cboCust_Type2.Name = "cboCust_Type2";
             this.cboCust_Type2.Size = new System.Drawing.Size(209, 20);
             this.cboCust_Type2.TabIndex = 94;
@@ -1098,52 +1100,36 @@ namespace WindowsFormsApp1
             // 
             this.cboCust_Type1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCust_Type1.FormattingEnabled = true;
-            this.cboCust_Type1.Location = new System.Drawing.Point(109, 117);
+            this.cboCust_Type1.Location = new System.Drawing.Point(132, 116);
             this.cboCust_Type1.Name = "cboCust_Type1";
             this.cboCust_Type1.Size = new System.Drawing.Size(209, 20);
             this.cboCust_Type1.TabIndex = 92;
             // 
             // txtEndReason
             // 
-            this.txtEndReason.Location = new System.Drawing.Point(109, 411);
+            this.txtEndReason.Location = new System.Drawing.Point(132, 410);
             this.txtEndReason.Name = "txtEndReason";
             this.txtEndReason.Size = new System.Drawing.Size(530, 21);
             this.txtEndReason.TabIndex = 90;
             // 
-            // cboEndDate
-            // 
-            this.cboEndDate.FormattingEnabled = true;
-            this.cboEndDate.Location = new System.Drawing.Point(430, 384);
-            this.cboEndDate.Name = "cboEndDate";
-            this.cboEndDate.Size = new System.Drawing.Size(209, 20);
-            this.cboEndDate.TabIndex = 88;
-            // 
-            // cboStartDate
-            // 
-            this.cboStartDate.FormattingEnabled = true;
-            this.cboStartDate.Location = new System.Drawing.Point(109, 385);
-            this.cboStartDate.Name = "cboStartDate";
-            this.cboStartDate.Size = new System.Drawing.Size(209, 20);
-            this.cboStartDate.TabIndex = 84;
-            // 
             // cboUseFlag
             // 
             this.cboUseFlag.FormattingEnabled = true;
-            this.cboUseFlag.Location = new System.Drawing.Point(430, 358);
+            this.cboUseFlag.Location = new System.Drawing.Point(453, 357);
             this.cboUseFlag.Name = "cboUseFlag";
             this.cboUseFlag.Size = new System.Drawing.Size(209, 20);
             this.cboUseFlag.TabIndex = 82;
             // 
             // txtAccountOwner
             // 
-            this.txtAccountOwner.Location = new System.Drawing.Point(109, 358);
+            this.txtAccountOwner.Location = new System.Drawing.Point(132, 357);
             this.txtAccountOwner.Name = "txtAccountOwner";
             this.txtAccountOwner.Size = new System.Drawing.Size(209, 21);
             this.txtAccountOwner.TabIndex = 80;
             // 
             // txtBankAccount
             // 
-            this.txtBankAccount.Location = new System.Drawing.Point(430, 331);
+            this.txtBankAccount.Location = new System.Drawing.Point(453, 330);
             this.txtBankAccount.Name = "txtBankAccount";
             this.txtBankAccount.Size = new System.Drawing.Size(209, 21);
             this.txtBankAccount.TabIndex = 78;
@@ -1151,21 +1137,21 @@ namespace WindowsFormsApp1
             // cboCustBank
             // 
             this.cboCustBank.FormattingEnabled = true;
-            this.cboCustBank.Location = new System.Drawing.Point(109, 332);
+            this.cboCustBank.Location = new System.Drawing.Point(132, 331);
             this.cboCustBank.Name = "cboCustBank";
             this.cboCustBank.Size = new System.Drawing.Size(209, 20);
             this.cboCustBank.TabIndex = 76;
             // 
             // txtCust_EngName
             // 
-            this.txtCust_EngName.Location = new System.Drawing.Point(430, 143);
+            this.txtCust_EngName.Location = new System.Drawing.Point(453, 142);
             this.txtCust_EngName.Name = "txtCust_EngName";
             this.txtCust_EngName.Size = new System.Drawing.Size(209, 21);
             this.txtCust_EngName.TabIndex = 74;
             // 
             // txtCust_ABBR
             // 
-            this.txtCust_ABBR.Location = new System.Drawing.Point(109, 143);
+            this.txtCust_ABBR.Location = new System.Drawing.Point(132, 142);
             this.txtCust_ABBR.Name = "txtCust_ABBR";
             this.txtCust_ABBR.Size = new System.Drawing.Size(209, 21);
             this.txtCust_ABBR.TabIndex = 72;
@@ -1174,98 +1160,98 @@ namespace WindowsFormsApp1
             // 
             this.cboCust_Group.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCust_Group.FormattingEnabled = true;
-            this.cboCust_Group.Location = new System.Drawing.Point(430, 91);
+            this.cboCust_Group.Location = new System.Drawing.Point(453, 90);
             this.cboCust_Group.Name = "cboCust_Group";
             this.cboCust_Group.Size = new System.Drawing.Size(209, 20);
             this.cboCust_Group.TabIndex = 68;
             // 
             // txtCust_Area
             // 
-            this.txtCust_Area.Location = new System.Drawing.Point(430, 277);
+            this.txtCust_Area.Location = new System.Drawing.Point(453, 276);
             this.txtCust_Area.Name = "txtCust_Area";
             this.txtCust_Area.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Area.TabIndex = 60;
             // 
             // txtCust_Fax
             // 
-            this.txtCust_Fax.Location = new System.Drawing.Point(430, 250);
+            this.txtCust_Fax.Location = new System.Drawing.Point(453, 249);
             this.txtCust_Fax.Name = "txtCust_Fax";
             this.txtCust_Fax.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Fax.TabIndex = 58;
             // 
             // txtCust_Tel
             // 
-            this.txtCust_Tel.Location = new System.Drawing.Point(109, 250);
+            this.txtCust_Tel.Location = new System.Drawing.Point(132, 249);
             this.txtCust_Tel.Name = "txtCust_Tel";
             this.txtCust_Tel.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Tel.TabIndex = 56;
             // 
             // txtCust_Address
             // 
-            this.txtCust_Address.Location = new System.Drawing.Point(109, 305);
+            this.txtCust_Address.Location = new System.Drawing.Point(132, 304);
             this.txtCust_Address.Name = "txtCust_Address";
             this.txtCust_Address.Size = new System.Drawing.Size(530, 21);
             this.txtCust_Address.TabIndex = 54;
             // 
             // txtCust_Zip
             // 
-            this.txtCust_Zip.Location = new System.Drawing.Point(109, 278);
+            this.txtCust_Zip.Location = new System.Drawing.Point(132, 277);
             this.txtCust_Zip.Name = "txtCust_Zip";
             this.txtCust_Zip.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Zip.TabIndex = 52;
             // 
             // txtComp_Industy
             // 
-            this.txtComp_Industy.Location = new System.Drawing.Point(430, 223);
+            this.txtComp_Industy.Location = new System.Drawing.Point(453, 222);
             this.txtComp_Industy.Name = "txtComp_Industy";
             this.txtComp_Industy.Size = new System.Drawing.Size(209, 21);
             this.txtComp_Industy.TabIndex = 50;
             // 
             // txtComp_Type
             // 
-            this.txtComp_Type.Location = new System.Drawing.Point(109, 224);
+            this.txtComp_Type.Location = new System.Drawing.Point(132, 223);
             this.txtComp_Type.Name = "txtComp_Type";
             this.txtComp_Type.Size = new System.Drawing.Size(209, 21);
             this.txtComp_Type.TabIndex = 48;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(430, 197);
+            this.txtEmail.Location = new System.Drawing.Point(453, 196);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(209, 21);
             this.txtEmail.TabIndex = 46;
             // 
             // txtPresident_Name
             // 
-            this.txtPresident_Name.Location = new System.Drawing.Point(109, 197);
+            this.txtPresident_Name.Location = new System.Drawing.Point(132, 196);
             this.txtPresident_Name.Name = "txtPresident_Name";
             this.txtPresident_Name.Size = new System.Drawing.Size(209, 21);
             this.txtPresident_Name.TabIndex = 44;
             // 
             // txtCorporate_No
             // 
-            this.txtCorporate_No.Location = new System.Drawing.Point(430, 170);
+            this.txtCorporate_No.Location = new System.Drawing.Point(453, 169);
             this.txtCorporate_No.Name = "txtCorporate_No";
             this.txtCorporate_No.Size = new System.Drawing.Size(209, 21);
             this.txtCorporate_No.TabIndex = 42;
             // 
             // txtRegister_No
             // 
-            this.txtRegister_No.Location = new System.Drawing.Point(109, 170);
+            this.txtRegister_No.Location = new System.Drawing.Point(132, 169);
             this.txtRegister_No.Name = "txtRegister_No";
             this.txtRegister_No.Size = new System.Drawing.Size(209, 21);
             this.txtRegister_No.TabIndex = 40;
             // 
             // txtCust_Name
             // 
-            this.txtCust_Name.Location = new System.Drawing.Point(109, 90);
+            this.txtCust_Name.Location = new System.Drawing.Point(132, 89);
             this.txtCust_Name.Name = "txtCust_Name";
             this.txtCust_Name.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Name.TabIndex = 38;
             // 
             // txtCust_Code
             // 
-            this.txtCust_Code.Location = new System.Drawing.Point(109, 63);
+            this.txtCust_Code.Location = new System.Drawing.Point(132, 62);
             this.txtCust_Code.Name = "txtCust_Code";
             this.txtCust_Code.Size = new System.Drawing.Size(209, 21);
             this.txtCust_Code.TabIndex = 36;
@@ -1277,7 +1263,7 @@ namespace WindowsFormsApp1
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(660, 27);
+            this.panel4.Size = new System.Drawing.Size(713, 27);
             this.panel4.TabIndex = 34;
             // 
             // label18
@@ -1292,14 +1278,34 @@ namespace WindowsFormsApp1
             this.label18.TabIndex = 1;
             this.label18.Text = "기본등록사항";
             // 
-            // CM_CustomerMaster_MM
+            // StartDate
+            // 
+            this.StartDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.StartDate.Location = new System.Drawing.Point(132, 384);
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Size = new System.Drawing.Size(209, 21);
+            this.StartDate.TabIndex = 100;
+            this.StartDate.Value = new System.DateTime(2021, 9, 1, 0, 0, 0, 0);
+            // 
+            // EndDate
+            // 
+            this.EndDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EndDate.Location = new System.Drawing.Point(453, 383);
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Size = new System.Drawing.Size(209, 21);
+            this.EndDate.TabIndex = 101;
+            this.EndDate.Value = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            // 
+            // BM_CustomerMaster_MM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1360, 618);
+            this.ClientSize = new System.Drawing.Size(1427, 618);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "CM_CustomerMaster_MM";
+            this.Name = "BM_CustomerMaster_MM";
             this.Text = "거래처 마스터";
             this.Load += new System.EventHandler(this.CM_CustomerMaster_MM_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1420,8 +1426,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox txtCust_EngName;
         private System.Windows.Forms.TextBox txtCust_ABBR;
         private System.Windows.Forms.TextBox txtEndReason;
-        private System.Windows.Forms.ComboBox cboEndDate;
-        private System.Windows.Forms.ComboBox cboStartDate;
         private System.Windows.Forms.ComboBox cboUseFlag;
         private System.Windows.Forms.TextBox txtAccountOwner;
         private System.Windows.Forms.TextBox txtBankAccount;
@@ -1489,5 +1493,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.DataGridView CustList;
+        private System.Windows.Forms.DateTimePicker StartDate;
+        private System.Windows.Forms.DateTimePicker EndDate;
     }
 }
