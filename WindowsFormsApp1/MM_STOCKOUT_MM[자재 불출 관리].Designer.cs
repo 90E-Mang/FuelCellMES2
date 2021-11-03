@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtStockOutNo = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -135,7 +135,7 @@ namespace WindowsFormsApp1
             // 
             this.cboProcessCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProcessCode.FormattingEnabled = true;
-            this.cboProcessCode.Location = new System.Drawing.Point(758, 43);
+            this.cboProcessCode.Location = new System.Drawing.Point(705, 41);
             this.cboProcessCode.Name = "cboProcessCode";
             this.cboProcessCode.Size = new System.Drawing.Size(188, 20);
             this.cboProcessCode.TabIndex = 64;
@@ -145,7 +145,7 @@ namespace WindowsFormsApp1
             this.panel6.BackColor = System.Drawing.Color.SkyBlue;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(684, 40);
+            this.panel6.Location = new System.Drawing.Point(632, 39);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(67, 24);
             this.panel6.TabIndex = 63;
@@ -155,17 +155,17 @@ namespace WindowsFormsApp1
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.SkyBlue;
             this.label5.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(18, 3);
+            this.label5.Location = new System.Drawing.Point(3, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 19);
+            this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 0;
-            this.label5.Text = "공정";
+            this.label5.Text = " 공  정";
             // 
             // cboPlantCode
             // 
             this.cboPlantCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlantCode.FormattingEnabled = true;
-            this.cboPlantCode.Location = new System.Drawing.Point(457, 44);
+            this.cboPlantCode.Location = new System.Drawing.Point(438, 41);
             this.cboPlantCode.Name = "cboPlantCode";
             this.cboPlantCode.Size = new System.Drawing.Size(188, 20);
             this.cboPlantCode.TabIndex = 62;
@@ -175,7 +175,7 @@ namespace WindowsFormsApp1
             this.panel2.BackColor = System.Drawing.Color.SkyBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(383, 41);
+            this.panel2.Location = new System.Drawing.Point(364, 39);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(67, 24);
             this.panel2.TabIndex = 61;
@@ -185,17 +185,17 @@ namespace WindowsFormsApp1
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.SkyBlue;
             this.label2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(18, 3);
+            this.label2.Location = new System.Drawing.Point(3, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 19);
+            this.label2.Size = new System.Drawing.Size(70, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "공장";
+            this.label2.Text = " 공  장";
             // 
             // cboCompanyCode
             // 
             this.cboCompanyCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCompanyCode.FormattingEnabled = true;
-            this.cboCompanyCode.Location = new System.Drawing.Point(146, 43);
+            this.cboCompanyCode.Location = new System.Drawing.Point(146, 41);
             this.cboCompanyCode.Name = "cboCompanyCode";
             this.cboCompanyCode.Size = new System.Drawing.Size(212, 20);
             this.cboCompanyCode.TabIndex = 60;
@@ -216,17 +216,17 @@ namespace WindowsFormsApp1
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.SkyBlue;
             this.label3.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(18, 3);
+            this.label3.Location = new System.Drawing.Point(3, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 19);
+            this.label3.Size = new System.Drawing.Size(70, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = "회사";
+            this.label3.Text = " 회  사";
             // 
             // EndDate
             // 
             this.EndDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(758, 87);
+            this.EndDate.Location = new System.Drawing.Point(705, 85);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(174, 21);
             this.EndDate.TabIndex = 28;
@@ -236,7 +236,7 @@ namespace WindowsFormsApp1
             // 
             this.StartDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(509, 87);
+            this.StartDate.Location = new System.Drawing.Point(490, 85);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(171, 21);
             this.StartDate.TabIndex = 29;
@@ -247,7 +247,7 @@ namespace WindowsFormsApp1
             this.panel4.BackColor = System.Drawing.Color.SkyBlue;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(707, 84);
+            this.panel4.Location = new System.Drawing.Point(667, 82);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(32, 26);
             this.panel4.TabIndex = 26;
@@ -268,7 +268,7 @@ namespace WindowsFormsApp1
             this.panel14.BackColor = System.Drawing.Color.SkyBlue;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.label1);
-            this.panel14.Location = new System.Drawing.Point(383, 84);
+            this.panel14.Location = new System.Drawing.Point(364, 82);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(120, 26);
             this.panel14.TabIndex = 27;
@@ -414,13 +414,13 @@ namespace WindowsFormsApp1
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -438,14 +438,14 @@ namespace WindowsFormsApp1
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
