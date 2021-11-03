@@ -29,59 +29,62 @@ namespace WindowsFormsApp1
         {         
            try
            {
-               DB.conn.Close();
-               dataGridView1.Columns.Clear();
-               dataGridView2.Columns.Clear();
-
-               DB.conn = new SqlConnection(DB.connectionString);
-               DB.conn.ConnectionString = DB.connectionString;
-               DB.conn.Open();
-               //트랜잭션 시작
-               DB.transaction = DB.conn.BeginTransaction();
-               DB.sqlcmd = new SqlCommand("MM_MTRL_Order_POPUP_S1", DB.conn, DB.transaction);
-               DB.sqlcmd.CommandType = CommandType.StoredProcedure;
-
-               DB.sqlcmd.ExecuteNonQuery();
-               var chkCol = new DataGridViewCheckBoxColumn
-               {
-                   Name = "check",
-                   HeaderText = "선택"
-               };
-               dataGridView1.Columns.Add(chkCol);
-               DB.adapter = new SqlDataAdapter(DB.sqlcmd);
-               DataSet ds = new DataSet();
-               DB.adapter.Fill(ds, "MM_MTRL_Order_POPUP_S1");
-               dataGridView1.DataSource = ds;
-               dataGridView1.DataMember = "MM_MTRL_Order_POPUP_S1";
-               for (int i = 1; i < dataGridView1.Columns.Count; i++)
-               {
-                   dataGridView1.Columns[i].ReadOnly = true;
-               }
-               dataGridView1.Columns[0].Width = 50;
-
-
-               // 두번쨰 그리드
-               var chkCol2 = new DataGridViewCheckBoxColumn
-               {
-                   Name = "check",
-                   HeaderText = "선택"
-               };
-               dataGridView2.Columns.Add(chkCol2);
-               
-               dataGridView2.ColumnCount = 10;
-               dataGridView2.Columns[1].Name = "요청번호";
-               dataGridView2.Columns[2].Name = "요청수량";
-               dataGridView2.Columns[3].Name = "잔여수량";
-               dataGridView2.Columns[4].Name = "발주수량";
-               dataGridView2.Columns[5].Name = "품목코드";
-               dataGridView2.Columns[6].Name = "품목명";             
-               dataGridView2.Columns[7].Name = "기본단위";               
-               dataGridView2.Columns[8].Name = "단위중량";
-               dataGridView2.Columns[9].Name = "단가";
-               
-               dataGridView2.Columns[0].Width = 50;
-
-
+                DB.conn.Close();
+                dataGridView1.Columns.Clear();
+                dataGridView2.Columns.Clear();
+                
+                DB.conn = new SqlConnection(DB.connectionString);
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+                //트랜잭션 시작
+                DB.transaction = DB.conn.BeginTransaction();
+                DB.sqlcmd = new SqlCommand("MM_MTRL_Order_POPUP_S1", DB.conn, DB.transaction);
+                DB.sqlcmd.CommandType = CommandType.StoredProcedure;
+                
+                DB.sqlcmd.ExecuteNonQuery();
+                var chkCol = new DataGridViewCheckBoxColumn
+                {
+                    Name = "check",
+                    HeaderText = "선택"
+                };
+                dataGridView1.Columns.Add(chkCol);
+                DB.adapter = new SqlDataAdapter(DB.sqlcmd);
+                DataSet ds = new DataSet();
+                DB.adapter.Fill(ds, "MM_MTRL_Order_POPUP_S1");
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "MM_MTRL_Order_POPUP_S1";
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                {
+                    dataGridView1.Columns[i].ReadOnly = true;
+                }
+                dataGridView1.Columns[0].Width = 50;
+                
+                
+                // 두번쨰 그리드
+                var chkCol2 = new DataGridViewCheckBoxColumn
+                {
+                    Name = "check",
+                    HeaderText = "선택"
+                };
+                dataGridView2.Columns.Add(chkCol2);
+                
+                dataGridView2.ColumnCount = 12;
+                dataGridView2.Columns[1].Name = "요청번호";
+                dataGridView2.Columns[2].Name = "요청수량";
+                dataGridView2.Columns[3].Name = "잔여수량";
+                dataGridView2.Columns[4].Name = "발주수량";
+                dataGridView2.Columns[5].Name = "품목코드";
+                dataGridView2.Columns[6].Name = "품목명";             
+                dataGridView2.Columns[7].Name = "기본단위";               
+                dataGridView2.Columns[8].Name = "단위중량";
+                dataGridView2.Columns[9].Name = "단가";
+                dataGridView2.Columns[10].Name = "회사코드";
+                dataGridView2.Columns[11].Name = "공장코드";
+                
+                dataGridView2.Columns[0].Width = 50;
+                dataGridView2.Columns[10].Visible = false;
+                dataGridView2.Columns[11].Visible = false;
+                
                 DB.transaction.Commit();
 
                
@@ -168,13 +171,18 @@ namespace WindowsFormsApp1
                         bool isChecked = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
                         if (isChecked)
                         {
-                            object[] drrow1Values = {dataGridView1.Rows[i].Cells[1].Value, dataGridView1.Rows[i].Cells[4].Value};
+                            object[] drrow1Values = {dataGridView1.Rows[i].Cells[1].Value, dataGridView1.Rows[i].Cells[4].Value, dataGridView1.Rows[i].Cells[16].Value, dataGridView1.Rows[i].Cells[17].Value};
                             for (int j = 0; j < dataGridView2.Rows.Count; j++)
                             {
-                                object[] drrow2Values = { dataGridView2.Rows[j].Cells[1].Value, dataGridView2.Rows[j].Cells[5].Value};
+                                object[] drrow2Values = { dataGridView2.Rows[j].Cells[1].Value, dataGridView2.Rows[j].Cells[5].Value,dataGridView2.Rows[j].Cells[10].Value, dataGridView2.Rows[j].Cells[11].Value};
                                 if (drrow1Values[0] == drrow2Values[0] && drrow1Values[1] == drrow2Values[1])
                                 {
                                     MessageBox.Show("이미 추가된 품목입니다.");
+                                    return;
+                                }
+                                if (drrow1Values[2] != drrow2Values[2] || drrow1Values[3] != drrow2Values[3])
+                                {
+                                    MessageBox.Show("추가된 요청품목과 회사(공장)이 다른 요청품목은 추가할 수 없습니다.");
                                     return;
                                 }
                             }                                                     
@@ -189,7 +197,9 @@ namespace WindowsFormsApp1
                                     dataGridView1.Rows[i].Cells[5].Value.ToString(),
                                     dataGridView1.Rows[i].Cells[10].Value.ToString(),
                                     dataGridView1.Rows[i].Cells[11].Value.ToString(),
-                                    dataGridView1.Rows[i].Cells[9].Value.ToString()                                   
+                                    dataGridView1.Rows[i].Cells[9].Value.ToString(),
+                                    dataGridView1.Rows[i].Cells[16].Value.ToString(),
+                                    dataGridView1.Rows[i].Cells[17].Value.ToString()
                                     );
                                 dataGridView2.Columns[0].Width = 50;
                                 txtCustCode.ReadOnly = false;
@@ -245,6 +255,23 @@ namespace WindowsFormsApp1
                     bool isChecked = Convert.ToBoolean(dataGridView2.Rows[i].Cells[0].Value);
                     if (isChecked)
                     {
+                        int checkString; // 정수 이외의 숫자를 넣었는지 체크용
+                        bool checkQtyValue = int.TryParse(dataGridView2.Rows[i].Cells["발주수량"].Value.ToString(), out checkString);
+                        if (checkQtyValue)
+                        {
+                            if (checkString <= 0)
+                            {
+                                MessageBox.Show("발주수량은 0보다 큰 값을 입력해주세요.");
+                                dataGridView2.Rows[i].Cells["발주수량"].Value = dataGridView2.Rows[i].Cells["잔여수량"].Value;
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("발주수량은 숫자만 입력해주세요.");
+                            dataGridView2.Rows[i].Cells["발주수량"].Value = dataGridView2.Rows[i].Cells["잔여수량"].Value;
+                            return;
+                        }
                         checkCount++;
                     }
                 }
@@ -421,6 +448,12 @@ namespace WindowsFormsApp1
         {
             txtCustName_MouseClick(sender, e);
             txtCustCode.SelectionStart = txtCustCode.Text.Length;
+        }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("발주수량은 숫자만 입력 가능합니다.");
+            return;
         }
     }
 }

@@ -369,10 +369,17 @@ namespace WindowsFormsApp1
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            Ordno = row.Cells["발주번호"].Value.ToString();
+            try
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                Ordno = row.Cells["발주번호"].Value.ToString();
 
-            SelectDetail();
+                SelectDetail();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }          
         }
         private void select()
         {
@@ -410,6 +417,10 @@ namespace WindowsFormsApp1
                 for (int i = 1; i < dataGridView1.Columns.Count; i++)
                 {
                     dataGridView1.Columns[i].ReadOnly = true;
+                    if (i + 7 < dataGridView1.Columns.Count)
+                    {
+                        dataGridView1.Columns[i+7].Visible = false;
+                    }
                 }
                 DB.transaction.Commit();
                 DB.adapter.Dispose();

@@ -242,7 +242,39 @@ namespace WindowsFormsApp1
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("해당 품목을 불출하시겠습니까?", "안내", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {             
+            {
+                for (int j = 0; j < dataGridView2.Rows.Count; j++)
+                {
+                    int checkString; // 정수 이외의 숫자를 넣었는지 체크용
+                    bool checkQtyValue = int.TryParse(dataGridView2.Rows[j].Cells["불출처리수량"].Value.ToString(), out checkString);
+                    if (checkQtyValue)
+                    {
+                        if (checkString <= 0)
+                        {
+                            MessageBox.Show("불출처리수량은 0보다 큰 값을 입력해주세요.");
+                            dataGridView2.Rows[j].Cells["불출처리수량"].Value = dataGridView2.Rows[j].Cells["잔여요청수량"].Value;
+                            return;
+                        }
+                        else if (checkString > Convert.ToInt32(dataGridView2.Rows[j].Cells["잔여요청수량"].Value.ToString()))
+                        {
+                            MessageBox.Show("불출처리수량은 잔여요청수량보다 작은 값을 입력해주세요.");
+                            dataGridView2.Rows[j].Cells["불출처리수량"].Value = dataGridView2.Rows[j].Cells["잔여요청수량"].Value;
+                            return;
+                        }
+                        else if (checkString > Convert.ToInt32(dataGridView2.Rows[j].Cells["현재재고"].Value))
+                        {
+                            MessageBox.Show("불출처리수량은 현재재고보다 작은 수를 입력해주세요.");
+                            dataGridView2.Rows[j].Cells["불출처리수량"].Value = dataGridView2.Rows[j].Cells["잔여요청수량"].Value;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("불출처리수량은 숫자만 입력해주세요.");
+                        dataGridView2.Rows[j].Cells["불출처리수량"].Value = dataGridView2.Rows[j].Cells["잔여요청수량"].Value;
+                        return;
+                    }
+                }
                 try
                 {
                     DB.conn.Close();
@@ -271,37 +303,12 @@ namespace WindowsFormsApp1
                             DB.transaction.Commit();
                             selcnt++;
                         }                    
-                    }
-                    #region<Validation Check>
+                    }               
                     if (selcnt == 0)
                     {
                         MessageBox.Show("불출처리할 요청목록을 선택해주세요.");
                         return;
-                    }
-                    for (int i = 0; i < dataGridView2.Rows.Count; i++)
-                    {
-                        int checkString = 0; // 정수 이외의 숫자를 넣었는지 체크용
-                        bool checkQtyValue = int.TryParse(dataGridView2.Rows[i].Cells["불출처리수량"].Value.ToString(), out checkString);
-                        if (checkQtyValue)
-                        {
-                            if (checkString <= 0)
-                            {
-                                MessageBox.Show("불출처리수량은 0보다 큰 값을 입력해주세요.");
-                                return;
-                            }
-                            else if (checkString > Convert.ToInt32(dataGridView2.Rows[i].Cells["잔여요청수량"].Value.ToString()))
-                            {
-                                MessageBox.Show("불출처리수량은 잔여요청수량보다 작은 값을 입력해주세요.");
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("불출처리수량은 숫자만 입력해주세요.");
-                            return;
-                        }
-                    }
-                    #endregion
+                    }                    
                 }
                 catch (Exception)
                 {
@@ -523,7 +530,7 @@ namespace WindowsFormsApp1
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {           
             MessageBox.Show("불출처리수량은 숫자만 입력해주세요.");
-            //dataGridView2.Rows[e.RowIndex].Cells[7].Value = 0;
+            dataGridView2.Rows[e.RowIndex].Cells[7].Value = 0;
             return;
         }
     }
