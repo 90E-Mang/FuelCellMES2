@@ -44,7 +44,6 @@ namespace WindowsFormsApp1
 
             Comp.Fill(ds);
             Comp.Dispose();
-            cboSearch_CompName.Items.Add("전체");
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 cboSearch_CompName.Items.Add(dr["COMP_NAME"]);
@@ -254,43 +253,50 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboComp_Name.Text = null;
-            txtPlant_Code.Text = null;
-            txtPlant_Name.Text = null;
-            txtRemark.Text = null;
-            cboUseFlag.Text = null;
-
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-            cboComp_Name.Enabled = false;
-            txtPlant_Code.ReadOnly = true;
-
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
-            SqlConnection conn = new SqlConnection(strConn);
-
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("PM_PlantMaster_MM_S2", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter param = new SqlParameter("@COMP_NAME", SqlDbType.VarChar, 100);
-            param.Value = selectedRow.Cells[1].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            param = new SqlParameter("@PLANT_CODE", SqlDbType.VarChar, 20);
-            param.Value = selectedRow.Cells[2].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            SqlDataReader mdr = cmd.ExecuteReader();
-            while (mdr.Read())
+            try
             {
-                cboComp_Name.SelectedItem = (string)mdr["COMP_NAME"];
-                txtPlant_Code.Text        = (string)mdr["PLANT_CODE"];
-                txtPlant_Name.Text        = (mdr["PLANT_NAME"] == null) ? string.Empty : mdr["PLANT_NAME"].ToString();
-                cboUseFlag.SelectedItem   = (mdr["USEFLAG"] == null) ? string.Empty : mdr["USEFLAG"].ToString();
-                txtRemark.Text            = (mdr["REMARK"] == null) ? string.Empty : mdr["REMARK"].ToString();
+                cboComp_Name.Text = null;
+                txtPlant_Code.Text = null;
+                txtPlant_Name.Text = null;
+                txtRemark.Text = null;
+                cboUseFlag.Text = null;
+
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                cboComp_Name.Enabled = false;
+                txtPlant_Code.ReadOnly = true;
+
+                string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+                SqlConnection conn = new SqlConnection(strConn);
+
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("PM_PlantMaster_MM_S2", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter("@COMP_NAME", SqlDbType.VarChar, 100);
+                param.Value = selectedRow.Cells[1].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@PLANT_CODE", SqlDbType.VarChar, 20);
+                param.Value = selectedRow.Cells[2].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                SqlDataReader mdr = cmd.ExecuteReader();
+                while (mdr.Read())
+                {
+                    cboComp_Name.SelectedItem = (string)mdr["COMP_NAME"];
+                    txtPlant_Code.Text = (string)mdr["PLANT_CODE"];
+                    txtPlant_Name.Text = (mdr["PLANT_NAME"] == null) ? string.Empty : mdr["PLANT_NAME"].ToString();
+                    cboUseFlag.SelectedItem = (mdr["USEFLAG"] == null) ? string.Empty : mdr["USEFLAG"].ToString();
+                    txtRemark.Text = (mdr["REMARK"] == null) ? string.Empty : mdr["REMARK"].ToString();
+                }
+                mdr.Close();
+                conn.Close();
             }
-            mdr.Close();
-            conn.Close();
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }           
         }
         private DataSet GetData()
         {
