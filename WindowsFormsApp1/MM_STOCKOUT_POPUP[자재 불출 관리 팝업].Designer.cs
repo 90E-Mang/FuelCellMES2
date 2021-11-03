@@ -105,7 +105,7 @@ namespace WindowsFormsApp1
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Panel2.Controls.Add(this.panel6);
-            this.splitContainer1.Size = new System.Drawing.Size(1098, 620);
+            this.splitContainer1.Size = new System.Drawing.Size(1168, 620);
             this.splitContainer1.SplitterDistance = 276;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1094, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(1164, 160);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -169,16 +169,16 @@ namespace WindowsFormsApp1
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1094, 112);
+            this.panel1.Size = new System.Drawing.Size(1164, 112);
             this.panel1.TabIndex = 8;
             // 
             // cboProcessCode
             // 
             this.cboProcessCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProcessCode.FormattingEnabled = true;
-            this.cboProcessCode.Location = new System.Drawing.Point(721, 33);
+            this.cboProcessCode.Location = new System.Drawing.Point(737, 29);
             this.cboProcessCode.Name = "cboProcessCode";
-            this.cboProcessCode.Size = new System.Drawing.Size(188, 20);
+            this.cboProcessCode.Size = new System.Drawing.Size(174, 20);
             this.cboProcessCode.TabIndex = 74;
             // 
             // panel7
@@ -186,7 +186,7 @@ namespace WindowsFormsApp1
             this.panel7.BackColor = System.Drawing.Color.SkyBlue;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(647, 30);
+            this.panel7.Location = new System.Drawing.Point(664, 27);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(67, 24);
             this.panel7.TabIndex = 73;
@@ -196,17 +196,17 @@ namespace WindowsFormsApp1
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.SkyBlue;
             this.label9.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(18, 3);
+            this.label9.Location = new System.Drawing.Point(3, 2);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 19);
+            this.label9.Size = new System.Drawing.Size(63, 19);
             this.label9.TabIndex = 0;
-            this.label9.Text = "공정";
+            this.label9.Text = "공  정";
             // 
             // cboPlantCode
             // 
             this.cboPlantCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlantCode.FormattingEnabled = true;
-            this.cboPlantCode.Location = new System.Drawing.Point(440, 34);
+            this.cboPlantCode.Location = new System.Drawing.Point(470, 30);
             this.cboPlantCode.Name = "cboPlantCode";
             this.cboPlantCode.Size = new System.Drawing.Size(188, 20);
             this.cboPlantCode.TabIndex = 72;
@@ -216,7 +216,7 @@ namespace WindowsFormsApp1
             this.panel11.BackColor = System.Drawing.Color.SkyBlue;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.label1);
-            this.panel11.Location = new System.Drawing.Point(366, 31);
+            this.panel11.Location = new System.Drawing.Point(397, 27);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(67, 24);
             this.panel11.TabIndex = 71;
@@ -226,17 +226,17 @@ namespace WindowsFormsApp1
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SkyBlue;
             this.label1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(18, 3);
+            this.label1.Location = new System.Drawing.Point(3, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(63, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "공장";
+            this.label1.Text = "공  장";
             // 
             // cboCompanyCode
             // 
             this.cboCompanyCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCompanyCode.FormattingEnabled = true;
-            this.cboCompanyCode.Location = new System.Drawing.Point(137, 31);
+            this.cboCompanyCode.Location = new System.Drawing.Point(152, 29);
             this.cboCompanyCode.Name = "cboCompanyCode";
             this.cboCompanyCode.Size = new System.Drawing.Size(168, 20);
             this.cboCompanyCode.TabIndex = 70;
@@ -247,7 +247,7 @@ namespace WindowsFormsApp1
             this.panel12.BackColor = System.Drawing.Color.SkyBlue;
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel12.Controls.Add(this.label8);
-            this.panel12.Location = new System.Drawing.Point(64, 27);
+            this.panel12.Location = new System.Drawing.Point(79, 27);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(67, 24);
             this.panel12.TabIndex = 69;
@@ -257,15 +257,15 @@ namespace WindowsFormsApp1
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.SkyBlue;
             this.label8.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(18, 3);
+            this.label8.Location = new System.Drawing.Point(3, 2);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 19);
+            this.label8.Size = new System.Drawing.Size(63, 19);
             this.label8.TabIndex = 0;
-            this.label8.Text = "회사";
+            this.label8.Text = "회  사";
             // 
             // txtOutREQ_No
             // 
-            this.txtOutREQ_No.Location = new System.Drawing.Point(134, 69);
+            this.txtOutREQ_No.Location = new System.Drawing.Point(152, 67);
             this.txtOutREQ_No.Name = "txtOutREQ_No";
             this.txtOutREQ_No.Size = new System.Drawing.Size(171, 21);
             this.txtOutREQ_No.TabIndex = 41;
@@ -279,7 +279,7 @@ namespace WindowsFormsApp1
             this.panel10.Controls.Add(this.label5);
             this.panel10.Location = new System.Drawing.Point(11, 66);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(120, 26);
+            this.panel10.Size = new System.Drawing.Size(135, 26);
             this.panel10.TabIndex = 40;
             // 
             // label5
@@ -289,15 +289,15 @@ namespace WindowsFormsApp1
             this.label5.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(1, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 19);
+            this.label5.Size = new System.Drawing.Size(136, 19);
             this.label5.TabIndex = 0;
-            this.label5.Text = "불출 요청 번호";
+            this.label5.Text = "불출 요청번호";
             // 
             // EndDate
             // 
             this.EndDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(721, 73);
+            this.EndDate.Location = new System.Drawing.Point(737, 69);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(174, 21);
             this.EndDate.TabIndex = 36;
@@ -307,7 +307,7 @@ namespace WindowsFormsApp1
             // 
             this.StartDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(439, 73);
+            this.StartDate.Location = new System.Drawing.Point(470, 69);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(189, 21);
             this.StartDate.TabIndex = 37;
@@ -318,7 +318,7 @@ namespace WindowsFormsApp1
             this.panel8.BackColor = System.Drawing.Color.SkyBlue;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.label3);
-            this.panel8.Location = new System.Drawing.Point(658, 70);
+            this.panel8.Location = new System.Drawing.Point(699, 66);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(32, 26);
             this.panel8.TabIndex = 34;
@@ -330,18 +330,18 @@ namespace WindowsFormsApp1
             this.label3.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(1, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 19);
+            this.label3.Size = new System.Drawing.Size(31, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = " ~ ";
+            this.label3.Text = "~ ";
             // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.SkyBlue;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.label7);
-            this.panel14.Location = new System.Drawing.Point(313, 70);
+            this.panel14.Location = new System.Drawing.Point(329, 66);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(120, 26);
+            this.panel14.Size = new System.Drawing.Size(135, 26);
             this.panel14.TabIndex = 35;
             // 
             // label7
@@ -351,9 +351,9 @@ namespace WindowsFormsApp1
             this.label7.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(1, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 19);
+            this.label7.Size = new System.Drawing.Size(136, 19);
             this.label7.TabIndex = 0;
-            this.label7.Text = "불출 요청 일자";
+            this.label7.Text = "불출 요청일자";
             // 
             // panel5
             // 
@@ -365,7 +365,7 @@ namespace WindowsFormsApp1
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(932, 21);
+            this.panel5.Size = new System.Drawing.Size(1002, 21);
             this.panel5.TabIndex = 23;
             // 
             // label6
@@ -377,7 +377,7 @@ namespace WindowsFormsApp1
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 16);
             this.label6.TabIndex = 0;
-            this.label6.Text = "※ 발주 품목 선택";
+            this.label6.Text = "※ 불출 자재 선택";
             // 
             // panel3
             // 
@@ -386,7 +386,7 @@ namespace WindowsFormsApp1
             this.panel3.Controls.Add(this.SelectButton);
             this.panel3.Controls.Add(this.SaveButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(932, 0);
+            this.panel3.Location = new System.Drawing.Point(1002, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(160, 110);
             this.panel3.TabIndex = 6;
@@ -458,7 +458,7 @@ namespace WindowsFormsApp1
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1094, 239);
+            this.dataGridView2.Size = new System.Drawing.Size(1164, 239);
             this.dataGridView2.TabIndex = 9;
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
@@ -471,7 +471,7 @@ namespace WindowsFormsApp1
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1094, 97);
+            this.panel6.Size = new System.Drawing.Size(1164, 97);
             this.panel6.TabIndex = 8;
             // 
             // panel4
@@ -484,7 +484,7 @@ namespace WindowsFormsApp1
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(932, 21);
+            this.panel4.Size = new System.Drawing.Size(1002, 21);
             this.panel4.TabIndex = 22;
             // 
             // label2
@@ -496,7 +496,7 @@ namespace WindowsFormsApp1
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 16);
             this.label2.TabIndex = 0;
-            this.label2.Text = "※ 발주 품목 추가 ";
+            this.label2.Text = "※ 불출 자재 추가 ";
             // 
             // panel2
             // 
@@ -505,7 +505,7 @@ namespace WindowsFormsApp1
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.DelButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(932, 0);
+            this.panel2.Location = new System.Drawing.Point(1002, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(160, 95);
             this.panel2.TabIndex = 21;
@@ -531,7 +531,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 620);
+            this.ClientSize = new System.Drawing.Size(1168, 620);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MM_STOCKOUT_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
