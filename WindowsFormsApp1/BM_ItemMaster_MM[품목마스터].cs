@@ -160,6 +160,15 @@ namespace WindowsFormsApp1
         {
             try
             {
+                MTCmbBox.FlatStyle      = FlatStyle.Popup;
+                MTCmbBox.BackColor      = Color.Ivory;
+                UseCmbBox.FlatStyle     = FlatStyle.Popup;
+                UseCmbBox.BackColor     = Color.Ivory;
+                UWGTComBox.FlatStyle    = FlatStyle.Popup;
+                UWGTComBox.BackColor    = Color.Ivory;
+                InsCHKCmbBox.FlatStyle  = FlatStyle.Popup;
+                InsCHKCmbBox.BackColor  = Color.Ivory;
+
                 CNameBox.Text = Custname;
 
                 DB.conn.Close();
