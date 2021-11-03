@@ -421,7 +421,7 @@ namespace WindowsFormsApp1
             this.CustList.RowTemplate.Height = 23;
             this.CustList.Size = new System.Drawing.Size(702, 459);
             this.CustList.TabIndex = 0;
-            this.CustList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustList_CellClick);
+            this.CustList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustList_CellClick);
             // 
             // splitContainer2
             // 
