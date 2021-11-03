@@ -147,6 +147,7 @@ namespace WindowsFormsApp1
                 }
                 DB.sqlcmd.Parameters.AddWithValue("@ITEM_CODE", (txtItemCode.Text.Length == 0) ? "" : txtItemCode.Text);
                 DB.sqlcmd.Parameters.AddWithValue("@USEFLAG",   cboUseFlag.SelectedValue.ToString());
+                DB.sqlcmd.Parameters.AddWithValue("@LOT_NO", (txtLOTNO.Text.Length == 0) ? "" : txtLOTNO.Text);
 
                 DB.sqlcmd.ExecuteNonQuery();
                 DB.adapter = new SqlDataAdapter(DB.sqlcmd);
@@ -225,6 +226,11 @@ namespace WindowsFormsApp1
                 DB.conn.Dispose();
                 DB.conn.Close();
             }
+        }
+
+        private void txtLOTNO_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtLOTNO.SelectionStart = txtLOTNO.Text.Length;
         }
     }
 }
