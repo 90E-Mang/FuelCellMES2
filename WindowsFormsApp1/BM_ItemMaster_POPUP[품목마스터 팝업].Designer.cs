@@ -135,6 +135,7 @@ namespace WindowsFormsApp1
             // 
             // CustType2Cmb
             // 
+            this.CustType2Cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustType2Cmb.FormattingEnabled = true;
             this.CustType2Cmb.ItemHeight = 12;
             this.CustType2Cmb.Items.AddRange(new object[] {
@@ -147,6 +148,7 @@ namespace WindowsFormsApp1
             // 
             // CustType1Cmb
             // 
+            this.CustType1Cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustType1Cmb.FormattingEnabled = true;
             this.CustType1Cmb.ItemHeight = 12;
             this.CustType1Cmb.Items.AddRange(new object[] {
@@ -159,6 +161,7 @@ namespace WindowsFormsApp1
             // 
             // CustGroupCmb
             // 
+            this.CustGroupCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustGroupCmb.FormattingEnabled = true;
             this.CustGroupCmb.ItemHeight = 12;
             this.CustGroupCmb.Items.AddRange(new object[] {
@@ -351,14 +354,14 @@ namespace WindowsFormsApp1
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // Cust_POPUP
+            // BM_ItemMaster_POPUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 565);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Cust_POPUP";
+            this.Name = "BM_ItemMaster_POPUP";
             this.Text = "거래처 선택 창";
             this.Load += new System.EventHandler(this.Cust_POPUP_Load);
             this.panel3.ResumeLayout(false);
