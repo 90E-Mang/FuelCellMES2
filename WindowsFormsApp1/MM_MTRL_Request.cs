@@ -78,6 +78,11 @@ namespace WindowsFormsApp1
                 {
                     dataGridView1.Columns[i].ReadOnly = true;
                 }
+                dataGridView1.Columns["전화"].Visible = false;
+                dataGridView1.Columns["팩스"].Visible = false;
+                dataGridView1.Columns["요청자"].Visible = false;
+                dataGridView1.Columns["요청일자"].Visible = false;
+
                 DB.transaction.Commit();
                 DB.adapter.Dispose();
                 DB.sqlcmd.Dispose();
@@ -132,6 +137,10 @@ namespace WindowsFormsApp1
                 {
                     dataGridView1.Columns[i].ReadOnly = true;
                 }
+                dataGridView1.Columns["전화"].Visible = false;
+                dataGridView1.Columns["팩스"].Visible = false;
+                dataGridView1.Columns["요청자"].Visible = false;
+                dataGridView1.Columns["요청일자"].Visible = false;
 
                 DB.transaction.Commit();
                 DB.adapter.Dispose();
