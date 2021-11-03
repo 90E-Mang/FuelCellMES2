@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -55,6 +55,8 @@ namespace WindowsFormsApp1
             this.btnNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.EndDate = new System.Windows.Forms.DateTimePicker();
+            this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label54 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -130,8 +132,6 @@ namespace WindowsFormsApp1
             this.txtCust_Code = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.StartDate = new System.Windows.Forms.DateTimePicker();
-            this.EndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -405,14 +405,14 @@ namespace WindowsFormsApp1
             this.CustList.AllowUserToDeleteRows = false;
             this.CustList.AllowUserToResizeRows = false;
             this.CustList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CustList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CustList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CustList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustList.Location = new System.Drawing.Point(0, 0);
@@ -559,6 +559,26 @@ namespace WindowsFormsApp1
             this.label19.Size = new System.Drawing.Size(89, 19);
             this.label19.TabIndex = 0;
             this.label19.Text = "상세내용";
+            // 
+            // EndDate
+            // 
+            this.EndDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EndDate.Location = new System.Drawing.Point(453, 383);
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Size = new System.Drawing.Size(209, 21);
+            this.EndDate.TabIndex = 101;
+            this.EndDate.Value = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            // 
+            // StartDate
+            // 
+            this.StartDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.StartDate.Location = new System.Drawing.Point(132, 384);
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Size = new System.Drawing.Size(209, 21);
+            this.StartDate.TabIndex = 100;
+            this.StartDate.Value = new System.DateTime(2021, 9, 1, 0, 0, 0, 0);
             // 
             // panel29
             // 
@@ -1277,26 +1297,6 @@ namespace WindowsFormsApp1
             this.label18.Size = new System.Drawing.Size(129, 19);
             this.label18.TabIndex = 1;
             this.label18.Text = "기본등록사항";
-            // 
-            // StartDate
-            // 
-            this.StartDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(132, 384);
-            this.StartDate.Name = "StartDate";
-            this.StartDate.Size = new System.Drawing.Size(209, 21);
-            this.StartDate.TabIndex = 100;
-            this.StartDate.Value = new System.DateTime(2021, 9, 1, 0, 0, 0, 0);
-            // 
-            // EndDate
-            // 
-            this.EndDate.CalendarFont = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(453, 383);
-            this.EndDate.Name = "EndDate";
-            this.EndDate.Size = new System.Drawing.Size(209, 21);
-            this.EndDate.TabIndex = 101;
-            this.EndDate.Value = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             // 
             // BM_CustomerMaster_MM
             // 
