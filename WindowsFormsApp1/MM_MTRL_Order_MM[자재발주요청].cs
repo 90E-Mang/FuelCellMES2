@@ -474,7 +474,7 @@ namespace WindowsFormsApp1
                 {
                     dataGridView2.Columns[i].ReadOnly = true;
                 }
-                
+                dataGridView2.Columns["기본단위"].Visible = false;
                 DB.transaction.Commit();
                 DB.adapter.Dispose();
                 DB.sqlcmd.Dispose();
@@ -508,17 +508,18 @@ namespace WindowsFormsApp1
                         string FullPath = Path.GetFullPath(FileName);
 
                         xlApp = new Excel.Application();
-                        xlBook = xlApp.Workbooks.Open(FullPath);
+                        xlBook = xlApp.Workbooks.Open(FullPath);                       
                         xlSheet = xlBook.Worksheets["Sheet1"];
+                        xlApp.Visible = true;
 
                         // 데이터 입력  [row, colunm] 품목 위쪽 입력부 고정항목.
                         xlSheet.Cells[4, 3].value = Ordno;
-                        xlSheet.Cells[5, 3].value = "하이에어 공조";
-                        xlSheet.Cells[6, 3].value = "055-123-4567";
-                        xlSheet.Cells[7, 3].value = "055-123-4568";
-                        xlSheet.Cells[9, 4].value = "판금공장";
+                        xlSheet.Cells[5, 3].value = dataGridView1.Rows[i].Cells["회사"].Value.ToString();
+                        xlSheet.Cells[6, 3].value = dataGridView1.Rows[i].Cells["회사전화"].Value.ToString();
+                        xlSheet.Cells[7, 3].value = dataGridView1.Rows[i].Cells["회사팩스"].Value.ToString();
+                        xlSheet.Cells[9, 4].value = dataGridView1.Rows[i].Cells["공장"].Value.ToString();
                         xlSheet.Cells[9, 11].value = dataGridView1.Rows[i].Cells["거래처명"].Value.ToString();
-                        xlSheet.Cells[10, 11].value = "055-123-4567";
+                        xlSheet.Cells[10, 11].value = dataGridView1.Rows[i].Cells["거래처전화"].Value.ToString(); ;
                         xlSheet.Cells[10, 4].value = Ordno;
                         xlSheet.Cells[11, 4].value = dataGridView1.Rows[i].Cells["발주자"].Value.ToString();
                         xlSheet.Cells[12, 4].value = dataGridView1.Rows[i].Cells["발주일자"].Value.ToString();
@@ -531,6 +532,9 @@ namespace WindowsFormsApp1
                             xlSheet.Cells[15 + j, 1].value = j + 1;
                             xlSheet.Cells[15 + j, 2].value = dataGridView2.Rows[j].Cells["품목명"].Value.ToString();
                             xlSheet.Cells[15 + j, 5].value = dataGridView2.Rows[j].Cells["품목코드"].Value.ToString();
+                            xlSheet.Cells[15 + j, 6].value = "2022-01-15";
+                            xlSheet.Cells[15 + j, 8].value = dataGridView2.Rows[j].Cells["기본단위"].Value.ToString();
+                            xlSheet.Cells[15 + j, 9].value = dataGridView2.Rows[j].Cells["발주수량"].Value.ToString();
                             xlSheet.Cells[15 + j, 11].value = dataGridView2.Rows[j].Cells["단가"].Value.ToString();
                             xlSheet.Cells[15 + j, 13].value = dataGridView2.Rows[j].Cells["총 가격"].Value.ToString();
                         }
@@ -539,9 +543,9 @@ namespace WindowsFormsApp1
                         string NewFileName = $@"C:\요청서\(진)발주서_{Ordno}.xlsx";
                         string NewFullPath = Path.GetDirectoryName(FullPath);
                         xlBook.SaveAs(Path.Combine(NewFullPath, NewFileName));
-
-                        xlBook.Close();
-                        xlApp.Quit();
+                            
+                        //xlBook.Close(true);
+                        //xlApp.Quit();
                     }
                     catch (Exception ex)
                     {
