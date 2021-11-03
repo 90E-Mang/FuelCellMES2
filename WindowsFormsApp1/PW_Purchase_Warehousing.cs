@@ -278,22 +278,10 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                IN_No = row.Cells["입고번호"].Value.ToString();
+            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+            IN_No = row.Cells["입고번호"].Value.ToString();
 
-                SelectDetail();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-           
+            SelectDetail();
         }
 
         private void CustNameTxtBox_MouseClick(object sender, MouseEventArgs e)
