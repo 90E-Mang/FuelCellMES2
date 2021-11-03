@@ -1292,14 +1292,14 @@ namespace WindowsFormsApp1
             this.label18.TabIndex = 1;
             this.label18.Text = "기본등록사항";
             // 
-            // CM_CustomerMaster_MM
+            // BM_CustomerMaster_MM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1360, 618);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "CM_CustomerMaster_MM";
+            this.Name = "BM_CustomerMaster_MM";
             this.Text = "거래처 마스터";
             this.Load += new System.EventHandler(this.CM_CustomerMaster_MM_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
