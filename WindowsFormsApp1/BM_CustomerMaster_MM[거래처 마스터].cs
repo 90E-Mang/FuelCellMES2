@@ -113,7 +113,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
+                    string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -197,7 +197,7 @@ namespace WindowsFormsApp1
                 int result_value = 0;
                 try
                 {
-                    string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                    string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                     SqlConnection conn = new SqlConnection(strConn);
                     if (txtCust_Code.ReadOnly == false)
                     {
@@ -320,7 +320,7 @@ namespace WindowsFormsApp1
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
@@ -357,7 +357,7 @@ namespace WindowsFormsApp1
                 DataGridViewRow selectedRow = CustList.Rows[e.RowIndex];
                 txtCust_Code.ReadOnly = true;
 
-                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
