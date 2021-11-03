@@ -180,56 +180,64 @@ namespace WindowsFormsApp1
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (e.RowIndex >= 0)
                 {
-                    if (row.Index == e.RowIndex)
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        row.Cells[0].Value = !Convert.ToBoolean(row.Cells[0].EditedFormattedValue);
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = false;
-                    }
+                        if (row.Index == e.RowIndex)
+                        {
+                            row.Cells[0].Value = !Convert.ToBoolean(row.Cells[0].EditedFormattedValue);
+                        }
+                        else
+                        {
+                            row.Cells[0].Value = false;
+                        }
 
+                    }
                 }
+                DB.conn.Close();
+                dataGridView2.Columns.Clear();
+
+                DB.conn = new SqlConnection(DB.connectionString);
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+                //트랜잭션 시작
+                DB.transaction = DB.conn.BeginTransaction();
+                DB.sqlcmd = new SqlCommand("MM_STOCKOUT_POPUP_S4", DB.conn, DB.transaction);
+                DB.sqlcmd.CommandType = CommandType.StoredProcedure;
+
+                DB.sqlcmd.Parameters.AddWithValue("@OUT_REQ_NO", dataGridView1.Rows[e.RowIndex].Cells["불출요청번호"].Value.ToString());
+
+                DB.sqlcmd.ExecuteNonQuery();
+                DB.adapter = new SqlDataAdapter(DB.sqlcmd);
+                DataSet ds = new DataSet();
+                DB.adapter.Fill(ds, "MM_STOCKOUT_POPUP_S4");
+                dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "MM_STOCKOUT_POPUP_S4";
+                for (int i = 0; i < dataGridView2.Columns.Count; i++)
+                {
+                    dataGridView2.Columns[i].ReadOnly = true;
+                }
+                dataGridView2.Columns[7].ReadOnly = false;
+                //dataGridView2.Columns[0].Width = 130;
+                //dataGridView2.Columns[6].Width = 130;
+                //dataGridView2.Columns[7].Width = 130;
+                dataGridView2.Columns[10].Visible = false;
+                dataGridView2.Columns[11].Visible = false;
+                dataGridView2.Columns[12].Visible = false;
+                //for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                //{
+                //    dataGridView1.Rows[i].Cells["불출처리수량"].Value = Convert.ToInt32(dataGridView2.Rows[i].Cells["잔여요청수량"].Value.ToString());
+                //}
+
             }
-            DB.conn.Close();
-            dataGridView2.Columns.Clear();
-
-            DB.conn = new SqlConnection(DB.connectionString);
-            DB.conn.ConnectionString = DB.connectionString;
-            DB.conn.Open();
-            //트랜잭션 시작
-            DB.transaction = DB.conn.BeginTransaction();
-            DB.sqlcmd = new SqlCommand("MM_STOCKOUT_POPUP_S4", DB.conn, DB.transaction);
-            DB.sqlcmd.CommandType = CommandType.StoredProcedure;
-
-            DB.sqlcmd.Parameters.AddWithValue("@OUT_REQ_NO", dataGridView1.Rows[e.RowIndex].Cells["불출요청번호"].Value.ToString());
-
-            DB.sqlcmd.ExecuteNonQuery();
-            DB.adapter = new SqlDataAdapter(DB.sqlcmd);
-            DataSet ds = new DataSet();
-            DB.adapter.Fill(ds, "MM_STOCKOUT_POPUP_S4");
-            dataGridView2.DataSource = ds;
-            dataGridView2.DataMember = "MM_STOCKOUT_POPUP_S4";
-            for (int i = 0; i < dataGridView2.Columns.Count; i++)
+            catch (ArgumentOutOfRangeException)
             {
-                dataGridView2.Columns[i].ReadOnly = true;
-            }
-            dataGridView2.Columns[7].ReadOnly = false;
-            //dataGridView2.Columns[0].Width = 130;
-            //dataGridView2.Columns[6].Width = 130;
-            //dataGridView2.Columns[7].Width = 130;
-            dataGridView2.Columns[10].Visible = false;
-            dataGridView2.Columns[11].Visible = false;
-            dataGridView2.Columns[12].Visible = false;
-            //for (int i = 0; i < dataGridView2.Rows.Count; i++)
-            //{
-            //    dataGridView1.Rows[i].Cells["불출처리수량"].Value = Convert.ToInt32(dataGridView2.Rows[i].Cells["잔여요청수량"].Value.ToString());
-            //}
 
+            }
+            
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
