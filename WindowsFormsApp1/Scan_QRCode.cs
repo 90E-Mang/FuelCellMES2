@@ -26,60 +26,99 @@ namespace WindowsFormsApp1
 
         private void Scan_QRCode_Load(object sender, EventArgs e)
         {
-            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo filterInfo in filterInfoCollection)
+            try
             {
-                cboDevice.Items.Add(filterInfo.Name);
+                filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                foreach (FilterInfo filterInfo in filterInfoCollection)
+                {
+                    cboDevice.Items.Add(filterInfo.Name);
+                }
+                cboDevice.SelectedIndex = 0;
+
+                captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectedIndex].MonikerString);
+                captureDevice.NewFrame += captureDevice_NewFrame;
+                captureDevice.Start();
+                timer1.Start();
             }
-            cboDevice.SelectedIndex = 0;
+            catch (Exception)
+            {
 
-            captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectedIndex].MonikerString);
-            captureDevice.NewFrame += captureDevice_NewFrame;
-            captureDevice.Start();
-            timer1.Start();
-
+                throw;
+            }
         }
         private void captureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pictureBox.Image = (Bitmap)eventArgs.Frame.Clone();
+            try
+            {
+                pictureBox.Image = (Bitmap)eventArgs.Frame.Clone();
+
+            }
+            catch (System.InvalidOperationException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void Scan_QRCode_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureDevice.IsRunning)
+            try
             {
-                captureDevice.Stop();
+                if (captureDevice.IsRunning)
+                {
+                    captureDevice.Stop();
+                }
             }
+            catch (System.NullReferenceException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (pictureBox.Image != null)
+            try
             {
-                BarcodeReader barcodeReader = new BarcodeReader();
-                Result result = barcodeReader.Decode((Bitmap)pictureBox.Image);
-
-                if (result != null)
+                if (pictureBox.Image != null)
                 {
-                    Qrcode = result.ToString();
-                    //textQRCode.Text = result.ToString();
-                    timer1.Stop();
+                    BarcodeReader barcodeReader = new BarcodeReader();
+                    Result result = barcodeReader.Decode((Bitmap)pictureBox.Image);
 
-                    if (captureDevice.IsRunning)
+                    if (result != null)
                     {
-                        captureDevice.Stop();
+                        Qrcode = result.ToString();
+                        //textQRCode.Text = result.ToString();
+                        timer1.Stop();
+
+                        if (captureDevice.IsRunning)
+                        {
+                            captureDevice.Stop();
+                        }
+                        this.Close();
                     }
-                    this.Close();
                 }
             }
+            catch (System.NullReferenceException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectedIndex].MonikerString);
-            captureDevice.NewFrame += captureDevice_NewFrame;
-            captureDevice.Start();
-            timer1.Start();
-        }
     }
 }
