@@ -203,6 +203,7 @@ namespace WindowsFormsApp1
             // 
             // UTPCmbBox
             // 
+            this.UTPCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UTPCmbBox.FormattingEnabled = true;
             this.UTPCmbBox.Items.AddRange(new object[] {
             "Y",
@@ -444,6 +445,7 @@ namespace WindowsFormsApp1
             // 
             // DUTPCmbBox
             // 
+            this.DUTPCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DUTPCmbBox.FormattingEnabled = true;
             this.DUTPCmbBox.Items.AddRange(new object[] {
             "Y",
