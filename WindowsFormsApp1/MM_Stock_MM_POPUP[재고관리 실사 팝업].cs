@@ -66,32 +66,30 @@ namespace WindowsFormsApp1
 
                 // 두번쨰 그리드
           
-                dataGridView2.ColumnCount = 14;
+                dataGridView2.ColumnCount = 13;
                 dataGridView2.Columns[0].Name =  "회사";
                 dataGridView2.Columns[1].Name =  "공장";
-                dataGridView2.Columns[2].Name =  "LOT번호";
-                dataGridView2.Columns[3].Name =  "품목코드";
-                dataGridView2.Columns[4].Name =  "품목명";
-                dataGridView2.Columns[5].Name =  "품목유형";
-                dataGridView2.Columns[6].Name =  "규격";
-                dataGridView2.Columns[7].Name =  "현재재고";
-                dataGridView2.Columns[8].Name =  "실사 후 재고";
-                dataGridView2.Columns[9].Name =  "변경수량";
-                dataGridView2.Columns[10].Name = "기본단위";
-                dataGridView2.Columns[11].Name = "단위중량";
-                dataGridView2.Columns[12].Name = "회사코드";
-                dataGridView2.Columns[13].Name = "공장코드";
+                dataGridView2.Columns[2].Name =  "품목코드";
+                dataGridView2.Columns[3].Name =  "품목명";
+                dataGridView2.Columns[4].Name =  "품목유형";
+                dataGridView2.Columns[5].Name =  "규격";
+                dataGridView2.Columns[6].Name =  "현재재고";
+                dataGridView2.Columns[7].Name =  "실사 후 재고";
+                dataGridView2.Columns[8].Name =  "변경수량";
+                dataGridView2.Columns[9].Name =  "기본단위";
+                dataGridView2.Columns[10].Name = "단위중량";
+                dataGridView2.Columns[11].Name = "회사코드";
+                dataGridView2.Columns[12].Name = "공장코드";
 
                 foreach (DataGridViewColumn dg12Column in dataGridView2.Columns)
                 {
                     dg12Column.ReadOnly = true;
                 }
 
-                dataGridView2.Columns[8].ReadOnly = false;
+                dataGridView2.Columns[7].ReadOnly = false;
                 dataGridView2.Columns[10].Visible = false;
                 dataGridView2.Columns[11].Visible = false;
                 dataGridView2.Columns[12].Visible = false;
-                dataGridView2.Columns[13].Visible = false;
 
                 DB.transaction.Commit();
                 
@@ -136,7 +134,6 @@ namespace WindowsFormsApp1
                 {
                     DB.sqlcmd.Parameters.AddWithValue("@PLANT_CODE", (cboPlantCode.SelectedItem.ToString() == "전체") ? "" : cboPlantCode.SelectedValue.ToString());
                 }
-                DB.sqlcmd.Parameters.AddWithValue("@LOT_NO",     (txtLOTNO.Text.Length == 0)    ? "" : txtLOTNO.Text);
                 DB.sqlcmd.Parameters.AddWithValue("@ITEM_CODE",  (txtItemCode.Text.Length == 0) ? "" : txtItemCode.Text);
                 DB.sqlcmd.Parameters.AddWithValue("@ITEM_NAME",  (txtItemName.Text.Length == 0) ? "" : txtItemName.Text);
 
@@ -157,8 +154,8 @@ namespace WindowsFormsApp1
                     dataGridView1.Columns[i].ReadOnly = true;
                 }
                 dataGridView1.Columns[0].Width = 50;
+                dataGridView1.Columns[10].Visible = false;
                 dataGridView1.Columns[11].Visible = false;
-                dataGridView1.Columns[12].Visible = false;
                 DB.transaction.Commit();
                 
             }
@@ -191,21 +188,19 @@ namespace WindowsFormsApp1
                         {
                             object[] drrow1Values = 
                             { 
-                               dataGridView1.Rows[i].Cells[11].Value, 
-                               dataGridView1.Rows[i].Cells[12].Value, 
-                               dataGridView1.Rows[i].Cells[3].Value,
-                               dataGridView1.Rows[i].Cells[4].Value
+                               dataGridView1.Rows[i].Cells["회사코드"].Value, 
+                               dataGridView1.Rows[i].Cells["공장코드"].Value, 
+                               dataGridView1.Rows[i].Cells["품목코드"].Value
                             };
                             for (int j = 0; j < dataGridView2.Rows.Count; j++)
                             {
                                 object[] drrow2Values = 
                                 { 
-                                    dataGridView2.Rows[j].Cells[12].Value, 
-                                    dataGridView2.Rows[j].Cells[13].Value, 
-                                    dataGridView2.Rows[j].Cells[2].Value,
-                                    dataGridView2.Rows[j].Cells[3].Value
+                                    dataGridView2.Rows[j].Cells["회사코드"].Value, 
+                                    dataGridView2.Rows[j].Cells["공장코드"].Value, 
+                                    dataGridView2.Rows[j].Cells["품목코드"].Value
                                 };
-                                if (drrow1Values[0] == drrow2Values[0] && drrow1Values[1] == drrow2Values[1] && drrow1Values[2] == drrow2Values[2] && drrow1Values[3] == drrow2Values[3])
+                                if (drrow1Values[0] == drrow2Values[0] && drrow1Values[1] == drrow2Values[1] && drrow1Values[2] == drrow2Values[2])
                                 {
                                     MessageBox.Show("이미 추가된 실사품목입니다.");
                                     return;
@@ -214,20 +209,19 @@ namespace WindowsFormsApp1
                             try
                             {
                                 dataGridView2.Rows.Add(
-                                    dataGridView1.Rows[i].Cells[1].Value.ToString(),        // 그리드2의  0번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[2].Value.ToString(),        // 그리드2의  1번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[3].Value.ToString(),        // 그리드2의  2번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[4].Value.ToString(),        // 그리드2의  3번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[5].Value.ToString(),        // 그리드2의  4번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[6].Value.ToString(),        // 그리드2의  5번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[7].Value.ToString(),        // 그리드2의  6번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[8].Value.ToString(),        // 그리드2의  7번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[8].Value.ToString(),        // 그리드2의  8번컬럼에 삽입 
-                                    0,                                                      // 그리드2의  9번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[9].Value.ToString(),        // 그리드2의  10번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[10].Value.ToString(),        // 그리드2의  11번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[11].Value.ToString(),        // 그리드2의  12번컬럼에 삽입 
-                                    dataGridView1.Rows[i].Cells[12].Value.ToString()         // 그리드2의  13번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["회사"].Value.ToString(),           // 그리드2의  0번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["공장"].Value.ToString(),           // 그리드2의  1번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["품목코드"].Value.ToString(),        // 그리드2의  2번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["품목명"].Value.ToString(),          // 그리드2의  3번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["품목유형"].Value.ToString(),        // 그리드2의  4번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["규격"].Value.ToString(),           // 그리드2의  5번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["현재재고"].Value.ToString(),        // 그리드2의  6번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["현재재고"].Value.ToString(),        // 그리드2의  7번컬럼에 삽입 
+                                    0,                                                              // 그리드2의  8번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["기본단위"].Value.ToString(),                // 그리드2의  9번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["단위중량"].Value.ToString(),        // 그리드2의  10번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["회사코드"].Value.ToString(),        // 그리드2의  11번컬럼에 삽입 
+                                    dataGridView1.Rows[i].Cells["공장코드"].Value.ToString()        // 그리드2의  12번컬럼에 삽입 
                                     );                               
                             }
                             catch (Exception ex)
@@ -270,6 +264,11 @@ namespace WindowsFormsApp1
         {
             if (MessageBox.Show("실사 내역을 저장하시겠습니까?", "안내", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                if (dataGridView2.Rows.Count == 0)
+                {
+                    MessageBox.Show("실사 품목을 입력해주세요.");
+                    return;
+                }
                 try
                 {
                     DB.conn.Close();
@@ -284,10 +283,10 @@ namespace WindowsFormsApp1
                         try
                         {
                             int checkString = 0;
-                            bool errorCheck = int.TryParse(dataGridView2.Rows[i].Cells[8].Value.ToString(), out checkString);
+                            bool errorCheck = int.TryParse(dataGridView2.Rows[i].Cells["실사 후 재고"].Value.ToString(), out checkString);
                             if (errorCheck)
                             {
-                                if (dataGridView2.Rows[i].Cells[8].Value.ToString().Length == 0 || dataGridView2.Rows[i].Cells[8].Value == null)
+                                if (dataGridView2.Rows[i].Cells["실사 후 재고"].Value.ToString().Length == 0 || dataGridView2.Rows[i].Cells["실사 후 재고"].Value == null)
                                 {
                                     MessageBox.Show("조정수량을 입력해주세요.");
                                     return;
@@ -295,15 +294,14 @@ namespace WindowsFormsApp1
                                 DB.transaction = DB.conn.BeginTransaction();
                                 DB.sqlcmd = new SqlCommand("MM_Stock_MM_POPUP_U1", DB.conn, DB.transaction);
                                 DB.sqlcmd.CommandType = CommandType.StoredProcedure;
-                                DB.sqlcmd.Parameters.AddWithValue("@COMP_CODE", dataGridView2.Rows[i].Cells[12].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@COMP_NAME", dataGridView2.Rows[i].Cells[0].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@PLANT_CODE", dataGridView2.Rows[i].Cells[13].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@PLANT_NAME", dataGridView2.Rows[i].Cells[1].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@LOT_NO", dataGridView2.Rows[i].Cells[2].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@ITEM_CODE", dataGridView2.Rows[i].Cells[3].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@ITEM_NAME", dataGridView2.Rows[i].Cells[4].Value.ToString());
-                                DB.sqlcmd.Parameters.AddWithValue("@AFTER_QTY",   Convert.ToInt32(dataGridView2.Rows[i].Cells[8].Value.ToString()));
-                                DB.sqlcmd.Parameters.AddWithValue("@CHANGED_QTY", Convert.ToInt32(dataGridView2.Rows[i].Cells[9].Value.ToString()));
+                                DB.sqlcmd.Parameters.AddWithValue("@COMP_CODE", dataGridView2.Rows[i].Cells["회사코드"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@COMP_NAME", dataGridView2.Rows[i].Cells["회사"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@PLANT_CODE", dataGridView2.Rows[i].Cells["공장코드"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@PLANT_NAME", dataGridView2.Rows[i].Cells["공장"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@ITEM_CODE", dataGridView2.Rows[i].Cells["품목코드"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@ITEM_NAME", dataGridView2.Rows[i].Cells["품목명"].Value.ToString());
+                                DB.sqlcmd.Parameters.AddWithValue("@AFTER_QTY",   Convert.ToInt32(dataGridView2.Rows[i].Cells["실사 후 재고"].Value.ToString()));
+                                DB.sqlcmd.Parameters.AddWithValue("@CHANGED_QTY", Convert.ToInt32(dataGridView2.Rows[i].Cells["변경수량"].Value.ToString()));
                                 DB.sqlcmd.Parameters.AddWithValue("@LOGIN_ID", LoginID);
 
                                 DB.sqlcmd.ExecuteNonQuery();
@@ -469,18 +467,18 @@ namespace WindowsFormsApp1
         private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int checkString = 0;
-            bool errorCheck = int.TryParse(dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString(), out checkString);
+            bool errorCheck = int.TryParse(dataGridView2.Rows[e.RowIndex].Cells["실사 후 재고"].Value.ToString(), out checkString);
             if (errorCheck)
             {
-                int beforeQty = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString());
-                int afterQty = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString());
+                int beforeQty = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["현재재고"].Value.ToString());
+                int afterQty = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["실사 후 재고"].Value.ToString());
                
                 dataGridView2.Rows[e.RowIndex].Cells[9].Value = afterQty - beforeQty;
             }
             else
             {
                 MessageBox.Show("실사 후 재고란에는 숫자만 입력해주세요.");
-                dataGridView2.Rows[e.RowIndex].Cells[8].Value = 0;
+                dataGridView2.Rows[e.RowIndex].Cells["실사 후 재고"].Value = 0;
             }
         }
 
