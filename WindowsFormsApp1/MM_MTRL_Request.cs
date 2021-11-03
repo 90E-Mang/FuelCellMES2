@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -19,6 +20,12 @@ namespace WindowsFormsApp1
         static public string LoginID;
 
         string reqno = null;
+        string compnm = null;
+        string plantnm = null;
+        string comptel = null;
+        string compfax = null;
+        string maker = null;
+        string makedate = null;
         public MTRL_Request()
         {
             InitializeComponent();
@@ -478,161 +485,97 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Excel.Application excelApp = null;
-            Excel.Workbook wb = null;
-            Excel.Worksheet ws = null;
+            int selcnt = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                bool isChecked = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
+
+                if (isChecked)
+                {
+                    reqno       = dataGridView1.Rows[i].Cells["요청번호"].Value.ToString();
+                    compnm      = dataGridView1.Rows[i].Cells["회사 명"].Value.ToString();
+                    plantnm     = dataGridView1.Rows[i].Cells["공장"].Value.ToString();
+                    comptel     = dataGridView1.Rows[i].Cells["전화"].Value.ToString();
+                    compfax     = dataGridView1.Rows[i].Cells["팩스"].Value.ToString();
+                    maker       = dataGridView1.Rows[i].Cells["요청자"].Value.ToString();
+                    makedate    = dataGridView1.Rows[i].Cells["요청일자"].Value.ToString();
+
+                    selcnt++;
+                    SelectDetail();
+                    MakeExcel();
+                }
+            }
+            if (selcnt == 0)
+            {
+                MessageBox.Show("발주서를 출력할 발주번호를 체크해주세요");
+                reqno = string.Empty;
+                return;
+            }
+            else if (selcnt > 1)
+            {
+                MessageBox.Show("좌측 발주번호 중 하나만 체크해서 출력하세요.");
+                reqno = string.Empty;
+                return;
+            }
+            else
+            {
+                MessageBox.Show("발주서 출력이 완료되었습니다.");
+            }
+        }
+        private void MakeExcel()
+        {
+            
+            Excel.Application xlApp = null;
+            Excel.Workbook xlBook = null;
+            Excel.Worksheet xlSheet = null;
             try
             {
-                excelApp = new Excel.Application();
+                string FileName = @"C:\요청서\(진)요청서.xlsx";
+                string FullPath = Path.GetFullPath(FileName);
 
-                wb = excelApp.Workbooks.Open(@"C:\요청서\(진)요청서.xlsx");
-                // 엑셀파일을 엽니다.
-                // ExcelPath 대신 문자열도 가능합니다
-                // 예. Open(@"D:\test\test.xlsx");
+                xlApp = new Excel.Application();
+                xlBook = xlApp.Workbooks.Open(FullPath);
+                xlSheet = xlBook.Worksheets["Sheet1"];
 
-                ws = wb.Worksheets.get_Item(1) as Excel.Worksheet;
-                // 첫번째 Worksheet를 선택합니다.
+                // 데이터 입력  [row, colunm] 품목 위쪽 입력부 고정항목.
+                xlSheet.Cells[4, 3].value = reqno;
+                xlSheet.Cells[5, 3].value = compnm;
+                xlSheet.Cells[6, 3].value = comptel;
+                xlSheet.Cells[7, 3].value = compfax;
+                xlSheet.Cells[9, 4].value = plantnm;
+                xlSheet.Cells[10, 4].value = reqno;
+                xlSheet.Cells[11, 4].value = maker;
+                xlSheet.Cells[12, 4].value = makedate;
+                // 발주 상세 품목 입력
 
-                Excel.Range rng = ws.Range[ws.Cells[1, 1], ws.Cells[36, 8]];
-                // 해당 Worksheet에서 저장할 범위를 정합니다.
-                // 지금은 저장할 행렬의 크기만큼 지정합니다.
-                // 다른 예시 Excel.Range rng = ws.Range["B2", "G8"];
-
-                object[,] data = new object[36, 8];
-                // 저장할 때 사용할 object 행렬
-                //int[] ERequestNohH = new int[](4,3);
-            
-                string RequestNo = "";
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
-                    bool isChecked = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
-                    if (isChecked)
-                    {
-                        RequestNo = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                        break;
-                    }
-                }
-                try
-                {
-                    DB.conn.Close();
-                    DB.conn = new SqlConnection(DB.connectionString);
-                    DB.conn.Open();
-
-                    //트랜잭션 시작
-                    DB.transaction = DB.conn.BeginTransaction();
-                    DB.sqlcmd = new SqlCommand("MTRL_Request_Excel_H1", DB.conn, DB.transaction);
-                    DB.sqlcmd.CommandType = CommandType.StoredProcedure;
-
-                    DB.sqlcmd.Parameters.AddWithValue("@REQUESTNO", RequestNo);
-
-                    DB.sqlcmd.ExecuteNonQuery();
-
-                    DB.sqlDR = DB.sqlcmd.ExecuteReader();
-                    while (DB.sqlDR.Read())
-                    {
-                        data[4, 3] = DB.sqlDR["요청 번호"].ToString();
-                        data[5, 3] = DB.sqlDR["회사 명"].ToString();
-                        data[6, 3] = DB.sqlDR["전화"].ToString();
-                        data[7, 3] = DB.sqlDR["팩스"].ToString();
-                        data[9, 4] = DB.sqlDR["현장"].ToString();
-                        data[10, 4] = DB.sqlDR["요청 번호"].ToString();
-                        data[11, 4] = DB.sqlDR["요청자"].ToString();
-                        data[12, 4] = DB.sqlDR["요청일자"].ToString();
-                    }
-                    
-                    DB.conn.Close();
-                    DB.sqlcmd.Dispose();
-                    DB.sqlDR.Close();
-
-                }
-                catch (Exception)
-                {
-                    DB.transaction.Rollback();
-                    throw;
-                }
-                finally
-                {
-                    DB.sqlDR.Close();
-                    DB.conn.Close();
-                }
-                try
-                {
-                    DB.conn = new SqlConnection(DB.connectionString);
-                    DB.conn.Open();
-
-                    //트랜잭션 시작
-                    DB.transaction = DB.conn.BeginTransaction();
-                    DB.sqlcmd = new SqlCommand("MTRL_Request_Excel_D1", DB.conn, DB.transaction);
-                    DB.sqlcmd.CommandType = CommandType.StoredProcedure;
-
-                    DB.sqlcmd.Parameters.AddWithValue("@REQUESTNO", RequestNo);
-
-                    DB.sqlcmd.ExecuteNonQuery();
-
-                    DB.sqlDR = DB.sqlcmd.ExecuteReader();
-                    while (DB.sqlDR.Read())
-                    {
-                        int i = 14; 
-                        
-                        data[i, 1] = DB.sqlDR["No"].ToString();
-                        data[i, 2] = DB.sqlDR["거래처"].ToString();
-                        data[i, 3] = DB.sqlDR["품명"].ToString();
-                        data[i, 4] = DB.sqlDR["품번"].ToString();
-                        data[i, 6] = DB.sqlDR["단위"].ToString();
-                        data[i, 7] = DB.sqlDR["수량"].ToString();
-                        data[i, 8] = (DB.sqlDR["비고"] == null)?"": DB.sqlDR["비고"].ToString();
-                        i++;
-                    }
-                    
-                    DB.conn.Close();
-                    DB.sqlcmd.Dispose();
-                    DB.sqlDR.Close();
-
-                }
-                catch (Exception)
-                {
-                    DB.transaction.Rollback();
-                    throw;
-                }
-                finally
-                {
-                    DB.sqlDR.Close();
-                    DB.conn.Close();
+                    xlSheet.Cells[15 + j, 1].value = j + 1;
+                    xlSheet.Cells[15 + j, 2].value = dataGridView2.Rows[j].Cells["품목명"].Value.ToString();
+                    xlSheet.Cells[15 + j, 4].value = dataGridView2.Rows[j].Cells["품목코드"].Value.ToString();
+                    xlSheet.Cells[15 + j, 7].value = dataGridView2.Rows[j].Cells["단위"].Value.ToString();
+                    xlSheet.Cells[15 + j, 8].value = dataGridView2.Rows[j].Cells["수량"].Value.ToString();
                 }
 
-                rng.Value = data;
-                // data를 불러온 엑셀파일에 적용시킵니다. 아직 완료 X
-                string path = @"C:\요청서\(진)요청서.xlsx";
-                if (path != null)
-                {
-                    // path는 새로 저장될 엑셀파일의 경로입니다.
-                    // 따로 지정해준다면, "다른이름으로 저장" 의 역할을 합니다.
-                    // 상대경로도 가능합니다. (예. "secondExcel.xlsx")
-                    wb.SaveCopyAs(@"C:\요청서\요청서" + RequestNo + ".xlsx");
-                }
+                string NewFileName = $@"C:\요청서\(진)요청서_{reqno}.xlsx";
+                string NewFullPath = Path.GetDirectoryName(FullPath);
+                xlBook.SaveAs(Path.Combine(NewFullPath, NewFileName));
 
-                else
-                {
-                    // 따로 저장하지 않는다면 지금 파일에 그대로 저장합니다.
-                    wb.Save();
-                }
-
-
-                wb.Close(false);
-                excelApp.Quit();
+                xlBook.Close();
+                xlApp.Quit();
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
-                ReleaseExcelObject(ws);
-                ReleaseExcelObject(wb);
-                ReleaseExcelObject(excelApp);
+                ReleaseExcelObject(xlSheet);
+                ReleaseExcelObject(xlBook);
+                ReleaseExcelObject(xlApp);
             }
-
         }
+
         private static void ReleaseExcelObject(object obj)
         {
             try
