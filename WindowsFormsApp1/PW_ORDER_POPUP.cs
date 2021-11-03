@@ -452,6 +452,10 @@ namespace WindowsFormsApp1
 
         private void ScanBtn_Click(object sender, EventArgs e)
         {
+            Scan_QRCode scan_QRCode = new Scan_QRCode();
+            scan_QRCode.ShowDialog();
+            QRTxtBox.Text = Scan_QRCode.Qrcode;
+
 
         }
     }
