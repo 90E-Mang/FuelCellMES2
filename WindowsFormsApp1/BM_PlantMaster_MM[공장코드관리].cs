@@ -25,8 +25,26 @@ namespace WindowsFormsApp1
         public event FormClosed FormCloseEvent;
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            this.FormCloseEvent("공장 코드 관리");
-            this.Close();
+            TabControl tc = (TabControl)sender;
+            MainScreen.tabindex = tc.SelectedIndex;
+
+            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+            tc.TabPages.Remove(TabP);
+
+
+
+            //MessageBox.Show(TabP.Text);
+            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
+            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
+
+            //탭페이지를 앞으로 한칸씩땡긴다.
+            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
+            {
+                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
+                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+                Common.DICT_REMOVE_INDEX.Remove(tempstring);
+                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
+            }
 
         }
 
@@ -34,7 +52,7 @@ namespace WindowsFormsApp1
         private void PM_PlantMaster_MM_Load(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+            string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();
@@ -44,7 +62,6 @@ namespace WindowsFormsApp1
 
             Comp.Fill(ds);
             Comp.Dispose();
-            cboSearch_CompName.Items.Add("전체");
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 cboSearch_CompName.Items.Add(dr["COMP_NAME"]);
@@ -114,7 +131,7 @@ namespace WindowsFormsApp1
                 int result_value = 0;
                 try
                 {
-                    string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+                    string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                     SqlConnection conn = new SqlConnection(strConn);
                     if ((txtPlant_Code.ReadOnly == false) && (cboComp_Name.Enabled = true))
                     {
@@ -200,7 +217,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211";
+                    string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -248,56 +265,82 @@ namespace WindowsFormsApp1
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            TabControl tc = (TabControl)sender;
+            MainScreen.tabindex = tc.SelectedIndex;
+
+            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+            tc.TabPages.Remove(TabP);
+
+
+
+            //MessageBox.Show(TabP.Text);
+            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
+            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
+
+            //탭페이지를 앞으로 한칸씩땡긴다.
+            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
+            {
+                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
+                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+                Common.DICT_REMOVE_INDEX.Remove(tempstring);
+                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
+            }
         }
         
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboComp_Name.Text = null;
-            txtPlant_Code.Text = null;
-            txtPlant_Name.Text = null;
-            txtRemark.Text = null;
-            cboUseFlag.Text = null;
-
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-            cboComp_Name.Enabled = false;
-            txtPlant_Code.ReadOnly = true;
-
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
-            SqlConnection conn = new SqlConnection(strConn);
-
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("PM_PlantMaster_MM_S2", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter param = new SqlParameter("@COMP_NAME", SqlDbType.VarChar, 100);
-            param.Value = selectedRow.Cells[1].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            param = new SqlParameter("@PLANT_CODE", SqlDbType.VarChar, 20);
-            param.Value = selectedRow.Cells[2].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            SqlDataReader mdr = cmd.ExecuteReader();
-            while (mdr.Read())
+            try
             {
-                cboComp_Name.SelectedItem = (string)mdr["COMP_NAME"];
-                txtPlant_Code.Text        = (string)mdr["PLANT_CODE"];
-                txtPlant_Name.Text        = (mdr["PLANT_NAME"] == null) ? string.Empty : mdr["PLANT_NAME"].ToString();
-                cboUseFlag.SelectedItem   = (mdr["USEFLAG"] == null) ? string.Empty : mdr["USEFLAG"].ToString();
-                txtRemark.Text            = (mdr["REMARK"] == null) ? string.Empty : mdr["REMARK"].ToString();
+                cboComp_Name.Text = null;
+                txtPlant_Code.Text = null;
+                txtPlant_Name.Text = null;
+                txtRemark.Text = null;
+                cboUseFlag.Text = null;
+
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                cboComp_Name.Enabled = false;
+                txtPlant_Code.ReadOnly = true;
+
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                SqlConnection conn = new SqlConnection(strConn);
+
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("PM_PlantMaster_MM_S2", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter("@COMP_NAME", SqlDbType.VarChar, 100);
+                param.Value = selectedRow.Cells[1].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@PLANT_CODE", SqlDbType.VarChar, 20);
+                param.Value = selectedRow.Cells[2].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                SqlDataReader mdr = cmd.ExecuteReader();
+                while (mdr.Read())
+                {
+                    cboComp_Name.SelectedItem = (string)mdr["COMP_NAME"];
+                    txtPlant_Code.Text = (string)mdr["PLANT_CODE"];
+                    txtPlant_Name.Text = (mdr["PLANT_NAME"] == null) ? string.Empty : mdr["PLANT_NAME"].ToString();
+                    cboUseFlag.SelectedItem = (mdr["USEFLAG"] == null) ? string.Empty : mdr["USEFLAG"].ToString();
+                    txtRemark.Text = (mdr["REMARK"] == null) ? string.Empty : mdr["REMARK"].ToString();
+                }
+                mdr.Close();
+                conn.Close();
             }
-            mdr.Close();
-            conn.Close();
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }           
         }
         private DataSet GetData()
         {
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();

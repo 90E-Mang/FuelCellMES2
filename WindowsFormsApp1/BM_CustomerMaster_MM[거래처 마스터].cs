@@ -26,8 +26,26 @@ namespace WindowsFormsApp1
         public event FormClosed FormCloseEvent;
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            this.FormCloseEvent("거래처 마스터");
-            this.Close();
+            TabControl tc = (TabControl)sender;
+            MainScreen.tabindex = tc.SelectedIndex;
+
+            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+            tc.TabPages.Remove(TabP);
+
+
+
+            //MessageBox.Show(TabP.Text);
+            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
+            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
+
+            //탭페이지를 앞으로 한칸씩땡긴다.
+            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
+            {
+                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
+                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+                Common.DICT_REMOVE_INDEX.Remove(tempstring);
+                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
+            }
 
         }
         private void CM_CustomerMaster_MM_Load(object sender, EventArgs e)
@@ -113,7 +131,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
+                    string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -197,7 +215,7 @@ namespace WindowsFormsApp1
                 int result_value = 0;
                 try
                 {
-                    string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                    string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                     SqlConnection conn = new SqlConnection(strConn);
                     if (txtCust_Code.ReadOnly == false)
                     {
@@ -220,9 +238,9 @@ namespace WindowsFormsApp1
 
                         CustInsert.Parameters.AddWithValue("@CUST_CODE",txtCust_Code.Text);
                         CustInsert.Parameters.AddWithValue("@CUST_NAME",txtCust_Name.Text);
-                        CustInsert.Parameters.AddWithValue("@CUST_GROUP",(cboCust_Group.SelectedItem == null) ? "" : cboCust_Group.SelectedItem.ToString());
-                        CustInsert.Parameters.AddWithValue("@CUST_TYPE1",(cboCust_Type1.SelectedItem == null) ? "" : cboCust_Type1.SelectedItem.ToString());
-                        CustInsert.Parameters.AddWithValue("@CUST_TYPE2",(cboCust_Type2.SelectedItem == null) ? "" : cboCust_Type2.SelectedItem.ToString());
+                        CustInsert.Parameters.AddWithValue("@CUST_GROUP",(cboCust_Group.SelectedValue == null) ? "" : cboCust_Group.SelectedValue.ToString());
+                        CustInsert.Parameters.AddWithValue("@CUST_TYPE1",(cboCust_Type1.SelectedValue == null) ? "" : cboCust_Type1.SelectedValue.ToString());
+                        CustInsert.Parameters.AddWithValue("@CUST_TYPE2",(cboCust_Type2.SelectedValue == null) ? "" : cboCust_Type2.SelectedValue.ToString());
                         CustInsert.Parameters.AddWithValue("@CUST_ABBR",txtCust_ABBR.Text);
                         CustInsert.Parameters.AddWithValue("@CUST_NAME_ENG",txtCust_EngName.Text);
                         CustInsert.Parameters.AddWithValue("@REGISTER_NO",txtRegister_No.Text);
@@ -236,10 +254,10 @@ namespace WindowsFormsApp1
                         CustInsert.Parameters.AddWithValue("@CUST_ZIP",txtCust_Zip.Text);
                         CustInsert.Parameters.AddWithValue("@CUST_AREA_NAME",txtCust_Area.Text);
                         CustInsert.Parameters.AddWithValue("@CUST_ADDR",txtCust_Address.Text);
-                        CustInsert.Parameters.AddWithValue("@BANK_NAME", (cboCustBank.SelectedItem == null) ? "" : cboCustBank.SelectedItem.ToString());
+                        CustInsert.Parameters.AddWithValue("@BANK_NAME", (cboCustBank.SelectedValue == null) ? "" : cboCustBank.SelectedValue.ToString());
                         CustInsert.Parameters.AddWithValue("@BANK_NO",txtBankAccount.Text);
                         CustInsert.Parameters.AddWithValue("@ACCOUNT_OWNER",txtAccountOwner.Text);
-                        CustInsert.Parameters.AddWithValue("@BIZ_STATUS", (cboUseFlag.SelectedItem == null) ? "" : cboUseFlag.SelectedItem.ToString());
+                        CustInsert.Parameters.AddWithValue("@BIZ_STATUS", (cboUseFlag.SelectedValue == null) ? "" : cboUseFlag.SelectedValue.ToString());
                         CustInsert.Parameters.AddWithValue("@CUST_END_CAUSE", txtEndReason.Text);
 
                         CustInsert.Parameters.Add("@ERROR_CODE", SqlDbType.Int);
@@ -259,9 +277,9 @@ namespace WindowsFormsApp1
 
                         CustUpdate.Parameters.AddWithValue("@CUST_CODE", txtCust_Code.Text);
                         CustUpdate.Parameters.AddWithValue("@CUST_NAME",txtCust_Name.Text);
-                        CustUpdate.Parameters.AddWithValue("@CUST_GROUP",cboCust_Group.SelectedItem.ToString());
-                        CustUpdate.Parameters.AddWithValue("@CUST_TYPE1",cboCust_Type1.SelectedItem.ToString());
-                        CustUpdate.Parameters.AddWithValue("@CUST_TYPE2",cboCust_Type2.SelectedItem.ToString());
+                        CustUpdate.Parameters.AddWithValue("@CUST_GROUP",cboCust_Group.SelectedValue.ToString());
+                        CustUpdate.Parameters.AddWithValue("@CUST_TYPE1",cboCust_Type1.SelectedValue.ToString());
+                        CustUpdate.Parameters.AddWithValue("@CUST_TYPE2",cboCust_Type2.SelectedValue.ToString());
                         CustUpdate.Parameters.AddWithValue("@CUST_ABBR",txtCust_ABBR.Text);
                         CustUpdate.Parameters.AddWithValue("@CUST_NAME_ENG",txtCust_EngName.Text);
                         CustUpdate.Parameters.AddWithValue("@REGISTER_NO",txtRegister_No.Text);
@@ -275,10 +293,10 @@ namespace WindowsFormsApp1
                         CustUpdate.Parameters.AddWithValue("@CUST_ZIP",txtCust_Zip.Text);
                         CustUpdate.Parameters.AddWithValue("@CUST_AREA_NAME",txtCust_Area.Text);
                         CustUpdate.Parameters.AddWithValue("@CUST_ADDR",txtCust_Address.Text);
-                        CustUpdate.Parameters.AddWithValue("@BANK_NAME",(cboCustBank.SelectedItem == null) ? "" : cboCustBank.SelectedItem.ToString());
+                        CustUpdate.Parameters.AddWithValue("@BANK_NAME",(cboCustBank.SelectedValue == null) ? "" : cboCustBank.SelectedValue.ToString());
                         CustUpdate.Parameters.AddWithValue("@BANK_NO",txtBankAccount.Text);
                         CustUpdate.Parameters.AddWithValue("@ACCOUNT_OWNER",txtAccountOwner.Text);
-                        CustUpdate.Parameters.AddWithValue("@BIZ_STATUS",(cboUseFlag.SelectedItem == null) ? "" : cboUseFlag.SelectedItem.ToString());
+                        CustUpdate.Parameters.AddWithValue("@BIZ_STATUS",(cboUseFlag.SelectedValue == null) ? "" : cboUseFlag.SelectedValue.ToString());
                         CustUpdate.Parameters.AddWithValue("@CUST_END_CAUSE",txtEndReason.Text);
                        
                         conn.Open();
@@ -320,7 +338,7 @@ namespace WindowsFormsApp1
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
@@ -346,59 +364,66 @@ namespace WindowsFormsApp1
 
         private void CustList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboCust_Group.Text = null;
-            cboCust_Type1.Text = null;
-            cboCust_Type2.Text = null;
-            cboCustBank.Text = null;
-            cboUseFlag.Text = null;
-
-            DataGridViewRow selectedRow = CustList.Rows[e.RowIndex];
-            txtCust_Code.ReadOnly = true;          
-
-            string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
-            SqlConnection conn = new SqlConnection(strConn);
-
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("CM_CustomerMaster_MM_S2", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter param = new SqlParameter("@CUST_CODE", SqlDbType.VarChar, 20);
-            param.Value = selectedRow.Cells[1].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            param = new SqlParameter("@CUST_NAME", SqlDbType.VarChar, 100);
-            param.Value = selectedRow.Cells[2].Value.ToString();
-            cmd.Parameters.Add(param);
-
-            SqlDataReader mdr = cmd.ExecuteReader();
-            while (mdr.Read())
+            try
             {
-                txtCust_Code.Text          =  mdr["CUST_CODE"].ToString();
-                txtCust_Name.Text          =  mdr["CUST_NAME"].ToString();
-                cboCust_Group.Text         =  mdr["CUST_GROUP"].ToString();
-                cboCust_Type1.Text         =  mdr["CUST_TYPE1"].ToString();
-                cboCust_Type2.Text         =  mdr["CUST_TYPE2"].ToString();
-                txtCust_ABBR.Text          = (mdr["CUST_ABBR"] == null) ? string.Empty : mdr["CUST_ABBR"].ToString();
-                txtCust_EngName.Text       = (mdr["CUST_NAME_ENG"] == null) ? string.Empty : mdr["CUST_NAME_ENG"].ToString();
-                txtRegister_No.Text        = (mdr["REGISTER_NO"] == null) ? string.Empty : mdr["REGISTER_NO"].ToString();
-                txtCorporate_No.Text       = (mdr["CORPORATE_NO"] == null) ? string.Empty : mdr["CORPORATE_NO"].ToString(); ;
-                txtPresident_Name.Text     = (mdr["PRESIDENT_NAME"] == null) ? string.Empty : mdr["PRESIDENT_NAME"].ToString();
-                txtEmail.Text              = (mdr["CUST_EMAIL"] == null) ? string.Empty : mdr["CUST_EMAIL"].ToString();
-                txtComp_Type.Text          = (mdr["BIZ_TYPE"] == null) ? string.Empty : mdr["BIZ_TYPE"].ToString();
-                txtComp_Industy.Text       = (mdr["BIZ_INDUSTY"] == null) ? string.Empty : mdr["BIZ_INDUSTY"].ToString();
-                txtCust_Tel.Text           = (mdr["CUST_TEL"] == null) ? string.Empty : mdr["CUST_TEL"].ToString();
-                txtCust_Fax.Text           = (mdr["CUST_FAX"] == null) ? string.Empty : mdr["CUST_FAX"].ToString();
-                txtCust_Zip.Text           = (mdr["CUST_ZIP"] == null) ? string.Empty : mdr["CUST_ZIP"].ToString();
-                txtCust_Address.Text       = (mdr["CUST_ADDR"] == null) ? string.Empty : mdr["CUST_ADDR"].ToString();
-                cboCustBank.SelectedItem   = (mdr["BANK_NAME"] == null) ? string.Empty : mdr["BANK_NAME"].ToString();
-                txtBankAccount.Text        = (mdr["BANK_NO"] == null) ? string.Empty : mdr["BANK_NO"].ToString();
-                txtAccountOwner.Text       = (mdr["ACCOUNT_OWNER"] == null) ? string.Empty : mdr["ACCOUNT_OWNER"].ToString();
-                cboUseFlag.SelectedItem    = (mdr["BIZ_STATUS"] == null) ? string.Empty : mdr["BIZ_STATUS"].ToString();
-                txtEndReason.Text          = (mdr["CUST_END_CAUSE"] == null) ? string.Empty : mdr["CUST_END_CAUSE"].ToString();
+                cboCust_Group.Text = null;
+                cboCust_Type1.Text = null;
+                cboCust_Type2.Text = null;
+                cboCustBank.Text = null;
+                cboUseFlag.Text = null;
+
+                DataGridViewRow selectedRow = CustList.Rows[e.RowIndex];
+                txtCust_Code.ReadOnly = true;
+
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                SqlConnection conn = new SqlConnection(strConn);
+
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("CM_CustomerMaster_MM_S2", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter("@CUST_CODE", SqlDbType.VarChar, 20);
+                param.Value = selectedRow.Cells[1].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@CUST_NAME", SqlDbType.VarChar, 100);
+                param.Value = selectedRow.Cells[2].Value.ToString();
+                cmd.Parameters.Add(param);
+
+                SqlDataReader mdr = cmd.ExecuteReader();
+                while (mdr.Read())
+                {
+                    txtCust_Code.Text = mdr["CUST_CODE"].ToString();
+                    txtCust_Name.Text = mdr["CUST_NAME"].ToString();
+                    cboCust_Group.Text = mdr["CUST_GROUP"].ToString();
+                    cboCust_Type1.Text = mdr["CUST_TYPE1"].ToString();
+                    cboCust_Type2.Text = mdr["CUST_TYPE2"].ToString();
+                    txtCust_ABBR.Text = (mdr["CUST_ABBR"] == null) ? string.Empty : mdr["CUST_ABBR"].ToString();
+                    txtCust_EngName.Text = (mdr["CUST_NAME_ENG"] == null) ? string.Empty : mdr["CUST_NAME_ENG"].ToString();
+                    txtRegister_No.Text = (mdr["REGISTER_NO"] == null) ? string.Empty : mdr["REGISTER_NO"].ToString();
+                    txtCorporate_No.Text = (mdr["CORPORATE_NO"] == null) ? string.Empty : mdr["CORPORATE_NO"].ToString(); ;
+                    txtPresident_Name.Text = (mdr["PRESIDENT_NAME"] == null) ? string.Empty : mdr["PRESIDENT_NAME"].ToString();
+                    txtEmail.Text = (mdr["CUST_EMAIL"] == null) ? string.Empty : mdr["CUST_EMAIL"].ToString();
+                    txtComp_Type.Text = (mdr["BIZ_TYPE"] == null) ? string.Empty : mdr["BIZ_TYPE"].ToString();
+                    txtComp_Industy.Text = (mdr["BIZ_INDUSTY"] == null) ? string.Empty : mdr["BIZ_INDUSTY"].ToString();
+                    txtCust_Tel.Text = (mdr["CUST_TEL"] == null) ? string.Empty : mdr["CUST_TEL"].ToString();
+                    txtCust_Fax.Text = (mdr["CUST_FAX"] == null) ? string.Empty : mdr["CUST_FAX"].ToString();
+                    txtCust_Zip.Text = (mdr["CUST_ZIP"] == null) ? string.Empty : mdr["CUST_ZIP"].ToString();
+                    txtCust_Address.Text = (mdr["CUST_ADDR"] == null) ? string.Empty : mdr["CUST_ADDR"].ToString();
+                    cboCustBank.SelectedItem = (mdr["BANK_NAME"] == null) ? string.Empty : mdr["BANK_NAME"].ToString();
+                    txtBankAccount.Text = (mdr["BANK_NO"] == null) ? string.Empty : mdr["BANK_NO"].ToString();
+                    txtAccountOwner.Text = (mdr["ACCOUNT_OWNER"] == null) ? string.Empty : mdr["ACCOUNT_OWNER"].ToString();
+                    cboUseFlag.SelectedItem = (mdr["BIZ_STATUS"] == null) ? string.Empty : mdr["BIZ_STATUS"].ToString();
+                    txtEndReason.Text = (mdr["CUST_END_CAUSE"] == null) ? string.Empty : mdr["CUST_END_CAUSE"].ToString();
+                }
+                mdr.Close();
+                conn.Close();
             }
-            mdr.Close();
-            conn.Close();
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
         private void CombMaster()
         {

@@ -25,9 +25,26 @@ namespace WindowsFormsApp1
         public event FormClosed FormCloseEvent;
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            this.FormCloseEvent("회사 코드 관리");
-            this.Close();
+            TabControl tc = (TabControl)sender;
+            MainScreen.tabindex = tc.SelectedIndex;
 
+            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+            tc.TabPages.Remove(TabP);
+
+
+
+            //MessageBox.Show(TabP.Text);
+            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
+            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
+
+            //탭페이지를 앞으로 한칸씩땡긴다.
+            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
+            {
+                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
+                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+                Common.DICT_REMOVE_INDEX.Remove(tempstring);
+                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
+            }
         }
 
         private void btnDoSearch_Click(object sender, EventArgs e)
@@ -56,7 +73,7 @@ namespace WindowsFormsApp1
         private void CompanyList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = CompanyList.SelectedRows[0];
-            string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; ;
+            string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();
@@ -88,7 +105,7 @@ namespace WindowsFormsApp1
                 txtCompany_Tel.Text     = (string)mdr["COMP_TEL"];
                 txtCompany_Fax.Text     = (string)mdr["COMP_FAX"];
                 txtCompany_Area.Text    = (string)mdr["COMP_AREA_NAME"];
-                cboUseFlag.SelectedItem = (string)mdr["USE_YN"];
+                cboUseFlag.Text         = (string)mdr["USE_YN"];
             }
             mdr.Close();
             conn.Close();
@@ -118,7 +135,7 @@ namespace WindowsFormsApp1
             if (result == DialogResult.Yes)
             {
                 string COMP_CD = txtCompany_Code.Text;
-                string connectionString = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211";
+                string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                 SqlConnection sqlConn = new SqlConnection(connectionString);
                 int rowIndex = CompanyList.CurrentRow.Index;
                 try
@@ -206,7 +223,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211";
+                    string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -253,7 +270,26 @@ namespace WindowsFormsApp1
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            TabControl tc = (TabControl)sender;
+            MainScreen.tabindex = tc.SelectedIndex;
+
+            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+            tc.TabPages.Remove(TabP);
+
+
+
+            //MessageBox.Show(TabP.Text);
+            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
+            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
+
+            //탭페이지를 앞으로 한칸씩땡긴다.
+            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
+            {
+                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
+                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+                Common.DICT_REMOVE_INDEX.Remove(tempstring);
+                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
+            }
         }
         private DataSet GetData()
         {
@@ -261,7 +297,7 @@ namespace WindowsFormsApp1
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=222.235.141.8; Initial Catalog=HIAIRMES;User ID=kfqb;Password=2211"; 
+                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; 
                 SqlConnection conn = new SqlConnection(strConn);
                 if (findCompany == "" || findCompany.Length == 0 || findCompany == " ")
                 {

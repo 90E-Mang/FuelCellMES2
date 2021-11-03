@@ -1134,6 +1134,7 @@ namespace WindowsFormsApp1
             // 
             // cboUseFlag
             // 
+            this.cboUseFlag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUseFlag.FormattingEnabled = true;
             this.cboUseFlag.Location = new System.Drawing.Point(453, 357);
             this.cboUseFlag.Name = "cboUseFlag";
@@ -1156,6 +1157,7 @@ namespace WindowsFormsApp1
             // 
             // cboCustBank
             // 
+            this.cboCustBank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustBank.FormattingEnabled = true;
             this.cboCustBank.Location = new System.Drawing.Point(132, 331);
             this.cboCustBank.Name = "cboCustBank";

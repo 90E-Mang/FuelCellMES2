@@ -50,9 +50,6 @@ namespace WindowsFormsApp1
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDoSearch = new System.Windows.Forms.Button();
-            this.txtLOTNO = new System.Windows.Forms.TextBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -64,7 +61,6 @@ namespace WindowsFormsApp1
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -97,8 +93,6 @@ namespace WindowsFormsApp1
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.splitContainer1.Panel1.Controls.Add(this.txtLOTNO);
-            this.splitContainer1.Panel1.Controls.Add(this.panel12);
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.Controls.Add(this.btnDoBalance);
             this.splitContainer1.Panel1.Controls.Add(this.cboUseFlag);
@@ -187,7 +181,7 @@ namespace WindowsFormsApp1
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(825, 95);
+            this.txtItemName.Location = new System.Drawing.Point(500, 101);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(189, 21);
@@ -199,7 +193,7 @@ namespace WindowsFormsApp1
             this.panel6.BackColor = System.Drawing.Color.SkyBlue;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(735, 95);
+            this.panel6.Location = new System.Drawing.Point(411, 98);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(83, 24);
             this.panel6.TabIndex = 63;
@@ -217,10 +211,10 @@ namespace WindowsFormsApp1
             // 
             // txtItemCode
             // 
-            this.txtItemCode.Location = new System.Drawing.Point(499, 95);
+            this.txtItemCode.Location = new System.Drawing.Point(154, 101);
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.ReadOnly = true;
-            this.txtItemCode.Size = new System.Drawing.Size(188, 21);
+            this.txtItemCode.Size = new System.Drawing.Size(212, 21);
             this.txtItemCode.TabIndex = 62;
             this.txtItemCode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtItemCode_MouseClick);
             // 
@@ -229,7 +223,7 @@ namespace WindowsFormsApp1
             this.panel4.BackColor = System.Drawing.Color.SkyBlue;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(411, 92);
+            this.panel4.Location = new System.Drawing.Point(66, 98);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(82, 24);
             this.panel4.TabIndex = 61;
@@ -293,9 +287,9 @@ namespace WindowsFormsApp1
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(45, 55);
+            this.panel1.Location = new System.Drawing.Point(66, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(103, 24);
+            this.panel1.Size = new System.Drawing.Size(82, 24);
             this.panel1.TabIndex = 54;
             // 
             // label1
@@ -303,7 +297,7 @@ namespace WindowsFormsApp1
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SkyBlue;
             this.label1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(65, 1);
+            this.label1.Location = new System.Drawing.Point(43, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 0;
@@ -321,35 +315,6 @@ namespace WindowsFormsApp1
             this.btnDoSearch.Text = "조회";
             this.btnDoSearch.UseVisualStyleBackColor = false;
             this.btnDoSearch.Click += new System.EventHandler(this.btnDoSearch_Click_1);
-            // 
-            // txtLOTNO
-            // 
-            this.txtLOTNO.Location = new System.Drawing.Point(154, 95);
-            this.txtLOTNO.Name = "txtLOTNO";
-            this.txtLOTNO.Size = new System.Drawing.Size(212, 21);
-            this.txtLOTNO.TabIndex = 77;
-            this.txtLOTNO.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLOTNO_MouseClick);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.label13);
-            this.panel12.Location = new System.Drawing.Point(45, 92);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(103, 24);
-            this.panel12.TabIndex = 76;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.SkyBlue;
-            this.label13.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(23, 2);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 19);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "LOT 번호";
             // 
             // MM_Stock_MM
             // 
@@ -378,8 +343,6 @@ namespace WindowsFormsApp1
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,8 +370,5 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnDoBalance;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLOTNO;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label13;
     }
 }
