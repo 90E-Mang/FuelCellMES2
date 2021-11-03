@@ -99,11 +99,14 @@ namespace WindowsFormsApp1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 97);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(452, 507);
             this.dataGridView1.TabIndex = 9;
@@ -257,11 +260,14 @@ namespace WindowsFormsApp1
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 97);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(995, 507);
             this.dataGridView2.TabIndex = 9;
             // 
@@ -447,13 +453,13 @@ namespace WindowsFormsApp1
             this.DUTPCmbBox.Size = new System.Drawing.Size(121, 20);
             this.DUTPCmbBox.TabIndex = 10;
             // 
-            // CommCodeM
+            // BM_CommCode_MM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1459, 608);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "CommCodeM";
+            this.Name = "BM_CommCode_MM";
             this.Text = "공통 코드 관리";
             this.Load += new System.EventHandler(this.CommCodeMLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);
