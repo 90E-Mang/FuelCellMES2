@@ -270,10 +270,22 @@ namespace WindowsFormsApp1
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-            reqno = row.Cells["요청 번호"].Value.ToString();
+            try
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                reqno = row.Cells["요청 번호"].Value.ToString();
 
-            SelectDetail();
+                SelectDetail();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         //수정 버튼
