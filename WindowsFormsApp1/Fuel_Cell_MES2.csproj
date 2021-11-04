@@ -200,7 +200,6 @@
     <Compile Include="BM_ItemMaster_POPUP[품목마스터 팝업].Designer.cs">
       <DependentUpon>BM_ItemMaster_POPUP[품목마스터 팝업].cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSearchZip.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="BM_ItemMaster_MM[품목마스터].cs">
       <SubType>Form</SubType>
