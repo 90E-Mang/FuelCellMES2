@@ -341,6 +341,7 @@ namespace WindowsFormsApp1
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.BackColor = System.Drawing.Color.LightBlue;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.Location = new System.Drawing.Point(633, 46);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(66, 42);
@@ -354,6 +355,7 @@ namespace WindowsFormsApp1
             this.btnDoSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoSearch.BackColor = System.Drawing.Color.LightBlue;
             this.btnDoSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoSearch.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDoSearch.Location = new System.Drawing.Point(559, 46);
             this.btnDoSearch.Name = "btnDoSearch";
             this.btnDoSearch.Size = new System.Drawing.Size(68, 42);
@@ -395,9 +397,9 @@ namespace WindowsFormsApp1
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(31, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 19);
+            this.label20.Size = new System.Drawing.Size(116, 19);
             this.label20.TabIndex = 1;
-            this.label20.Text = "조회내용";
+            this.label20.Text = "※ 조회내용";
             // 
             // CustList
             // 
@@ -505,6 +507,7 @@ namespace WindowsFormsApp1
             this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuit.BackColor = System.Drawing.Color.LightBlue;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnQuit.Location = new System.Drawing.Point(633, 54);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(68, 42);
@@ -518,6 +521,7 @@ namespace WindowsFormsApp1
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.BackColor = System.Drawing.Color.LightBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSave.Location = new System.Drawing.Point(559, 54);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(68, 42);
@@ -531,6 +535,7 @@ namespace WindowsFormsApp1
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.Location = new System.Drawing.Point(450, 54);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(101, 42);
@@ -556,9 +561,9 @@ namespace WindowsFormsApp1
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(20, 5);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 19);
+            this.label19.Size = new System.Drawing.Size(116, 19);
             this.label19.TabIndex = 0;
-            this.label19.Text = "상세내용";
+            this.label19.Text = "※ 상세내용";
             // 
             // EndDate
             // 
@@ -1296,9 +1301,9 @@ namespace WindowsFormsApp1
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(22, 3);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(129, 19);
+            this.label18.Size = new System.Drawing.Size(156, 19);
             this.label18.TabIndex = 1;
-            this.label18.Text = "기본등록사항";
+            this.label18.Text = "※ 기본등록사항";
             // 
             // BM_CustomerMaster_MM
             // 
