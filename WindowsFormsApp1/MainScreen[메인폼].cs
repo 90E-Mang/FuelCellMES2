@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
     {
         //private bool aopened = false;
         static public string LoginID;
-        private Draw.Point _imageLocation = new Draw.Point(13, 1);
-        private Draw.Point _imgHitArea = new Draw.Point(13, 2);
+        private Draw.Point _imageLocation = new Draw.Point(20,3);
+        private Draw.Point _imgHitArea = new Draw.Point(20,4);
         Image closeR;
         public MainScreen()
         {
