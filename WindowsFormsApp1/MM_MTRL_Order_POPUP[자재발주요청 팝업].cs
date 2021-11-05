@@ -143,7 +143,8 @@ namespace WindowsFormsApp1
                 dataGridView1.Columns[0].Width = 50;
 
                 DB.transaction.Commit();
-
+                dataGridView1.Columns["수정일자"].Visible = false;
+                dataGridView1.Columns["수정자"].Visible = false;
             }
             catch (Exception ex)
             {
