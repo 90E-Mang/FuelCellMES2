@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         public static SqlCommand sqlcmd = new SqlCommand();
         public static SqlDataReader sqlDR = null;
         public static SqlDataAdapter adapter = new SqlDataAdapter();
-        public static string connectionString = "Data Source = 192.168.0.163; Initial Catalog = HIAIRMES; User ID = hiair; Password=@hiair";
+        public static string connectionString = "Data Source = 123.248.155.8; Initial Catalog = HIAIRMES; User ID = hiair; Password=@hiair";
        
         static void DBconn(string[] args)
         {
