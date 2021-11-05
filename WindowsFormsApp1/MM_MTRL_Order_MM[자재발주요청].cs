@@ -123,7 +123,7 @@ namespace WindowsFormsApp1
                 {
                     dataGridView2.Columns[i].ReadOnly = true;
                 }
-                
+                dataGridView2.Columns["거래처명"].Visible = false;
 
                 DB.transaction.Commit();
                 DB.adapter.Dispose();
@@ -475,6 +475,9 @@ namespace WindowsFormsApp1
                     dataGridView2.Columns[i].ReadOnly = true;
                 }
                 dataGridView2.Columns["기본단위"].Visible = false;
+                dataGridView2.Columns["발주번호"].Visible = false;
+                dataGridView2.Columns["거래처코드"].Visible = false;
+                dataGridView2.Columns["거래처명"].Visible = false;
                 DB.transaction.Commit();
                 DB.adapter.Dispose();
                 DB.sqlcmd.Dispose();
