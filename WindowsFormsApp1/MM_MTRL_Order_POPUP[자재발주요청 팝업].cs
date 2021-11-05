@@ -171,10 +171,20 @@ namespace WindowsFormsApp1
                         bool isChecked = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
                         if (isChecked)
                         {
-                            string[] drrow1Values = {dataGridView1.Rows[i].Cells[1].Value.ToString(), dataGridView1.Rows[i].Cells[4].Value.ToString(), dataGridView1.Rows[i].Cells[16].Value.ToString(), dataGridView1.Rows[i].Cells[17].Value.ToString()};
+                            string[] drrow1Values = {
+                                dataGridView1.Rows[i].Cells[1].Value.ToString(), 
+                                dataGridView1.Rows[i].Cells[4].Value.ToString(), 
+                                dataGridView1.Rows[i].Cells[16].Value.ToString(), 
+                                dataGridView1.Rows[i].Cells[17].Value.ToString()
+                            };
                             for (int j = 0; j < dataGridView2.Rows.Count; j++)
                             {
-                                string[] drrow2Values = { dataGridView2.Rows[j].Cells[1].Value.ToString(), dataGridView2.Rows[j].Cells[5].Value.ToString(),dataGridView2.Rows[j].Cells[10].Value.ToString(), dataGridView2.Rows[j].Cells[11].Value.ToString()};
+                                string[] drrow2Values = { 
+                                    dataGridView2.Rows[j].Cells[1].Value.ToString(), 
+                                    dataGridView2.Rows[j].Cells[5].Value.ToString(),
+                                    dataGridView2.Rows[j].Cells[10].Value.ToString(), 
+                                    dataGridView2.Rows[j].Cells[11].Value.ToString()
+                                };
                                 if (drrow1Values[0] == drrow2Values[0] && drrow1Values[1] == drrow2Values[1])
                                 {
                                     MessageBox.Show("이미 추가된 품목입니다.");
@@ -397,23 +407,19 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-
                     dataGridView2.EndEdit();
+
                     int datagridview2cnt = dataGridView2.Rows.Count;
                     int delcnt = 0;
+
                     for (int i = 0; i < datagridview2cnt; i++)
                     {
                         bool isChecked = Convert.ToBoolean(dataGridView2.Rows[i - delcnt].Cells[0].Value);
+
                         if (isChecked)
                         {
-                            try
-                            {
-                                dataGridView2.Rows.Remove(dataGridView2.Rows[i - delcnt]);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
+                            dataGridView2.Rows.Remove(dataGridView2.Rows[i - delcnt]);
+                            
                             delcnt++;
                         }
                     }
@@ -426,10 +432,6 @@ namespace WindowsFormsApp1
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-
                 }
             }
         }

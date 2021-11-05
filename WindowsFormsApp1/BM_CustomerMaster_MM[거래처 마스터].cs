@@ -24,30 +24,7 @@ namespace WindowsFormsApp1
         }
         public delegate void FormClosed(string str);
         public event FormClosed FormCloseEvent;
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            TabControl tc = (TabControl)sender;
-            MainScreen.tabindex = tc.SelectedIndex;
-
-            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
-            tc.TabPages.Remove(TabP);
-
-
-
-            //MessageBox.Show(TabP.Text);
-            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
-            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
-
-            //탭페이지를 앞으로 한칸씩땡긴다.
-            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
-            {
-                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
-                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
-                Common.DICT_REMOVE_INDEX.Remove(tempstring);
-                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
-            }
-
-        }
+        
         private void CM_CustomerMaster_MM_Load(object sender, EventArgs e)
         {
             CombMaster();
@@ -331,7 +308,7 @@ namespace WindowsFormsApp1
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormCloseEvent("거래처 관리");
         }
         private DataSet GetData()
         {
