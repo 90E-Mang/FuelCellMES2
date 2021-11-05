@@ -57,15 +57,15 @@ namespace WindowsFormsApp1
             this.SelectButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ScanBtn = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.QRTxtBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.QRTxtBox = new System.Windows.Forms.TextBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ScanBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,9 +80,9 @@ namespace WindowsFormsApp1
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel6.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -406,6 +406,48 @@ namespace WindowsFormsApp1
             this.panel6.Size = new System.Drawing.Size(1401, 97);
             this.panel6.TabIndex = 8;
             // 
+            // ScanBtn
+            // 
+            this.ScanBtn.BackColor = System.Drawing.Color.LightBlue;
+            this.ScanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ScanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScanBtn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ScanBtn.Location = new System.Drawing.Point(506, 36);
+            this.ScanBtn.Name = "ScanBtn";
+            this.ScanBtn.Size = new System.Drawing.Size(75, 30);
+            this.ScanBtn.TabIndex = 26;
+            this.ScanBtn.Text = "스캔";
+            this.ScanBtn.UseVisualStyleBackColor = false;
+            this.ScanBtn.Click += new System.EventHandler(this.ScanBtn_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Location = new System.Drawing.Point(299, 38);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(95, 26);
+            this.panel9.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.SkyBlue;
+            this.label4.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(1, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "QR 코드";
+            // 
+            // QRTxtBox
+            // 
+            this.QRTxtBox.Location = new System.Drawing.Point(400, 41);
+            this.QRTxtBox.Name = "QRTxtBox";
+            this.QRTxtBox.Size = new System.Drawing.Size(100, 21);
+            this.QRTxtBox.TabIndex = 24;
+            // 
             // panel4
             // 
             this.panel4.AutoSize = true;
@@ -477,54 +519,13 @@ namespace WindowsFormsApp1
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // QRTxtBox
-            // 
-            this.QRTxtBox.Location = new System.Drawing.Point(400, 41);
-            this.QRTxtBox.Name = "QRTxtBox";
-            this.QRTxtBox.Size = new System.Drawing.Size(100, 21);
-            this.QRTxtBox.TabIndex = 24;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Location = new System.Drawing.Point(299, 38);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(95, 26);
-            this.panel9.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.SkyBlue;
-            this.label4.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(1, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "QR 코드";
-            // 
-            // ScanBtn
-            // 
-            this.ScanBtn.BackColor = System.Drawing.Color.LightBlue;
-            this.ScanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ScanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ScanBtn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ScanBtn.Location = new System.Drawing.Point(506, 36);
-            this.ScanBtn.Name = "ScanBtn";
-            this.ScanBtn.Size = new System.Drawing.Size(75, 30);
-            this.ScanBtn.TabIndex = 26;
-            this.ScanBtn.Text = "스캔";
-            this.ScanBtn.UseVisualStyleBackColor = false;
-            this.ScanBtn.Click += new System.EventHandler(this.ScanBtn_Click);
-            // 
             // PW_ORDER_POPUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 621);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "PW_ORDER_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "입고 추가";
@@ -550,11 +551,11 @@ namespace WindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }

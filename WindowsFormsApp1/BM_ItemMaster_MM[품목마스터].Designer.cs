@@ -874,6 +874,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1666, 683);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "BM_ItemMaster_MM";
             this.Text = "품목 마스터";
             this.Load += new System.EventHandler(this.BM_ItemMaster_MM_Load);

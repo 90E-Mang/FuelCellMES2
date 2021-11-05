@@ -463,6 +463,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1459, 608);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "BM_CommCode_MM";
             this.Text = "공통 코드 관리";
             this.Load += new System.EventHandler(this.CommCodeMLoad);

@@ -383,6 +383,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1586, 627);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "MM_MTRL_Order_MM";
             this.Text = "자재 발주 관리";
             this.Load += new System.EventHandler(this.MTRL_Order_Load);

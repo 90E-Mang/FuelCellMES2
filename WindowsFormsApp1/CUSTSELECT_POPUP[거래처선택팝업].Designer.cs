@@ -209,6 +209,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 589);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "CUSTSELECT_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "거래처 추가 팝업 창";

@@ -108,6 +108,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);
+            this.DoubleBuffered = true;
             this.Location = new System.Drawing.Point(2500, 3000);
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -361,6 +361,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1111, 565);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "BM_ItemMaster_POPUP";
             this.Text = "거래처 선택 창";
             this.Load += new System.EventHandler(this.Cust_POPUP_Load);
