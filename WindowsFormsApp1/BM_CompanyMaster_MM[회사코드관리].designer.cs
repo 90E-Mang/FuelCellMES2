@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,16 +56,26 @@ namespace WindowsFormsApp1
             this.txtEmail_Address = new System.Windows.Forms.TextBox();
             this.cboUseFlag = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.btnDoSearch = new System.Windows.Forms.Button();
             this.txtSearchCompany = new System.Windows.Forms.TextBox();
             this.CompanyList = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -86,28 +96,23 @@ namespace WindowsFormsApp1
             this.label22 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.label33 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
             this.ControlPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel21.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel20.SuspendLayout();
@@ -118,11 +123,6 @@ namespace WindowsFormsApp1
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // ControlPanel
@@ -363,6 +363,27 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(512, 119);
             this.panel1.TabIndex = 0;
             // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel19.Controls.Add(this.label21);
+            this.panel19.Location = new System.Drawing.Point(23, 41);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(85, 26);
+            this.panel19.TabIndex = 49;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.SkyBlue;
+            this.label21.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label21.Location = new System.Drawing.Point(1, 2);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(90, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "  회사 명";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -413,27 +434,27 @@ namespace WindowsFormsApp1
             this.CompanyList.AllowUserToResizeRows = false;
             this.CompanyList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CompanyList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CompanyList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CompanyList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CompanyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CompanyList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CompanyList.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.CompanyList.Location = new System.Drawing.Point(0, 119);
             this.CompanyList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CompanyList.Name = "CompanyList";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.CompanyList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.CompanyList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CompanyList.RowHeadersVisible = false;
             this.CompanyList.RowHeadersWidth = 51;
             this.CompanyList.RowTemplate.Height = 27;
@@ -500,27 +521,89 @@ namespace WindowsFormsApp1
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
-            // panel4
+            // panel18
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 119);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(545, 27);
-            this.panel4.TabIndex = 31;
+            this.panel18.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel18.Controls.Add(this.label33);
+            this.panel18.Location = new System.Drawing.Point(297, 366);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(85, 26);
+            this.panel18.TabIndex = 74;
             // 
-            // label18
+            // label33
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label18.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(22, 3);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(129, 19);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "기본등록사항";
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.SkyBlue;
+            this.label33.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label33.Location = new System.Drawing.Point(1, 2);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(96, 19);
+            this.label33.TabIndex = 0;
+            this.label33.Text = " 팩스번호";
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel17.Controls.Add(this.label32);
+            this.panel17.Location = new System.Drawing.Point(297, 282);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(85, 26);
+            this.panel17.TabIndex = 75;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.SkyBlue;
+            this.label32.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label32.Location = new System.Drawing.Point(1, 2);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(84, 19);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "   종  목";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel16.Controls.Add(this.label31);
+            this.panel16.Location = new System.Drawing.Point(297, 255);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(85, 26);
+            this.panel16.TabIndex = 76;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.BackColor = System.Drawing.Color.SkyBlue;
+            this.label31.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label31.Location = new System.Drawing.Point(1, 2);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(96, 19);
+            this.label31.TabIndex = 0;
+            this.label31.Text = " 생년월일";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.label30);
+            this.panel15.Location = new System.Drawing.Point(297, 228);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(85, 26);
+            this.panel15.TabIndex = 77;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.SkyBlue;
+            this.label30.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label30.Location = new System.Drawing.Point(1, 2);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(96, 19);
+            this.label30.TabIndex = 0;
+            this.label30.Text = " 법인번호";
             // 
             // panel21
             // 
@@ -542,6 +625,28 @@ namespace WindowsFormsApp1
             this.label35.Size = new System.Drawing.Size(109, 19);
             this.label35.TabIndex = 0;
             this.label35.Text = "이메일주소";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 119);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(545, 27);
+            this.panel4.TabIndex = 31;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label18.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(22, 3);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(129, 19);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "기본등록사항";
             // 
             // panel14
             // 
@@ -754,117 +859,13 @@ namespace WindowsFormsApp1
             this.label2.TabIndex = 0;
             this.label2.Text = " 회사코드";
             // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel18.Controls.Add(this.label33);
-            this.panel18.Location = new System.Drawing.Point(297, 366);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(85, 26);
-            this.panel18.TabIndex = 74;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.BackColor = System.Drawing.Color.SkyBlue;
-            this.label33.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label33.Location = new System.Drawing.Point(1, 2);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(96, 19);
-            this.label33.TabIndex = 0;
-            this.label33.Text = " 팩스번호";
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.label32);
-            this.panel17.Location = new System.Drawing.Point(297, 282);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(85, 26);
-            this.panel17.TabIndex = 75;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.SkyBlue;
-            this.label32.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label32.Location = new System.Drawing.Point(1, 2);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(84, 19);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "   종  목";
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Controls.Add(this.label31);
-            this.panel16.Location = new System.Drawing.Point(297, 255);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(85, 26);
-            this.panel16.TabIndex = 76;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.BackColor = System.Drawing.Color.SkyBlue;
-            this.label31.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label31.Location = new System.Drawing.Point(1, 2);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(96, 19);
-            this.label31.TabIndex = 0;
-            this.label31.Text = " 생년월일";
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.label30);
-            this.panel15.Location = new System.Drawing.Point(297, 228);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(85, 26);
-            this.panel15.TabIndex = 77;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.SkyBlue;
-            this.label30.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label30.Location = new System.Drawing.Point(1, 2);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(96, 19);
-            this.label30.TabIndex = 0;
-            this.label30.Text = " 법인번호";
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel19.Controls.Add(this.label21);
-            this.panel19.Location = new System.Drawing.Point(23, 41);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(85, 26);
-            this.panel19.TabIndex = 49;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.SkyBlue;
-            this.label21.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(1, 2);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(90, 19);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "  회사 명";
-            // 
             // BM_CompanyMaster_MM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 547);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "BM_CompanyMaster_MM";
             this.Text = "회사 코드 관리";
             this.Load += new System.EventHandler(this.CM_CompanyCode_MM_Load);
@@ -875,6 +876,8 @@ namespace WindowsFormsApp1
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyList)).EndInit();
@@ -883,10 +886,18 @@ namespace WindowsFormsApp1
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -907,16 +918,6 @@ namespace WindowsFormsApp1
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }

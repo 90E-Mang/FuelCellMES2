@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
         private void PM_PlantMaster_MM_Load(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+            string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();
@@ -131,7 +131,7 @@ namespace WindowsFormsApp1
                 int result_value = 0;
                 try
                 {
-                    string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                    string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                     SqlConnection conn = new SqlConnection(strConn);
                     if ((txtPlant_Code.ReadOnly == false) && (cboComp_Name.Enabled = true))
                     {
@@ -217,7 +217,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string connectionString = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
+                    string connectionString = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair";
                     SqlConnection sqlConn = new SqlConnection(connectionString);
                     int CheckCount = 0;
 
@@ -265,26 +265,7 @@ namespace WindowsFormsApp1
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            TabControl tc = (TabControl)sender;
-            MainScreen.tabindex = tc.SelectedIndex;
-
-            TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
-            tc.TabPages.Remove(TabP);
-
-
-
-            //MessageBox.Show(TabP.Text);
-            int index = Common.DICT_REMOVE_INDEX[TabP.Text];
-            Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
-
-            //탭페이지를 앞으로 한칸씩땡긴다.
-            for (int i = index; i < Common.DICT_REMOVE_INDEX.Count; i++)
-            {
-                string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
-                int tempint = Common.DICT_REMOVE_INDEX[tempstring];
-                Common.DICT_REMOVE_INDEX.Remove(tempstring);
-                Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
-            }
+            FormCloseEvent("공장 코드 관리");
         }
         
 
@@ -302,7 +283,7 @@ namespace WindowsFormsApp1
                 cboComp_Name.Enabled = false;
                 txtPlant_Code.ReadOnly = true;
 
-                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
@@ -340,7 +321,7 @@ namespace WindowsFormsApp1
             DataSet ds = new DataSet();
             try
             {
-                string strConn = "Data Source=192.168.0.6; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
+                string strConn = "Data Source=192.168.0.163; Initial Catalog=HIAIRMES;User ID=hiair;Password=@hiair"; ;
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();

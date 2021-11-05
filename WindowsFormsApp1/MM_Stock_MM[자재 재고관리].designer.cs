@@ -322,6 +322,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1451, 1061);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "MM_Stock_MM";
             this.Text = "자재 재고관리";
             this.Load += new System.EventHandler(this.MM_Stock_MM_Load);

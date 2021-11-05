@@ -463,6 +463,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1392, 641);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "PW_Purchase_Warehousing";
             this.Text = "구매 입고 관리";
             this.Load += new System.EventHandler(this.PW_Purchase_Warehousing_Load);

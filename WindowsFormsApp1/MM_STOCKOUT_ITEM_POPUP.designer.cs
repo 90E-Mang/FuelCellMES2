@@ -556,6 +556,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 620);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "MM_STOCKOUT_ITEM_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "불출 요청 팝업";

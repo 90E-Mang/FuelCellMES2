@@ -447,6 +447,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1586, 627);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "MTRL_Request";
             this.Text = "구매 요청";
             this.Load += new System.EventHandler(this.MTRL_Request_Load);

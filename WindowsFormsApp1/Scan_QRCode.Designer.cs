@@ -91,6 +91,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.cboDevice);
             this.Controls.Add(this.pictureBox);
+            this.DoubleBuffered = true;
             this.Name = "Scan_QRCode";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scan_QRCode";

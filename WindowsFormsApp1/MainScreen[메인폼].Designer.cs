@@ -42,8 +42,10 @@ namespace WindowsFormsApp1
             this.구매자재관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.구매요청관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.자재발주관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.자재수불현황ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.구매입고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.자재재고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.자재수불현황ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.자재불출요청ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.자재불출관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.생산관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.품질관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@ namespace WindowsFormsApp1
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.구매입고관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.자재불출요청ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -159,35 +159,49 @@ namespace WindowsFormsApp1
             // 구매요청관리ToolStripMenuItem
             // 
             this.구매요청관리ToolStripMenuItem.Name = "구매요청관리ToolStripMenuItem";
-            this.구매요청관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.구매요청관리ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.구매요청관리ToolStripMenuItem.Text = "구매 요청 관리";
             this.구매요청관리ToolStripMenuItem.Click += new System.EventHandler(this.구매요청관리ToolStripMenuItem_Click);
             // 
             // 자재발주관리ToolStripMenuItem
             // 
             this.자재발주관리ToolStripMenuItem.Name = "자재발주관리ToolStripMenuItem";
-            this.자재발주관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.자재발주관리ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.자재발주관리ToolStripMenuItem.Text = "자재 발주 관리";
             this.자재발주관리ToolStripMenuItem.Click += new System.EventHandler(this.자재발주관리ToolStripMenuItem_Click);
             // 
-            // 자재수불현황ToolStripMenuItem
+            // 구매입고관리ToolStripMenuItem
             // 
-            this.자재수불현황ToolStripMenuItem.Name = "자재수불현황ToolStripMenuItem";
-            this.자재수불현황ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.자재수불현황ToolStripMenuItem.Text = "자재 수불 현황";
-            this.자재수불현황ToolStripMenuItem.Click += new System.EventHandler(this.자재수불현황ToolStripMenuItem_Click);
+            this.구매입고관리ToolStripMenuItem.Name = "구매입고관리ToolStripMenuItem";
+            this.구매입고관리ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.구매입고관리ToolStripMenuItem.Text = "자재 입고 관리";
+            this.구매입고관리ToolStripMenuItem.Click += new System.EventHandler(this.구매입고관리ToolStripMenuItem_Click);
             // 
             // 자재재고관리ToolStripMenuItem
             // 
             this.자재재고관리ToolStripMenuItem.Name = "자재재고관리ToolStripMenuItem";
-            this.자재재고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.자재재고관리ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.자재재고관리ToolStripMenuItem.Text = "자재 재고 관리";
             this.자재재고관리ToolStripMenuItem.Click += new System.EventHandler(this.자재재고관리ToolStripMenuItem_Click);
+            // 
+            // 자재수불현황ToolStripMenuItem
+            // 
+            this.자재수불현황ToolStripMenuItem.Name = "자재수불현황ToolStripMenuItem";
+            this.자재수불현황ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.자재수불현황ToolStripMenuItem.Text = "자재 수불 현황";
+            this.자재수불현황ToolStripMenuItem.Click += new System.EventHandler(this.자재수불현황ToolStripMenuItem_Click);
+            // 
+            // 자재불출요청ToolStripMenuItem
+            // 
+            this.자재불출요청ToolStripMenuItem.Name = "자재불출요청ToolStripMenuItem";
+            this.자재불출요청ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.자재불출요청ToolStripMenuItem.Text = "자재 불출 요청";
+            this.자재불출요청ToolStripMenuItem.Click += new System.EventHandler(this.자재불출요청ToolStripMenuItem_Click);
             // 
             // 자재불출관리ToolStripMenuItem
             // 
             this.자재불출관리ToolStripMenuItem.Name = "자재불출관리ToolStripMenuItem";
-            this.자재불출관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.자재불출관리ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.자재불출관리ToolStripMenuItem.Text = "자재 불출 관리";
             this.자재불출관리ToolStripMenuItem.Click += new System.EventHandler(this.자재불출관리ToolStripMenuItem_Click);
             // 
@@ -267,20 +281,6 @@ namespace WindowsFormsApp1
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseClick);
             // 
-            // 구매입고관리ToolStripMenuItem
-            // 
-            this.구매입고관리ToolStripMenuItem.Name = "구매입고관리ToolStripMenuItem";
-            this.구매입고관리ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.구매입고관리ToolStripMenuItem.Text = "자재 입고 관리";
-            this.구매입고관리ToolStripMenuItem.Click += new System.EventHandler(this.구매입고관리ToolStripMenuItem_Click);
-            // 
-            // 자재불출요청ToolStripMenuItem
-            // 
-            this.자재불출요청ToolStripMenuItem.Name = "자재불출요청ToolStripMenuItem";
-            this.자재불출요청ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.자재불출요청ToolStripMenuItem.Text = "자재 불출 요청";
-            this.자재불출요청ToolStripMenuItem.Click += new System.EventHandler(this.자재불출요청ToolStripMenuItem_Click);
-            // 
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
@@ -303,6 +303,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

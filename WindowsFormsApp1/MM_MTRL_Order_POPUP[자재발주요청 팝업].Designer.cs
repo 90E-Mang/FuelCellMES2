@@ -519,6 +519,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 620);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "MM_MTRL_Order_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "요청 추가 팝업 창";

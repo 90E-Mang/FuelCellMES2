@@ -35,6 +35,7 @@ namespace WindowsFormsApp1
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnChoose = new System.Windows.Forms.Button();
             this.SelectButton = new System.Windows.Forms.Button();
             this.ItemCodeTxtBox = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@ namespace WindowsFormsApp1
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.ItemNameTxtBox = new System.Windows.Forms.TextBox();
-            this.btnChoose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -132,6 +132,23 @@ namespace WindowsFormsApp1
             this.panel3.Size = new System.Drawing.Size(217, 95);
             this.panel3.TabIndex = 24;
             // 
+            // btnChoose
+            // 
+            this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChoose.BackColor = System.Drawing.Color.LightBlue;
+            this.btnChoose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChoose.Font = new System.Drawing.Font("굴림", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnChoose.Location = new System.Drawing.Point(129, 18);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(56, 57);
+            this.btnChoose.TabIndex = 6;
+            this.btnChoose.Text = "선택";
+            this.btnChoose.UseVisualStyleBackColor = false;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
+            // 
             // SelectButton
             // 
             this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -205,29 +222,13 @@ namespace WindowsFormsApp1
             this.ItemNameTxtBox.Size = new System.Drawing.Size(126, 21);
             this.ItemNameTxtBox.TabIndex = 2;
             // 
-            // btnChoose
-            // 
-            this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChoose.BackColor = System.Drawing.Color.LightBlue;
-            this.btnChoose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChoose.Font = new System.Drawing.Font("굴림", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnChoose.Location = new System.Drawing.Point(129, 18);
-            this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(56, 57);
-            this.btnChoose.TabIndex = 6;
-            this.btnChoose.Text = "선택";
-            this.btnChoose.UseVisualStyleBackColor = false;
-            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
-            // 
             // ITEMSELECT_POPUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 620);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "ITEMSELECT_POPUP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "품목 추가 팝업 창";

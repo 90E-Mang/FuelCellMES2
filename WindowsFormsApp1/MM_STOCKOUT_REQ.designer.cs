@@ -546,6 +546,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1586, 627);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "STOCKOUT_REQ";
             this.Text = "불출 요청 관리";
             this.Load += new System.EventHandler(this.STOCKOUT_REQ_Load);

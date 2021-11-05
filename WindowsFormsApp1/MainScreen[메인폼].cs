@@ -15,11 +15,12 @@ namespace WindowsFormsApp1
 {
     public partial class MainScreen : Form
     {
-        //private bool aopened = false;
         static public string LoginID;
-        private Draw.Point _imageLocation = new Draw.Point(20,3);
-        private Draw.Point _imgHitArea = new Draw.Point(20,4);
+
+        private Point _imageLocation = new Point(20,3);
+        private Point _imgHitArea = new Point(20,4);
         Image closeR;
+
         public MainScreen()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace WindowsFormsApp1
         }
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            this.toolStripStatusLabel1.Text = $"{LoginID}님 환영합니다.";
+            toolStripStatusLabel1.Text = $"{LoginID}님 환영합니다.";
             Common.DICT_REMOVE_INDEX.Add("시작화면", 0);
         }
 
@@ -42,22 +43,23 @@ namespace WindowsFormsApp1
             {
                 Brush titleBrush = new SolidBrush(Color.Black);
                 Image img = new Bitmap(closeR);
+                Font f = Font;
+                
                 Rectangle r = e.Bounds;
-                Font f = this.Font;
-
-                r = this.tabControl1.GetTabRect(e.Index);
+                r = tabControl1.GetTabRect(e.Index);
                 r.Offset(2, 2);
-                string title = this.tabControl1.TabPages[e.Index].Text;
+
+                string title = tabControl1.TabPages[e.Index].Text;
 
                 // TabPage Text
                 e.Graphics.DrawString(title + " ", f, titleBrush, new PointF(r.X, r.Y));
 
                 // TabPage 의 닫기 버튼
                 if (tabControl1.SelectedIndex >= 1)
-                    e.Graphics.DrawImage(img, new Point(r.X + (this.tabControl1.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
+                    e.Graphics.DrawImage(img, new Point(r.X + (tabControl1.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
 
                 // 각 Tab별로 close button 에 대한 image값 
-                if (this.tabControl1.SelectedTab == this.tabControl1.TabPages[e.Index])
+                if (tabControl1.SelectedTab == tabControl1.TabPages[e.Index])
                     img = Properties.Resources.close1;
                 else
                     img = Properties.Resources.close1;
@@ -73,6 +75,7 @@ namespace WindowsFormsApp1
         private void DeleteTabpage(string temp)
         {
             int aint = 0;
+
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
             {
                 if (tabControl1.TabPages[i].Text == temp)
@@ -83,7 +86,6 @@ namespace WindowsFormsApp1
             tabControl1.TabPages.RemoveAt(aint);
 
             int index = Common.DICT_REMOVE_INDEX[temp];
-
             Common.DICT_REMOVE_INDEX.Remove(temp);
 
             //탭페이지를 앞으로 한칸씩땡긴다.
@@ -105,24 +107,23 @@ namespace WindowsFormsApp1
         //탭컨트롤에서 탭에 그린 닫기버튼내부의 영역을 클릭하면 폼 닫기
         private void tabControl1_MouseClick(object sender, MouseEventArgs e)
         {
-
             TabControl tc = (TabControl)sender;
             tabindex = tc.SelectedIndex;
-            Draw.Point p = e.Location;
+
+            Point p = e.Location;
+
             int _tabWidth = 0;
-            _tabWidth = this.tabControl1.GetTabRect(tc.SelectedIndex).Width - (_imgHitArea.X);
-            Draw.Rectangle r = this.tabControl1.GetTabRect(tc.SelectedIndex);
+            _tabWidth = tabControl1.GetTabRect(tc.SelectedIndex).Width - (_imgHitArea.X);
+
+            Rectangle r = tabControl1.GetTabRect(tc.SelectedIndex);
             r.Offset(_tabWidth, _imgHitArea.Y);
             r.Width = 16;
             r.Height = 16;
             if (r.Contains(p))
             {
-                TabPage TabP = (TabPage)tc.TabPages[tc.SelectedIndex];
+                TabPage TabP = tc.TabPages[tc.SelectedIndex];
                 tc.TabPages.Remove(TabP);
 
-
-
-                //MessageBox.Show(TabP.Text);
                 int index = Common.DICT_REMOVE_INDEX[TabP.Text];
                 Common.DICT_REMOVE_INDEX.Remove(TabP.Text);
 
@@ -131,6 +132,7 @@ namespace WindowsFormsApp1
                 {
                     string tempstring = Common.DICT_REMOVE_INDEX.FirstOrDefault(x => x.Value == i + 1).Key;
                     int tempint = Common.DICT_REMOVE_INDEX[tempstring];
+
                     Common.DICT_REMOVE_INDEX.Remove(tempstring);
                     Common.DICT_REMOVE_INDEX.Add(tempstring, tempint - 1);
                 }
@@ -185,8 +187,6 @@ namespace WindowsFormsApp1
             {
                 tabControl1.SelectedTab = tabControl1.TabPages[Common.DICT_REMOVE_INDEX[str]];
             }
-            
-            return;
         }
         
         private void 사용자정보ToolStripMenuItem_Click(object sender, EventArgs e)

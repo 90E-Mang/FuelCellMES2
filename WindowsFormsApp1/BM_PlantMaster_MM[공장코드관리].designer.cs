@@ -31,30 +31,24 @@ namespace WindowsFormsApp1
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.txtSearch_PlantName = new System.Windows.Forms.TextBox();
-            this.btnQuit = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.btnDoSearch = new System.Windows.Forms.Button();
-            this.cboSearch_UseFlag = new System.Windows.Forms.ComboBox();
-            this.cboSearch_CompName = new System.Windows.Forms.ComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtPlant_Code = new System.Windows.Forms.TextBox();
-            this.txtPlant_Name = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.txtRemark = new System.Windows.Forms.TextBox();
-            this.cboUseFlag = new System.Windows.Forms.ComboBox();
-            this.cboComp_Name = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtSearch_PlantName = new System.Windows.Forms.TextBox();
+            this.cboSearch_UseFlag = new System.Windows.Forms.ComboBox();
+            this.cboSearch_CompName = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -65,8 +59,14 @@ namespace WindowsFormsApp1
             this.label13 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtPlant_Code = new System.Windows.Forms.TextBox();
+            this.txtPlant_Name = new System.Windows.Forms.TextBox();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.cboUseFlag = new System.Windows.Forms.ComboBox();
+            this.cboComp_Name = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,19 +75,19 @@ namespace WindowsFormsApp1
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel11.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -153,27 +153,18 @@ namespace WindowsFormsApp1
             this.splitContainer2.SplitterDistance = 118;
             this.splitContainer2.TabIndex = 0;
             // 
-            // txtSearch_PlantName
+            // panel11
             // 
-            this.txtSearch_PlantName.Location = new System.Drawing.Point(370, 61);
-            this.txtSearch_PlantName.Name = "txtSearch_PlantName";
-            this.txtSearch_PlantName.Size = new System.Drawing.Size(192, 21);
-            this.txtSearch_PlantName.TabIndex = 42;
-            this.txtSearch_PlantName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_PlantName_MouseClick);
-            // 
-            // btnQuit
-            // 
-            this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuit.BackColor = System.Drawing.Color.LightBlue;
-            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnQuit.Location = new System.Drawing.Point(109, 17);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(52, 57);
-            this.btnQuit.TabIndex = 41;
-            this.btnQuit.Text = "종료";
-            this.btnQuit.UseVisualStyleBackColor = false;
-            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            this.panel11.AutoSize = true;
+            this.panel11.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.btnDoSearch);
+            this.panel11.Controls.Add(this.btnQuit);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(1330, 27);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(215, 87);
+            this.panel11.TabIndex = 50;
             // 
             // btnDoSearch
             // 
@@ -189,172 +180,19 @@ namespace WindowsFormsApp1
             this.btnDoSearch.UseVisualStyleBackColor = false;
             this.btnDoSearch.Click += new System.EventHandler(this.btnDoSearch_Click);
             // 
-            // cboSearch_UseFlag
+            // btnQuit
             // 
-            this.cboSearch_UseFlag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSearch_UseFlag.FormattingEnabled = true;
-            this.cboSearch_UseFlag.Items.AddRange(new object[] {
-            "전체",
-            "Y",
-            "N"});
-            this.cboSearch_UseFlag.Location = new System.Drawing.Point(647, 61);
-            this.cboSearch_UseFlag.Name = "cboSearch_UseFlag";
-            this.cboSearch_UseFlag.Size = new System.Drawing.Size(101, 20);
-            this.cboSearch_UseFlag.TabIndex = 39;
-            // 
-            // cboSearch_CompName
-            // 
-            this.cboSearch_CompName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSearch_CompName.FormattingEnabled = true;
-            this.cboSearch_CompName.Location = new System.Drawing.Point(89, 61);
-            this.cboSearch_CompName.Name = "cboSearch_CompName";
-            this.cboSearch_CompName.Size = new System.Drawing.Size(196, 20);
-            this.cboSearch_CompName.TabIndex = 37;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1545, 27);
-            this.panel5.TabIndex = 33;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(20, 5);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(116, 19);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "※ 조회내용";
-            // 
-            // txtPlant_Code
-            // 
-            this.txtPlant_Code.Location = new System.Drawing.Point(370, 46);
-            this.txtPlant_Code.Name = "txtPlant_Code";
-            this.txtPlant_Code.Size = new System.Drawing.Size(159, 21);
-            this.txtPlant_Code.TabIndex = 52;
-            this.txtPlant_Code.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPlant_Code_MouseClick);
-            // 
-            // txtPlant_Name
-            // 
-            this.txtPlant_Name.Location = new System.Drawing.Point(614, 46);
-            this.txtPlant_Name.Name = "txtPlant_Name";
-            this.txtPlant_Name.Size = new System.Drawing.Size(192, 21);
-            this.txtPlant_Name.TabIndex = 43;
-            this.txtPlant_Name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPlant_Name_MouseClick);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.BackColor = System.Drawing.Color.LightBlue;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDelete.Location = new System.Drawing.Point(137, 29);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(52, 57);
-            this.btnDelete.TabIndex = 50;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSave.Location = new System.Drawing.Point(79, 29);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(52, 57);
-            this.btnSave.TabIndex = 49;
-            this.btnSave.Text = "저장";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNew.BackColor = System.Drawing.Color.LightBlue;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNew.Location = new System.Drawing.Point(21, 29);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(52, 57);
-            this.btnNew.TabIndex = 48;
-            this.btnNew.Text = "신규";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.Location = new System.Drawing.Point(88, 97);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(675, 21);
-            this.txtRemark.TabIndex = 47;
-            this.txtRemark.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtRemark_MouseClick);
-            // 
-            // cboUseFlag
-            // 
-            this.cboUseFlag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboUseFlag.FormattingEnabled = true;
-            this.cboUseFlag.Items.AddRange(new object[] {
-            "Y",
-            "N"});
-            this.cboUseFlag.Location = new System.Drawing.Point(891, 46);
-            this.cboUseFlag.Name = "cboUseFlag";
-            this.cboUseFlag.Size = new System.Drawing.Size(101, 20);
-            this.cboUseFlag.TabIndex = 45;
-            // 
-            // cboComp_Name
-            // 
-            this.cboComp_Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboComp_Name.FormattingEnabled = true;
-            this.cboComp_Name.Location = new System.Drawing.Point(89, 46);
-            this.cboComp_Name.Name = "cboComp_Name";
-            this.cboComp_Name.Size = new System.Drawing.Size(196, 20);
-            this.cboComp_Name.TabIndex = 43;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1545, 27);
-            this.panel3.TabIndex = 34;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(20, 5);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 19);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "※ 상세내용";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1545, 569);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuit.BackColor = System.Drawing.Color.LightBlue;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnQuit.Location = new System.Drawing.Point(109, 17);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(52, 57);
+            this.btnQuit.TabIndex = 41;
+            this.btnQuit.Text = "종료";
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // panel2
             // 
@@ -418,6 +256,113 @@ namespace WindowsFormsApp1
             this.label9.Size = new System.Drawing.Size(83, 19);
             this.label9.TabIndex = 0;
             this.label9.Text = " 회사 명";
+            // 
+            // txtSearch_PlantName
+            // 
+            this.txtSearch_PlantName.Location = new System.Drawing.Point(370, 61);
+            this.txtSearch_PlantName.Name = "txtSearch_PlantName";
+            this.txtSearch_PlantName.Size = new System.Drawing.Size(192, 21);
+            this.txtSearch_PlantName.TabIndex = 42;
+            this.txtSearch_PlantName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_PlantName_MouseClick);
+            // 
+            // cboSearch_UseFlag
+            // 
+            this.cboSearch_UseFlag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearch_UseFlag.FormattingEnabled = true;
+            this.cboSearch_UseFlag.Items.AddRange(new object[] {
+            "전체",
+            "Y",
+            "N"});
+            this.cboSearch_UseFlag.Location = new System.Drawing.Point(647, 61);
+            this.cboSearch_UseFlag.Name = "cboSearch_UseFlag";
+            this.cboSearch_UseFlag.Size = new System.Drawing.Size(101, 20);
+            this.cboSearch_UseFlag.TabIndex = 39;
+            // 
+            // cboSearch_CompName
+            // 
+            this.cboSearch_CompName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSearch_CompName.FormattingEnabled = true;
+            this.cboSearch_CompName.Location = new System.Drawing.Point(89, 61);
+            this.cboSearch_CompName.Name = "cboSearch_CompName";
+            this.cboSearch_CompName.Size = new System.Drawing.Size(196, 20);
+            this.cboSearch_CompName.TabIndex = 37;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1545, 27);
+            this.panel5.TabIndex = 33;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(20, 5);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(116, 19);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "※ 조회내용";
+            // 
+            // panel12
+            // 
+            this.panel12.AutoSize = true;
+            this.panel12.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Controls.Add(this.btnNew);
+            this.panel12.Controls.Add(this.btnSave);
+            this.panel12.Controls.Add(this.btnDelete);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(1330, 27);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(215, 107);
+            this.panel12.TabIndex = 63;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNew.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNew.Location = new System.Drawing.Point(21, 29);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(52, 57);
+            this.btnNew.TabIndex = 48;
+            this.btnNew.Text = "신규";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSave.Location = new System.Drawing.Point(79, 29);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(52, 57);
+            this.btnSave.TabIndex = 49;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.LightBlue;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.Location = new System.Drawing.Point(137, 29);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(52, 57);
+            this.btnDelete.TabIndex = 50;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panel10
             // 
@@ -524,32 +469,87 @@ namespace WindowsFormsApp1
             this.label12.TabIndex = 0;
             this.label12.Text = " 회사 명";
             // 
-            // panel11
+            // txtPlant_Code
             // 
-            this.panel11.AutoSize = true;
-            this.panel11.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.btnDoSearch);
-            this.panel11.Controls.Add(this.btnQuit);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(1330, 27);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(215, 87);
-            this.panel11.TabIndex = 50;
+            this.txtPlant_Code.Location = new System.Drawing.Point(370, 46);
+            this.txtPlant_Code.Name = "txtPlant_Code";
+            this.txtPlant_Code.Size = new System.Drawing.Size(159, 21);
+            this.txtPlant_Code.TabIndex = 52;
+            this.txtPlant_Code.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPlant_Code_MouseClick);
             // 
-            // panel12
+            // txtPlant_Name
             // 
-            this.panel12.AutoSize = true;
-            this.panel12.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.btnNew);
-            this.panel12.Controls.Add(this.btnSave);
-            this.panel12.Controls.Add(this.btnDelete);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel12.Location = new System.Drawing.Point(1330, 27);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(215, 107);
-            this.panel12.TabIndex = 63;
+            this.txtPlant_Name.Location = new System.Drawing.Point(614, 46);
+            this.txtPlant_Name.Name = "txtPlant_Name";
+            this.txtPlant_Name.Size = new System.Drawing.Size(192, 21);
+            this.txtPlant_Name.TabIndex = 43;
+            this.txtPlant_Name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPlant_Name_MouseClick);
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(88, 97);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(675, 21);
+            this.txtRemark.TabIndex = 47;
+            this.txtRemark.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtRemark_MouseClick);
+            // 
+            // cboUseFlag
+            // 
+            this.cboUseFlag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUseFlag.FormattingEnabled = true;
+            this.cboUseFlag.Items.AddRange(new object[] {
+            "Y",
+            "N"});
+            this.cboUseFlag.Location = new System.Drawing.Point(891, 46);
+            this.cboUseFlag.Name = "cboUseFlag";
+            this.cboUseFlag.Size = new System.Drawing.Size(101, 20);
+            this.cboUseFlag.TabIndex = 45;
+            // 
+            // cboComp_Name
+            // 
+            this.cboComp_Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboComp_Name.FormattingEnabled = true;
+            this.cboComp_Name.Location = new System.Drawing.Point(89, 46);
+            this.cboComp_Name.Name = "cboComp_Name";
+            this.cboComp_Name.Size = new System.Drawing.Size(196, 20);
+            this.cboComp_Name.TabIndex = 43;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1545, 27);
+            this.panel3.TabIndex = 34;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(20, 5);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(116, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "※ 상세내용";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1545, 569);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // BM_PlantMaster_MM
             // 
@@ -557,6 +557,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1549, 837);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
             this.Name = "BM_PlantMaster_MM";
             this.Text = "공장 코드 관리";
             this.Load += new System.EventHandler(this.PM_PlantMaster_MM_Load);
@@ -570,17 +571,16 @@ namespace WindowsFormsApp1
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel11.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -591,8 +591,9 @@ namespace WindowsFormsApp1
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
