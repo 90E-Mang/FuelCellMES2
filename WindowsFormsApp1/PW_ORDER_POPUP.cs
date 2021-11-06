@@ -458,5 +458,54 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void QRTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DB.conn.Close();
+                dataGridView2.Columns.Clear();
+
+                DB.conn = new SqlConnection(DB.connectionString);
+                DB.conn.ConnectionString = DB.connectionString;
+                DB.conn.Open();
+                //트랜잭션 시작
+                DB.transaction = DB.conn.BeginTransaction();
+                DB.sqlcmd = new SqlCommand("M_Input_D_S1", DB.conn, DB.transaction);
+                DB.sqlcmd.CommandType = CommandType.StoredProcedure;
+
+                DB.sqlcmd.Parameters.AddWithValue("@QRCODE", QRTxtBox.Text);
+
+                DB.sqlcmd.ExecuteNonQuery();
+
+                DB.adapter = new SqlDataAdapter(DB.sqlcmd);
+                DataSet ds = new DataSet();
+                DB.adapter.Fill(ds, "M_Input_D_S1");
+                dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "M_Input_D_S1";
+
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                {
+                    dataGridView1.Columns[i].ReadOnly = true;
+                }
+                
+
+                DB.transaction.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                DB.transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DB.adapter.Dispose();
+                DB.sqlcmd.Dispose();
+                DB.conn.Dispose();
+                DB.conn.Close();
+            }
+
+        }
     }
 }
