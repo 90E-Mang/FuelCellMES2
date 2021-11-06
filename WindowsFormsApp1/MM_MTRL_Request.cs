@@ -551,6 +551,7 @@ namespace WindowsFormsApp1
                 xlApp = new Excel.Application();
                 xlBook = xlApp.Workbooks.Open(FullPath);
                 xlSheet = xlBook.Worksheets["Sheet1"];
+                xlApp.Visible = true;
 
                 // 데이터 입력  [row, colunm] 품목 위쪽 입력부 고정항목.
                 xlSheet.Cells[4, 3].value = reqno;
@@ -577,8 +578,8 @@ namespace WindowsFormsApp1
                 string NewFullPath = Path.GetDirectoryName(FullPath);
                 xlBook.SaveAs(Path.Combine(NewFullPath, NewFileName));
 
-                xlBook.Close();
-                xlApp.Quit();
+               // xlBook.Close();
+               // xlApp.Quit();
             }
             catch (Exception ex)
             {
